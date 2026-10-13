@@ -1,0 +1,725 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PressCo. | Crisp Print. Fresh Takes.</title>
+
+<style>
+:root {
+  --green: #315b4c;
+  --sage: #dce6d8;
+  --cream: #faf7ef;
+  --terra: #c77b5b;
+  --dark: #26332d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+header {
+  background: var(--cream);
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #e4e0d6;
+}
+
+.logo {
+  font-family: Georgia, serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--green);
+}
+
+.logo span {
+  color: var(--terra);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+nav a {
+  color: var(--green);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: var(--terra);
+}
+
+.hero {
+  padding: 90px 8%;
+  background: linear-gradient(120deg, var(--sage), var(--cream));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  flex: 1 1 300px;
+}
+
+.hero h1 {
+  font-family: Georgia, serif;
+  color: var(--green);
+  font-size: clamp(42px, 6vw, 68px);
+  line-height: 1.1;
+  margin: 12px 0;
+}
+
+.hero h1 span {
+  color: var(--terra);
+}
+
+.hero p {
+  max-width: 540px;
+  font-size: 18px;
+}
+
+.hero-art {
+  flex: 1 1 250px;
+  min-height: 260px;
+  background: var(--green);
+  border-radius: 45% 45% 18px 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+
+.paper {
+  background: white;
+  padding: 35px 24px;
+  width: 240px;
+  text-align: center;
+  box-shadow: 12px 12px 0 var(--terra);
+  transform: rotate(-4deg);
+}
+
+.paper strong {
+  font: bold 36px Georgia, serif;
+  color: var(--green);
+}
+
+.paper p {
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.button {
+  display: inline-block;
+  background: var(--green);
+  color: white;
+  border: none;
+  padding: 13px 22px;
+  border-radius: 30px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 8px 5px 8px 0;
+}
+
+.button:hover {
+  background: var(--terra);
+}
+
+.button.light {
+  background: transparent;
+  color: var(--green);
+  border: 1px solid var(--green);
+}
+
+section {
+  padding: 70px 8%;
+  scroll-margin-top: 20px;
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 35px;
+}
+
+h2 {
+  font: bold 38px Georgia, serif;
+  color: var(--green);
+}
+
+.section-heading p,
+.product p {
+  color: #66746d;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.product {
+  background: white;
+  border: 1px solid #e6e3da;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.product-art {
+  height: 160px;
+  background: var(--sage);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.product:nth-child(2) .product-art,
+.product:nth-child(4) .product-art {
+  background: #f1dfd4;
+}
+
+.product:nth-child(3) .product-art,
+.product:nth-child(5) .product-art {
+  background: #eee8d9;
+}
+
+.sample {
+  background: white;
+  padding: 22px;
+  width: 175px;
+  min-height: 90px;
+  box-shadow: 7px 7px 0 #cbd7c6;
+  transform: rotate(-3deg);
+}
+
+.sample strong {
+  font: bold 22px Georgia, serif;
+  color: var(--green);
+}
+
+.sample small {
+  display: block;
+  color: var(--terra);
+  margin-top: 10px;
+}
+
+.product-info {
+  padding: 22px;
+}
+
+.tag {
+  color: var(--green);
+  background: #eef2e9;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.product h3 {
+  color: var(--green);
+  font: bold 23px Georgia, serif;
+  margin-bottom: 8px;
+}
+
+.about {
+  background: var(--sage);
+}
+
+.about-content {
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+}
+
+.values {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.value {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.value h3 {
+  color: var(--green);
+}
+
+.quote-section {
+  background: #f1dfd4;
+}
+
+form {
+  max-width: 760px;
+  margin: auto;
+  background: white;
+  padding: 28px;
+  border-radius: 16px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-weight: bold;
+  color: var(--green);
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccd5ca;
+  border-radius: 8px;
+  font: inherit;
+  background: white;
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.note {
+  color: #66746d;
+  font-size: 13px;
+}
+
+#formMessage {
+  display: none;
+  margin-top: 15px;
+  padding: 12px;
+  background: var(--sage);
+  border-radius: 8px;
+}
+
+.contact {
+  text-align: center;
+}
+
+footer {
+  padding: 28px 8%;
+  text-align: center;
+  background: var(--green);
+  color: white;
+}
+
+footer p {
+  margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+  header {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  nav {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .hero {
+    padding: 55px 7%;
+  }
+
+  section {
+    padding: 50px 7%;
+  }
+
+  h2 {
+    font-size: 31px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field.full {
+    grid-column: auto;
+  }
+
+  form {
+    padding: 18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">PressCo<span>.</span></div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#about">About Us</a>
+    <a href="#quote">Get a Quote</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="hero-text">
+    <p><strong>CUSTOM PAPER PRODUCTS & PRINTING</strong></p>
+    <h1>Crisp Print.<br><span>Fresh Takes.</span></h1>
+    <p>
+      Your ideas deserve more than ordinary paper.
+      Discover thoughtfully designed paper products
+      for your business, creativity, and special moments.
+    </p>
+    <a class="button" href="#products">Explore Our Products</a>
+    <a class="button light" href="#quote">Request a Quote</a>
+  </div>
+
+  <div class="hero-art">
+    <div class="paper">
+      <p>FRESH IDEAS, PRINTED</p>
+      <strong>PressCo.</strong>
+      <p>C R I S P &nbsp; P R I N T</p>
+    </div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="section-heading">
+    <p><strong>OUR COLLECTIONS</strong></p>
+    <h2>Paper Goods, Made Personal.</h2>
+    <p>
+      From business essentials to personal celebrations,
+      find the right print for every idea.
+    </p>
+  </div>
+
+  <div class="products">
+
+    <article class="product">
+      <div class="product-art">
+        <div class="sample">
+          <strong>PressCo.</strong>
+          <small>Business Cards</small>
+        </div>
+      </div>
+      <div class="product-info">
+        <span class="tag">THE BUSINESS LINE</span>
+        <h3>Business Cards</h3>
+        <p>Make a professional first impression with personalized business cards.</p>
+        <button class="button choose" data-product="Premium Business Cards">Customize</button>
+      </div>
+    </article>
+
+    <article class="product">
+      <div class="product-art">
+        <div class="sample">
+          <strong>Your Brand</strong>
+          <small>Custom Envelopes</small>
+        </div>
+      </div>
+      <div class="product-info">
+        <span class="tag">THE BRANDING LINE</span>
+        <h3>Custom Envelopes</h3>
+        <p>Give your business correspondence a clean, branded look.</p>
+        <button class="button choose" data-product="Custom Envelopes">Customize</button>
+      </div>
+    </article>
+
+    <article class="product">
+      <div class="product-art">
+        <div class="sample">
+          <strong>Our Story</strong>
+          <small>Corporate Brochures</small>
+        </div>
+      </div>
+      <div class="product-info">
+        <span class="tag">THE BRANDING LINE</span>
+        <h3>Corporate Brochures</h3>
+        <p>Present your company, services, and products professionally.</p>
+        <button class="button choose" data-product="Corporate Brochures">Customize</button>
+      </div>
+    </article>
+
+    <article class="product">
+      <div class="product-art">
+        <div class="sample">
+          <strong>NEW!</strong>
+          <small>Promotional Flyers</small>
+        </div>
+      </div>
+      <div class="product-info">
+        <span class="tag">THE BRANDING LINE</span>
+        <h3>Promotional Flyers</h3>
+        <p>Promote your events, announcements, and special offers.</p>
+        <button class="button choose" data-product="Promotional Flyers">Customize</button>
+      </div>
+    </article>
+
+    <article class="product">
+      <div class="product-art">
+        <div class="sample">
+          <strong>Just for You</strong>
+          <small>Greeting Cards</small>
+        </div>
+      </div>
+      <div class="product-info">
+        <span class="tag">THE PERSONAL LINE</span>
+        <h3>Greeting Cards</h3>
+        <p>Share thoughtful messages with personalized greeting cards.</p>
+        <button class="button choose" data-product="Greeting Cards">Customize</button>
+      </div>
+    </article>
+
+    <article class="product">
+      <div class="product-art">
+        <div class="sample">
+          <strong>Celebrate!</strong>
+          <small>Milestone Cards</small>
+        </div>
+      </div>
+      <div class="product-info">
+        <span class="tag">THE PERSONAL LINE</span>
+        <h3>Milestone Cards</h3>
+        <p>Create cards for birthdays, graduations, holidays, and special events.</p>
+        <button class="button choose" data-product="Milestone Cards">Customize</button>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-content">
+    <p><strong>ABOUT PRESSCO.</strong></p>
+    <h2>Good Ideas Deserve Great Presentation.</h2>
+    <p>
+      PressCo. is a modern custom paper-products studio
+      that combines thoughtful design with a simple
+      and convenient printing experience.
+    </p>
+    <p>
+      Our goal is to help businesses, students, and
+      individuals bring their ideas to print.
+    </p>
+
+    <div class="values">
+      <div class="value">
+        <h3>Creativity</h3>
+        <p>Designs that reflect your identity.</p>
+      </div>
+      <div class="value">
+        <h3>Quality</h3>
+        <p>Care and attention to every detail.</p>
+      </div>
+      <div class="value">
+        <h3>Simplicity</h3>
+        <p>A clear, convenient ordering process.</p>
+      </div>
+      <div class="value">
+        <h3>Personalization</h3>
+        <p>Print options for different needs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-section" id="quote">
+  <div class="section-heading">
+    <p><strong>LET'S START YOUR PROJECT</strong></p>
+    <h2>Request a Quotation</h2>
+    <p>
+      Choose your preferences and tell us what you
+      would like to create.
+    </p>
+  </div>
+
+  <form id="quoteForm">
+    <div class="form-grid">
+
+      <div class="field">
+        <label for="name">Full Name *</label>
+        <input id="name" name="name" required>
+      </div>
+
+      <div class="field">
+        <label for="email">Email Address *</label>
+        <input id="email" name="email" type="email" required>
+      </div>
+
+      <div class="field">
+        <label for="product">Product *</label>
+        <select id="product" name="product" required>
+          <option value="">Choose a product</option>
+          <option>Premium Business Cards</option>
+          <option>Custom Envelopes</option>
+          <option>Corporate Brochures</option>
+          <option>Promotional Flyers</option>
+          <option>Greeting Cards</option>
+          <option>Milestone Cards</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="quantity">Quantity</label>
+        <select id="quantity" name="quantity">
+          <option>Not sure yet</option>
+          <option>25</option>
+          <option>50</option>
+          <option>100</option>
+          <option>250</option>
+          <option>500</option>
+          <option>1000</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="size">Preferred Size</label>
+        <select id="size" name="size">
+          <option>Not sure yet</option>
+          <option>A6</option>
+          <option>A5</option>
+          <option>A4</option>
+          <option>Standard business card</option>
+          <option>Custom size</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="sides">Printing Sides</label>
+        <select id="sides" name="sides">
+          <option>Not sure yet</option>
+          <option>Single-sided</option>
+          <option>Double-sided</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="design">Design Option</label>
+        <select id="design" name="design">
+          <option>Browse a template</option>
+          <option>Upload my design</option>
+          <option>Request a custom design</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="delivery">Fulfillment</label>
+        <select id="delivery" name="delivery">
+          <option>Not sure yet</option>
+          <option>Delivery</option>
+          <option>Local pickup</option>
+        </select>
+      </div>
+
+      <div class="field full">
+        <label for="details">Project Details</label>
+        <textarea id="details" name="details"
+          placeholder="Describe your design, paper preferences, or questions..."></textarea>
+      </div>
+
+      <div class="field full">
+        <button class="button" type="submit">Prepare My Inquiry</button>
+        <p class="note">
+          Demo form only: this form does not send information
+          until a form service or backend is connected.
+        </p>
+        <div id="formMessage" role="status"></div>
+      </div>
+
+    </div>
+  </form>
+</section>
+
+<section id="contact">
+  <div class="section-heading">
+    <p><strong>GET IN TOUCH</strong></p>
+    <h2>Let's Bring Your Ideas to Print.</h2>
+    <p>
+      Have a question or a custom project in mind?
+      We would love to hear from you.
+    </p>
+    <p><strong>Email:</strong> Add your business email</p>
+    <p><strong>Contact:</strong> Add your official phone number</p>
+    <p><strong>Location:</strong> Add your business or pickup location</p>
+    <p><strong>Social Media:</strong> Add your official profile links</p>
+    <a href="#quote" class="button">Request a Quote</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="logo" style="color:white">PressCo<span>.</span></div>
+  <p>Crisp Print. Fresh Takes.</p>
+  <p>&copy; <span id="year"></span> PressCo. All rights reserved.</p>
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+document.querySelectorAll(".choose").forEach(function(button) {
+  button.addEventListener("click", function() {
+    document.getElementById("product").value =
+      button.dataset.product;
+
+    document.getElementById("quote").scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+});
+
+document.getElementById("quoteForm").addEventListener(
+  "submit",
+  function(event) {
+    event.preventDefault();
+
+    const message = document.getElementById("formMessage");
+    message.style.display = "block";
+    message.textContent =
+      "Your inquiry form is working as a demo, but your request has not been sent. A form service must be connected to receive inquiries.";
+  }
+);
+</script>
+
+</body>
+</html>
