@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PressCo. | Crisp Print. Fresh Takes.</title>
+<meta name="description" content="PressCo. offers custom paper products and printing for businesses, students, and special occasions in Ormoc City, Leyte.">
 
 <style>
 :root {
@@ -305,7 +306,9 @@ label {
   color: var(--green);
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccd5ca;
@@ -332,8 +335,63 @@ textarea {
   border-radius: 8px;
 }
 
-.contact {
-  text-align: center;
+/* GET IN TOUCH SECTION */
+.contact-section {
+  text-align: left;
+  padding: 60px 8%;
+}
+
+.contact-content {
+  width: 100%;
+  max-width: 800px;
+  margin: 0;
+  text-align: left;
+}
+
+.contact-content h2 {
+  font: bold 38px Georgia, serif;
+  color: var(--green);
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+.contact-content h3 {
+  font: bold 26px Georgia, serif;
+  color: var(--green);
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.contact-content p {
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+/* Contact links are not bold */
+.contact-content a {
+  color: var(--green);
+  font-weight: normal;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.contact-content a:hover {
+  color: var(--terra);
+  text-decoration: underline;
+}
+
+/* Keyboard accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--terra);
+  outline-offset: 3px;
 }
 
 footer {
@@ -381,6 +439,18 @@ footer p {
   form {
     padding: 18px;
   }
+
+  .contact-section {
+    padding: 50px 7%;
+  }
+
+  .contact-content h2 {
+    font-size: 31px;
+  }
+
+  .contact-content h3 {
+    font-size: 23px;
+  }
 }
 </style>
 </head>
@@ -389,7 +459,8 @@ footer p {
 
 <header>
   <div class="logo">PressCo<span>.</span></div>
-  <nav>
+
+  <nav aria-label="Main navigation">
     <a href="#home">Home</a>
     <a href="#products">Products</a>
     <a href="#about">About Us</a>
@@ -400,15 +471,19 @@ footer p {
 
 <main>
 
+<!-- HOME -->
 <section class="hero" id="home">
   <div class="hero-text">
-    <p><strong>CUSTOM PAPER PRODUCTS & PRINTING</strong></p>
+    <p><strong>CUSTOM PAPER PRODUCTS &amp; PRINTING</strong></p>
+
     <h1>Crisp Print.<br><span>Fresh Takes.</span></h1>
+
     <p>
       Your ideas deserve more than ordinary paper.
       Discover thoughtfully designed paper products
       for your business, creativity, and special moments.
     </p>
+
     <a class="button" href="#products">Explore Our Products</a>
     <a class="button light" href="#quote">Request a Quote</a>
   </div>
@@ -422,10 +497,13 @@ footer p {
   </div>
 </section>
 
+<!-- PRODUCTS -->
 <section id="products">
   <div class="section-heading">
     <p><strong>OUR COLLECTIONS</strong></p>
+
     <h2>Paper Goods, Made Personal.</h2>
+
     <p>
       From business essentials to personal celebrations,
       find the right print for every idea.
@@ -441,11 +519,12 @@ footer p {
           <small>Business Cards</small>
         </div>
       </div>
+
       <div class="product-info">
         <span class="tag">THE BUSINESS LINE</span>
         <h3>Business Cards</h3>
         <p>Make a professional first impression with personalized business cards.</p>
-        <button class="button choose" data-product="Premium Business Cards">Customize</button>
+        <button class="button choose" type="button" data-product="Premium Business Cards">Customize</button>
       </div>
     </article>
 
@@ -456,11 +535,12 @@ footer p {
           <small>Custom Envelopes</small>
         </div>
       </div>
+
       <div class="product-info">
         <span class="tag">THE BRANDING LINE</span>
         <h3>Custom Envelopes</h3>
         <p>Give your business correspondence a clean, branded look.</p>
-        <button class="button choose" data-product="Custom Envelopes">Customize</button>
+        <button class="button choose" type="button" data-product="Custom Envelopes">Customize</button>
       </div>
     </article>
 
@@ -471,11 +551,12 @@ footer p {
           <small>Corporate Brochures</small>
         </div>
       </div>
+
       <div class="product-info">
         <span class="tag">THE BRANDING LINE</span>
         <h3>Corporate Brochures</h3>
         <p>Present your company, services, and products professionally.</p>
-        <button class="button choose" data-product="Corporate Brochures">Customize</button>
+        <button class="button choose" type="button" data-product="Corporate Brochures">Customize</button>
       </div>
     </article>
 
@@ -486,11 +567,12 @@ footer p {
           <small>Promotional Flyers</small>
         </div>
       </div>
+
       <div class="product-info">
         <span class="tag">THE BRANDING LINE</span>
         <h3>Promotional Flyers</h3>
         <p>Promote your events, announcements, and special offers.</p>
-        <button class="button choose" data-product="Promotional Flyers">Customize</button>
+        <button class="button choose" type="button" data-product="Promotional Flyers">Customize</button>
       </div>
     </article>
 
@@ -501,11 +583,12 @@ footer p {
           <small>Greeting Cards</small>
         </div>
       </div>
+
       <div class="product-info">
         <span class="tag">THE PERSONAL LINE</span>
         <h3>Greeting Cards</h3>
         <p>Share thoughtful messages with personalized greeting cards.</p>
-        <button class="button choose" data-product="Greeting Cards">Customize</button>
+        <button class="button choose" type="button" data-product="Greeting Cards">Customize</button>
       </div>
     </article>
 
@@ -516,26 +599,31 @@ footer p {
           <small>Milestone Cards</small>
         </div>
       </div>
+
       <div class="product-info">
         <span class="tag">THE PERSONAL LINE</span>
         <h3>Milestone Cards</h3>
         <p>Create cards for birthdays, graduations, holidays, and special events.</p>
-        <button class="button choose" data-product="Milestone Cards">Customize</button>
+        <button class="button choose" type="button" data-product="Milestone Cards">Customize</button>
       </div>
     </article>
 
   </div>
 </section>
 
+<!-- ABOUT US -->
 <section class="about" id="about">
   <div class="about-content">
     <p><strong>ABOUT PRESSCO.</strong></p>
+
     <h2>Good Ideas Deserve Great Presentation.</h2>
+
     <p>
       PressCo. is a modern custom paper-products studio
       that combines thoughtful design with a simple
       and convenient printing experience.
     </p>
+
     <p>
       Our goal is to help businesses, students, and
       individuals bring their ideas to print.
@@ -546,14 +634,17 @@ footer p {
         <h3>Creativity</h3>
         <p>Designs that reflect your identity.</p>
       </div>
+
       <div class="value">
         <h3>Quality</h3>
         <p>Care and attention to every detail.</p>
       </div>
+
       <div class="value">
         <h3>Simplicity</h3>
         <p>A clear, convenient ordering process.</p>
       </div>
+
       <div class="value">
         <h3>Personalization</h3>
         <p>Print options for different needs.</p>
@@ -562,10 +653,13 @@ footer p {
   </div>
 </section>
 
+<!-- REQUEST A QUOTATION -->
 <section class="quote-section" id="quote">
   <div class="section-heading">
     <p><strong>LET'S START YOUR PROJECT</strong></p>
+
     <h2>Request a Quotation</h2>
+
     <p>
       Choose your preferences and tell us what you
       would like to create.
@@ -577,12 +671,12 @@ footer p {
 
       <div class="field">
         <label for="name">Full Name *</label>
-        <input id="name" name="name" required>
+        <input id="name" name="name" autocomplete="name" required>
       </div>
 
       <div class="field">
         <label for="email">Email Address *</label>
-        <input id="email" name="email" type="email" required>
+        <input id="email" name="email" type="email" autocomplete="email" required>
       </div>
 
       <div class="field">
@@ -652,76 +746,76 @@ footer p {
 
       <div class="field full">
         <label for="details">Project Details</label>
-        <textarea id="details" name="details"
-          placeholder="Describe your design, paper preferences, or questions..."></textarea>
+        <textarea
+          id="details"
+          name="details"
+          placeholder="Describe your design, paper preferences, or questions..."
+        ></textarea>
       </div>
 
       <div class="field full">
         <button class="button" type="submit">Prepare My Inquiry</button>
+
         <p class="note">
           Demo form only: this form does not send information
           until a form service or backend is connected.
         </p>
-        <div id="formMessage" role="status"></div>
+
+        <div id="formMessage" role="status" aria-live="polite"></div>
       </div>
 
     </div>
   </form>
 </section>
 
+<!-- GET IN TOUCH -->
 <section id="contact" class="contact-section">
   <div class="contact-content">
+
     <h2>GET IN TOUCH</h2>
-.contact-section {
-  text-align: left;
-  padding: 60px 8%;
-}
 
-.contact-content {
-  max-width: 800px;
-  margin: 0;
-  text-align: left;
-}
-
-.contact-content h2,
-.contact-content h3,
-.contact-content p {
-  text-align: left;
-}
-
-.contact-content p {
-  margin-bottom: 12px;
-  line-height: 1.6;
-}
-
-.contact-content a {
-  font-weight: normal;
-  text-decoration: none;
-}
-
-.contact-content a:hover {
-  text-decoration: underline;
-}
     <h3>Let's Bring Your Ideas to Print.</h3>
 
-    <p>Have a question or a custom project in mind? We would love to hear from you.</p>
+    <p>
+      Have a question or a custom project in mind?
+      We would love to hear from you.
+    </p>
 
-    <p><strong>Email:</strong> pressco.prints@gmail.com</p>
+    <p><strong>Email:</strong> <a href="mailto:pressco.prints@gmail.com">pressco.prints@gmail.com</a></p>
+
     <p><strong>Contact:</strong> +63 917 582 6410</p>
+
     <p><strong>Location:</strong> Ormoc City, Leyte, Philippines</p>
 
     <p><strong>Social Media:</strong></p>
 
-    <p>Facebook: <a href="https://www.facebook.com/PressCoPrints" target="_blank" rel="noopener noreferrer">facebook.com/PressCoPrints</a></p>
+    <p>
+      Facebook:
+      <a href="https://www.facebook.com/PressCoPrints"
+         target="_blank"
+         rel="noopener noreferrer">facebook.com/PressCoPrints</a>
+    </p>
 
-    <p>Instagram: <a href="https://www.instagram.com/pressco.prints/" target="_blank" rel="noopener noreferrer">instagram.com/pressco.prints</a></p>
+    <p>
+      Instagram:
+      <a href="https://www.instagram.com/pressco.prints/"
+         target="_blank"
+         rel="noopener noreferrer">instagram.com/pressco.prints</a>
+    </p>
 
-    <p>TikTok: <a href="https://www.tiktok.com/@pressco.prints" target="_blank" rel="noopener noreferrer">tiktok.com/@pressco.prints</a></p>
+    <p>
+      TikTok:
+      <a href="https://www.tiktok.com/@pressco.prints"
+         target="_blank"
+         rel="noopener noreferrer">tiktok.com/@pressco.prints</a>
+    </p>
+
   </div>
 </section>
 
 </main>
 
+<!-- FOOTER -->
 <footer>
   <div class="logo" style="color:white">PressCo<span>.</span></div>
   <p>Crisp Print. Fresh Takes.</p>
@@ -732,6 +826,7 @@ footer p {
 document.getElementById("year").textContent =
   new Date().getFullYear();
 
+/* Product buttons select the product and move to the quote form */
 document.querySelectorAll(".choose").forEach(function(button) {
   button.addEventListener("click", function() {
     document.getElementById("product").value =
@@ -743,15 +838,17 @@ document.querySelectorAll(".choose").forEach(function(button) {
   });
 });
 
+/* Demo quotation form */
 document.getElementById("quoteForm").addEventListener(
   "submit",
   function(event) {
     event.preventDefault();
 
     const message = document.getElementById("formMessage");
+
     message.style.display = "block";
     message.textContent =
-      "Your inquiry form is working as a demo, but your request has not been sent. A form service must be connected to receive inquiries.";
+      "Your form has been checked as a demo, but your inquiry has not been sent. Please contact PressCo by email or connect an online form service to receive submissions.";
   }
 );
 </script>
