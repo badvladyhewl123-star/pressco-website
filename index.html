@@ -1,2214 +1,2872 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f8f6ef">
-  <meta name="description" content="PressCo. offers custom business cards, flyers, brochures, invitations, posters, stickers, and personalized paper products. Crisp Print. Fresh Takes.">
-  <title>PressCo. | Crisp Print. Fresh Takes.</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --cream: #f8f6ef;
-      --white: #ffffff;
-      --green: #254b3c;
-      --green-light: #e6ede5;
-      --sage: #9caf97;
-      --orange: #d77c54;
-      --dark: #252c27;
-      --gray: #6c756e;
-      --line: #e4e5dc;
-      --radius: 18px;
-      --shadow: 0 12px 35px rgba(37, 75, 60, 0.08);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 95px;
-    }
-
-    body {
-      font-family: "DM Sans", sans-serif;
-      background: var(--cream);
-      color: var(--dark);
-      line-height: 1.7;
-    }
-
-    img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button, input, select, textarea {
-      font: inherit;
-    }
-
-    button, a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .container {
-      width: min(1160px, 90%);
-      margin: auto;
-    }
-
-    .section {
-      padding: 88px 0;
-    }
-
-    .section-label {
-      color: var(--orange);
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
-    }
-
-    .section-heading {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(30px, 4vw, 45px);
-      line-height: 1.2;
-      font-weight: 600;
-      color: var(--green);
-      margin-bottom: 16px;
-    }
-
-    .section-description {
-      color: var(--gray);
-      max-width: 620px;
-      margin-bottom: 34px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      border: 1px solid var(--green);
-      border-radius: 6px;
-      padding: 13px 22px;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.25s;
-    }
-
-    .btn-primary {
-      background: var(--green);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: #18372b;
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--green);
-    }
-
-    .btn-outline:hover {
-      background: var(--green-light);
-    }
-
-    .btn-light {
-      background: white;
-      color: var(--green);
-      border-color: white;
-    }
-
-    .btn-light:hover {
-      background: var(--green-light);
-    }
-
-    /* Announcement bar */
-
-    .announcement {
-      background: var(--green);
-      color: white;
-      text-align: center;
-      padding: 8px 15px;
-      font-size: 12px;
-      letter-spacing: 0.5px;
-    }
-
-    /* Header and navigation */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(248, 246, 239, 0.97);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .navbar {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--green);
-      flex-shrink: 0;
-    }
-
-    .logo-symbol {
-      display: grid;
-      place-items: center;
-      width: 43px;
-      height: 43px;
-      background: var(--green);
-      color: white;
-      border-radius: 8px 8px 8px 2px;
-      font-family: "Playfair Display", serif;
-      font-size: 25px;
-      font-weight: 700;
-    }
-
-    .logo-name {
-      font-family: "Playfair Display", serif;
-      font-size: 27px;
-      font-weight: 700;
-      line-height: 1.1;
-    }
-
-    .logo-tagline {
-      display: block;
-      font-size: 9px;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
-      margin-top: 4px;
-      color: var(--gray);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 26px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 13px;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--orange);
-    }
-
-    .nav-quote {
-      padding: 10px 15px;
-      font-size: 12px;
-    }
-
-    .menu-toggle {
-      display: none;
-      border: 0;
-      background: transparent;
-      color: var(--green);
-      font-size: 27px;
-      cursor: pointer;
-    }
-
-    /* Hero */
-
-    .hero {
-      padding: 62px 0 78px;
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 65px;
-    }
-
-    .hero h1 {
-      font-family: "Playfair Display", serif;
-      color: var(--green);
-      font-size: clamp(45px, 5.7vw, 72px);
-      font-weight: 600;
-      line-height: 1.08;
-      letter-spacing: -1.8px;
-      margin-bottom: 24px;
-    }
-
-    .hero h1 span {
-      color: var(--orange);
-      font-style: italic;
-    }
-
-    .hero-description {
-      max-width: 510px;
-      color: var(--gray);
-      font-size: 15px;
-      margin-bottom: 30px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .hero-note {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 30px;
-      font-size: 12px;
-      color: var(--gray);
-    }
-
-    .hero-note strong {
-      color: var(--green);
-    }
-
-    .hero-visual {
-      position: relative;
-      min-height: 490px;
-    }
-
-    .hero-main-image {
-      height: 460px;
-      border-radius: 48% 48% 12px 12px;
-      object-position: center;
-    }
-
-    .hero-card {
-      position: absolute;
-      left: -35px;
-      bottom: 25px;
-      width: 205px;
-      background: white;
-      border-radius: 12px;
-      padding: 16px;
-      box-shadow: var(--shadow);
-    }
-
-    .hero-card img {
-      height: 95px;
-      border-radius: 7px;
-      margin-bottom: 10px;
-    }
-
-    .hero-card strong {
-      color: var(--green);
-      font-size: 14px;
-    }
-
-    .hero-card p {
-      font-size: 11px;
-      color: var(--gray);
-    }
-
-    .hero-stamp {
-      position: absolute;
-      top: 22px;
-      right: -18px;
-      width: 104px;
-      height: 104px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      border: 1px solid var(--orange);
-      border-radius: 50%;
-      background: var(--cream);
-      color: var(--green);
-      font-family: "Playfair Display", serif;
-      font-size: 15px;
-      line-height: 1.25;
-      transform: rotate(10deg);
-    }
-
-    /* Benefits strip */
-
-    .benefits {
-      background: var(--green);
-      color: white;
-      padding: 26px 0;
-    }
-
-    .benefit-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 25px;
-    }
-
-    .benefit {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .benefit-icon {
-      display: grid;
-      place-items: center;
-      min-width: 42px;
-      height: 42px;
-      background: rgba(255, 255, 255, 0.12);
-      border-radius: 50%;
-      font-size: 19px;
-    }
-
-    .benefit strong {
-      display: block;
-      font-size: 13px;
-    }
-
-    .benefit span {
-      display: block;
-      color: #d4dfd5;
-      font-size: 11px;
-    }
-
-    /* Product categories */
-
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .category-card {
-      background: white;
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: transform 0.25s, box-shadow 0.25s;
-    }
-
-    .category-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
-    }
-
-    .category-card img {
-      height: 220px;
-      transition: transform 0.4s;
-    }
-
-    .category-card:hover img {
-      transform: scale(1.035);
-    }
-
-    .category-info {
-      padding: 18px;
-    }
-
-    .category-info h3 {
-      color: var(--green);
-      font-family: "Playfair Display", serif;
-      font-size: 20px;
-      margin-bottom: 5px;
-    }
-
-    .category-info p {
-      color: var(--gray);
-      font-size: 12px;
-      margin-bottom: 12px;
-    }
-
-    .text-link {
-      color: var(--orange);
-      font-weight: 700;
-      font-size: 12px;
-    }
-
-    /* Featured message */
-
-    .feature-banner {
-      background: var(--green-light);
-      padding: 52px;
-      border-radius: 24px;
-      display: grid;
-      grid-template-columns: 1fr 0.8fr;
-      align-items: center;
-      gap: 45px;
-    }
-
-    .feature-banner h2 {
-      font-family: "Playfair Display", serif;
-      color: var(--green);
-      font-size: clamp(32px, 4vw, 46px);
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-
-    .feature-banner p {
-      color: var(--gray);
-      margin-bottom: 24px;
-    }
-
-    .feature-banner img {
-      height: 320px;
-      border-radius: 16px;
-    }
-
-    /* Products */
-
-    .products-section {
-      background: #f0eee6;
-    }
-
-    .products-top {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 25px;
-      flex-wrap: wrap;
-    }
-
-    .filter-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 28px;
-    }
-
-    .filter-btn {
-      background: white;
-      color: var(--green);
-      border: 1px solid var(--line);
-      border-radius: 50px;
-      padding: 9px 16px;
-      font-size: 12px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .filter-btn:hover,
-    .filter-btn.active {
-      background: var(--green);
-      border-color: var(--green);
-      color: white;
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .product-card {
-      background: white;
-      border-radius: 13px;
-      overflow: hidden;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-    }
-
-    .product-card[hidden] {
-      display: none;
-    }
-
-    .product-image {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .product-image img {
-      height: 215px;
-      transition: transform 0.3s;
-    }
-
-    .product-card:hover .product-image img {
-      transform: scale(1.04);
-    }
-
-    .product-tag {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      background: var(--cream);
-      color: var(--green);
-      border-radius: 4px;
-      padding: 5px 8px;
-      font-size: 10px;
-      font-weight: 700;
-    }
-
-    .product-info {
-      padding: 16px;
-    }
-
-    .product-info h3 {
-      color: var(--green);
-      font-size: 15px;
-      margin-bottom: 5px;
-    }
-
-    .product-info p {
-      font-size: 11px;
-      color: var(--gray);
-      min-height: 40px;
-    }
-
-    .product-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .product-price {
-      font-size: 16px;
-      color: var(--green);
-      font-weight: 700;
-    }
-
-    .product-price small {
-      display: block;
-      color: var(--gray);
-      font-size: 10px;
-      font-weight: 400;
-    }
-
-    .product-quote {
-      background: var(--green);
-      color: white;
-      border: 0;
-      border-radius: 5px;
-      padding: 9px 11px;
-      font-size: 11px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .pricing-note {
-      color: var(--gray);
-      font-size: 12px;
-      margin-top: 24px;
-    }
-
-    /* How it works */
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-
-    .step-card {
-      padding: 25px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.5);
-      border-radius: 12px;
-    }
-
-    .step-number {
-      display: grid;
-      place-items: center;
-      width: 43px;
-      height: 43px;
-      border-radius: 50%;
-      background: var(--green);
-      color: white;
-      font-family: "Playfair Display", serif;
-      font-size: 20px;
-      margin-bottom: 20px;
-    }
-
-    .step-card h3 {
-      color: var(--green);
-      font-size: 16px;
-      margin-bottom: 8px;
-    }
-
-    .step-card p {
-      font-size: 12px;
-      color: var(--gray);
-    }
-
-    /* About */
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 65px;
-      align-items: center;
-    }
-
-    .about-image-wrap {
-      position: relative;
-    }
-
-    .about-image {
-      height: 480px;
-      border-radius: 12px 100px 12px 12px;
-    }
-
-    .about-note {
-      position: absolute;
-      bottom: 25px;
-      right: -22px;
-      background: white;
-      box-shadow: var(--shadow);
-      border-radius: 10px;
-      padding: 18px;
-      max-width: 230px;
-      color: var(--green);
-      font-family: "Playfair Display", serif;
-      font-size: 17px;
-    }
-
-    .about-copy > p {
-      color: var(--gray);
-      margin-bottom: 18px;
-    }
-
-    .values-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 25px;
-    }
-
-    .value-item {
-      padding: 15px;
-      background: white;
-      border-radius: 9px;
-    }
-
-    .value-item strong {
-      color: var(--green);
-      display: block;
-      font-size: 13px;
-      margin-bottom: 4px;
-    }
-
-    .value-item span {
-      color: var(--gray);
-      font-size: 11px;
-    }
-
-    /* Quote banner */
-
-    .quote-banner {
-      background: var(--green);
-      color: white;
-      border-radius: 20px;
-      padding: 55px 35px;
-      text-align: center;
-    }
-
-    .quote-banner .section-label {
-      color: #e8b39b;
-    }
-
-    .quote-banner h2 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(32px, 4vw, 47px);
-      line-height: 1.2;
-      margin-bottom: 15px;
-    }
-
-    .quote-banner p {
-      color: #dbe4dc;
-      max-width: 580px;
-      margin: 0 auto 25px;
-      font-size: 14px;
-    }
-
-    /* Contact form */
-
-    .contact-section {
-      background: #f0eee6;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 55px;
-      align-items: start;
-    }
-
-    .contact-info h3 {
-      color: var(--green);
-      font-family: "Playfair Display", serif;
-      font-size: 25px;
-      margin-bottom: 13px;
-    }
-
-    .contact-info > p {
-      color: var(--gray);
-      font-size: 14px;
-      margin-bottom: 25px;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 13px;
-      margin-bottom: 22px;
-    }
-
-    .contact-icon {
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-      width: 42px;
-      height: 42px;
-      border-radius: 8px;
-      background: var(--green-light);
-      font-size: 18px;
-    }
-
-    .contact-item strong {
-      display: block;
-      color: var(--green);
-      font-size: 13px;
-      margin-bottom: 3px;
-    }
-
-    .contact-item p,
-    .contact-item a {
-      color: var(--gray);
-      font-size: 13px;
-      overflow-wrap: anywhere;
-    }
-
-    .contact-item a:hover {
-      color: var(--orange);
-    }
-
-    .contact-form {
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: var(--shadow);
-    }
-
-    .contact-form h3 {
-      font-family: "Playfair Display", serif;
-      color: var(--green);
-      font-size: 26px;
-      margin-bottom: 6px;
-    }
-
-    .form-intro {
-      color: var(--gray);
-      font-size: 12px;
-      margin-bottom: 23px;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .form-group {
-      margin-bottom: 17px;
-    }
-
-    .form-group.full {
-      grid-column: 1 / -1;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--green);
-      margin-bottom: 7px;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      display: block;
-      width: 100%;
-      padding: 12px;
-      background: #fcfcfa;
-      border: 1px solid #dfe3dc;
-      border-radius: 6px;
-      outline: none;
-      font-size: 13px;
-      color: var(--dark);
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--sage);
-      box-shadow: 0 0 0 3px rgba(156,175,151,0.18);
-    }
-
-    .form-group textarea {
-      min-height: 110px;
-      resize: vertical;
-    }
-
-    .form-help {
-      color: var(--gray);
-      font-size: 11px;
-      margin-top: 12px;
-    }
-
-    .form-status {
-      margin-top: 14px;
-      color: var(--green);
-      font-size: 12px;
-    }
-
-    /* FAQ */
-
-    .faq-list {
-      max-width: 820px;
-      margin: 0 auto;
-    }
-
-    .faq-list details {
-      border-bottom: 1px solid var(--line);
-      padding: 19px 0;
-    }
-
-    .faq-list summary {
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      color: var(--green);
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .faq-list summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq-list summary::after {
-      content: "+";
-      color: var(--orange);
-      font-size: 22px;
-    }
-
-    .faq-list details[open] summary::after {
-      content: "−";
-    }
-
-    .faq-list details p {
-      color: var(--gray);
-      font-size: 13px;
-      padding-top: 12px;
-      max-width: 720px;
-    }
-
-    /* Footer */
-
-    footer {
-      background: #1d392e;
-      color: white;
-      padding: 60px 0 0;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 0.8fr 0.8fr 1fr;
-      gap: 38px;
-      padding-bottom: 45px;
-    }
-
-    .footer-logo {
-      color: white;
-      margin-bottom: 18px;
-    }
-
-    .footer-logo .logo-symbol {
-      background: white;
-      color: var(--green);
-    }
-
-    .footer-logo .logo-tagline {
-      color: #c6d3c9;
-    }
-
-    .footer-about {
-      color: #c6d3c9;
-      font-size: 12px;
-      max-width: 290px;
-      margin-bottom: 20px;
-    }
-
-    .footer-grid h4 {
-      font-size: 13px;
-      margin-bottom: 17px;
-    }
-
-    .footer-links {
-      list-style: none;
-    }
-
-    .footer-links li {
-      margin-bottom: 11px;
-    }
-
-    .footer-links a,
-    .footer-links li {
-      color: #c6d3c9;
-      font-size: 12px;
-    }
-
-    .footer-links a:hover {
-      color: white;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .social-links a {
-      display: grid;
-      place-items: center;
-      width: 36px;
-      height: 36px;
-      border: 1px solid #547164;
-      border-radius: 50%;
-      font-size: 11px;
-      font-weight: 700;
-      transition: 0.2s;
-    }
-
-    .social-links a:hover {
-      background: white;
-      color: var(--green);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid #3a574a;
-      padding: 18px 0;
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      flex-wrap: wrap;
-      color: #c6d3c9;
-      font-size: 11px;
-    }
-
-    .back-top {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      z-index: 500;
-      width: 43px;
-      height: 43px;
-      border: none;
-      border-radius: 50%;
-      background: var(--orange);
-      color: white;
-      font-size: 20px;
-      cursor: pointer;
-      box-shadow: var(--shadow);
-      display: none;
-    }
-
-    .back-top.visible {
-      display: block;
-    }
-
-    /* Responsive */
-
-    @media (max-width: 1000px) {
-      .nav-links {
-        gap: 15px;
-      }
-
-      .hero-grid,
-      .about-grid {
-        gap: 35px;
-      }
-
-      .category-grid,
-      .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .benefit-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 760px) {
-      .section {
-        padding: 65px 0;
-      }
-
-      .navbar {
-        min-height: 70px;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        padding: 22px 5%;
-        background: var(--cream);
-        border-bottom: 1px solid var(--line);
-        box-shadow: var(--shadow);
-        align-items: stretch;
-        flex-direction: column;
-        gap: 0;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links li {
-        padding: 12px 0;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .nav-links li:last-child {
-        border-bottom: none;
-      }
-
-      .nav-quote {
-        width: 100%;
-      }
-
-      .hero {
-        padding: 48px 0 60px;
-      }
-
-      .hero-grid,
-      .about-grid,
-      .feature-banner,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-grid {
-        gap: 40px;
-      }
-
-      .hero-visual {
-        min-height: 370px;
-        margin: 0 12px;
-      }
-
-      .hero-main-image {
-        height: 370px;
-      }
-
-      .hero-card {
-        left: -10px;
-        bottom: 15px;
-        width: 175px;
-      }
-
-      .hero-stamp {
-        right: -8px;
-        width: 85px;
-        height: 85px;
-        font-size: 12px;
-      }
-
-      .benefit-grid {
-        gap: 20px 12px;
-      }
-
-      .benefit strong {
-        font-size: 12px;
-      }
-
-      .benefit span {
-        font-size: 10px;
-      }
-
-      .category-card img {
-        height: 180px;
-      }
-
-      .feature-banner {
-        padding: 28px;
-        gap: 25px;
-      }
-
-      .feature-banner img {
-        height: 260px;
-      }
-
-      .steps-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 14px;
-      }
-
-      .step-card {
-        padding: 18px;
-      }
-
-      .about-image {
-        height: 370px;
-      }
-
-      .about-note {
-        right: -5px;
-      }
-
-      .contact-grid {
-        gap: 35px;
-      }
-
-      .contact-form {
-        padding: 22px;
-      }
-
-      .footer-grid {
-        gap: 30px 22px;
-      }
-    }
-
-    @media (max-width: 460px) {
-      .container {
-        width: 91%;
-      }
-
-      .logo-name {
-        font-size: 24px;
-      }
-
-      .hero h1 {
-        font-size: 45px;
-      }
-
-      .hero-actions .btn {
-        width: 100%;
-      }
-
-      .benefit-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .category-grid,
-      .product-grid {
-        gap: 12px;
-      }
-
-      .category-card img,
-      .product-image img {
-        height: 155px;
-      }
-
-      .category-info {
-        padding: 12px;
-      }
-
-      .category-info h3 {
-        font-size: 17px;
-      }
-
-      .product-info {
-        padding: 12px;
-      }
-
-      .product-info h3 {
-        font-size: 13px;
-      }
-
-      .product-bottom {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .product-quote {
-        width: 100%;
-      }
-
-      .steps-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .form-grid {
-        grid-template-columns: 1fr;
-        gap: 0;
-      }
-
-      .form-group.full {
-        grid-column: auto;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .footer-grid > div:first-child {
-        grid-column: 1 / -1;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *, *::before, *::after {
-        transition-duration: 0.01ms !important;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f8f6ef">
+<meta name="description" content="PressCo. custom printing for businesses, creative projects, and special occasions. Crisp Print. Fresh Takes.">
+<title>PressCo. | Crisp Print. Fresh Takes.</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #f8f6ef;
+  --white: #ffffff;
+  --green: #254b3c;
+  --dark-green: #1d392e;
+  --pale: #e6ede5;
+  --sage: #9caf97;
+  --orange: #d77c54;
+  --ink: #252c27;
+  --muted: #6c756e;
+  --line: #e4e5dc;
+  --shadow: 0 12px 35px rgba(37,75,60,.09);
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 95px;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+  width: min(1160px, 90%);
+  margin: auto;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.label {
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 11px;
+}
+
+.heading {
+  font-family: "Playfair Display", serif;
+  color: var(--green);
+  font-size: clamp(30px, 4vw, 45px);
+  line-height: 1.2;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.description {
+  color: var(--muted);
+  max-width: 650px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--green);
+  border-radius: 6px;
+  padding: 12px 21px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .22s;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--dark-green);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  color: var(--green);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--pale);
+}
+
+.btn-light {
+  background: white;
+  color: var(--green);
+  border-color: white;
+}
+
+.btn-light:hover {
+  background: var(--pale);
+}
+
+/* Announcement and navigation */
+
+.announcement {
+  background: var(--green);
+  color: white;
+  text-align: center;
+  padding: 8px 15px;
+  font-size: 11px;
+  letter-spacing: .5px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(248,246,239,.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.navbar {
+  min-height: 77px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--green);
+  flex-shrink: 0;
+}
+
+.logo-symbol {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  background: var(--green);
+  color: white;
+  border-radius: 8px 8px 8px 2px;
+  font-family: "Playfair Display", serif;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.logo-name {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.logo-tagline {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 12px;
+  font-weight: 700;
+  transition: color .2s;
+}
+
+.nav-links a:hover {
+  color: var(--orange);
+}
+
+.nav-quote {
+  padding: 9px 13px;
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: var(--green);
+  font-size: 27px;
+  cursor: pointer;
+}
+
+/* Hero */
+
+.hero {
+  padding: 60px 0 75px;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  color: var(--green);
+  font-size: clamp(44px,5.5vw,72px);
+  font-weight: 600;
+  line-height: 1.07;
+  letter-spacing: -1.5px;
+  margin-bottom: 23px;
+}
+
+.hero h1 span {
+  color: var(--orange);
+  font-style: italic;
+}
+
+.hero-description {
+  max-width: 510px;
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 27px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 11px;
+  flex-wrap: wrap;
+}
+
+.hero-note {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 27px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.hero-note strong {
+  color: var(--green);
+}
+
+.hero-visual {
+  position: relative;
+  min-height: 465px;
+}
+
+.hero-main-image {
+  height: 455px;
+  border-radius: 48% 48% 12px 12px;
+}
+
+.hero-card {
+  position: absolute;
+  left: -30px;
+  bottom: 22px;
+  width: 205px;
+  background: white;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: var(--shadow);
+}
+
+.hero-card img {
+  height: 88px;
+  border-radius: 7px;
+  margin-bottom: 9px;
+}
+
+.hero-card strong {
+  color: var(--green);
+  font-size: 13px;
+}
+
+.hero-card p {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.hero-stamp {
+  position: absolute;
+  top: 20px;
+  right: -15px;
+  width: 100px;
+  height: 100px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border: 1px solid var(--orange);
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--green);
+  font-family: "Playfair Display", serif;
+  font-size: 14px;
+  line-height: 1.25;
+  transform: rotate(9deg);
+}
+
+/* Benefits */
+
+.benefits {
+  background: var(--green);
+  color: white;
+  padding: 24px 0;
+}
+
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 22px;
+}
+
+.benefit {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.benefit-icon {
+  display: grid;
+  place-items: center;
+  min-width: 41px;
+  height: 41px;
+  background: rgba(255,255,255,.12);
+  border-radius: 50%;
+  font-size: 18px;
+}
+
+.benefit strong {
+  display: block;
+  font-size: 12px;
+}
+
+.benefit span {
+  display: block;
+  color: #d4dfd5;
+  font-size: 10px;
+}
+
+/* Collections and products */
+
+.category-grid,
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 19px;
+}
+
+.category-card,
+.product-card {
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform .22s, box-shadow .22s;
+}
+
+.category-card:hover,
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.category-card img {
+  height: 205px;
+}
+
+.category-info {
+  padding: 17px;
+}
+
+.category-info h3 {
+  font-family: "Playfair Display", serif;
+  color: var(--green);
+  font-size: 19px;
+  margin-bottom: 4px;
+}
+
+.category-info p {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.text-link {
+  color: var(--orange);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.feature-section {
+  padding-top: 0;
+}
+
+.feature-banner {
+  background: var(--pale);
+  padding: 45px;
+  border-radius: 22px;
+  display: grid;
+  grid-template-columns: 1fr .85fr;
+  align-items: center;
+  gap: 42px;
+}
+
+.feature-banner h2 {
+  font-family: "Playfair Display", serif;
+  color: var(--green);
+  font-size: clamp(30px,4vw,44px);
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.feature-banner p {
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+
+.feature-banner img {
+  height: 300px;
+  border-radius: 15px;
+}
+
+.products-section,
+.contact-section {
+  background: #f0eee6;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 27px;
+}
+
+.filter-btn {
+  background: white;
+  color: var(--green);
+  border: 1px solid var(--line);
+  border-radius: 50px;
+  padding: 8px 15px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: white;
+}
+
+.product-card[hidden] {
+  display: none;
+}
+
+.product-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image img {
+  height: 205px;
+  transition: transform .3s;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.04);
+}
+
+.product-tag {
+  position: absolute;
+  top: 11px;
+  left: 11px;
+  background: var(--cream);
+  color: var(--green);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.product-info {
+  padding: 15px;
+}
+
+.product-info h3 {
+  color: var(--green);
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.product-info p {
+  font-size: 11px;
+  color: var(--muted);
+  min-height: 39px;
+}
+
+.product-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 13px;
+}
+
+.product-price {
+  font-size: 15px;
+  color: var(--green);
+  font-weight: 700;
+}
+
+.product-price small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.product-quote {
+  background: var(--green);
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  padding: 8px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Order builder */
+
+.order-section {
+  background: var(--cream);
+}
+
+.order-intro {
+  max-width: 780px;
+}
+
+.order-layout {
+  display: grid;
+  grid-template-columns: minmax(0,1.45fr) minmax(285px,.8fr);
+  gap: 25px;
+  align-items: start;
+}
+
+.order-panel,
+.summary-panel {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+}
+
+.order-panel {
+  padding: 28px;
+}
+
+.summary-panel {
+  padding: 24px;
+  position: sticky;
+  top: 105px;
+}
+
+.builder-block {
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid var(--line);
+}
+
+.builder-block:last-of-type {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+.builder-title {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 17px;
+}
+
+.builder-number {
+  width: 31px;
+  height: 31px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--green);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.builder-title h3 {
+  font-family: "Playfair Display",serif;
+  color: var(--green);
+  font-size: 21px;
+  line-height: 1.25;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.field label,
+.field-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 6px;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: 1px solid #dfe3dc;
+  border-radius: 6px;
+  background: #fcfcfa;
+  padding: 11px 12px;
+  font-size: 13px;
+  color: var(--ink);
+  outline: none;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--sage);
+  box-shadow: 0 0 0 3px rgba(156,175,151,.18);
+}
+
+.field textarea {
+  min-height: 92px;
+  resize: vertical;
+}
+
+.field-help {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 6px;
+}
+
+.radio-tiles {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 9px;
+}
+
+.radio-tile,
+.fulfillment-tile {
+  position: relative;
+}
+
+.radio-tile input,
+.fulfillment-tile input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.radio-tile label {
+  height: 100%;
+  min-height: 76px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  background: white;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--green);
+  transition: .2s;
+}
+
+.radio-tile label span {
+  display: block;
+  font-size: 10px;
+  color: var(--muted);
+  font-weight: 400;
+  margin-top: 3px;
+}
+
+.radio-tile input:checked + label {
+  border-color: var(--green);
+  background: var(--pale);
+  box-shadow: inset 0 0 0 1px var(--green);
+}
+
+.radio-tile input:focus-visible + label,
+.fulfillment-tile input:focus-visible + label {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+
+.conditional {
+  display: none;
+  margin-top: 15px;
+}
+
+.conditional.show {
+  display: block;
+}
+
+.design-gallery {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.design-card {
+  padding: 0;
+  overflow: hidden;
+  text-align: left;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: white;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.design-card[aria-pressed="true"] {
+  border: 2px solid var(--green);
+  box-shadow: 0 0 0 2px var(--pale);
+}
+
+.design-art {
+  height: 125px;
+  padding: 11px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.design-art small {
+  font-size: 7px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.design-art strong {
+  font-family: "Playfair Display",serif;
+  font-size: 18px;
+  line-height: 1.05;
+}
+
+.minimal {
+  background: #f4eee2;
+  color: #254b3c;
+}
+
+.bold {
+  background: #d77c54;
+  color: #fff9ef;
+}
+
+.botanical {
+  background: #dfe8d9;
+  color: #315344;
+}
+
+.editorial {
+  background: #243f36;
+  color: #f8f2e5;
+}
+
+.design-caption {
+  padding: 9px;
+}
+
+.design-caption strong {
+  display: block;
+  color: var(--green);
+  font-size: 11px;
+}
+
+.design-caption span {
+  display: block;
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.fulfillment-tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.fulfillment-tile label {
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px;
+  cursor: pointer;
+  color: var(--green);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.fulfillment-tile label span {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.fulfillment-tile input:checked + label {
+  background: var(--pale);
+  border-color: var(--green);
+}
+
+.summary-panel h3 {
+  font-family: "Playfair Display",serif;
+  color: var(--green);
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.summary-intro {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+
+.summary-list {
+  list-style: none;
+}
+
+.summary-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 8px 0;
+  border-bottom: 1px solid #eff0e9;
+  font-size: 11px;
+}
+
+.summary-list li span:first-child {
+  color: var(--muted);
+}
+
+.summary-list li strong {
+  text-align: right;
+  color: var(--green);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  max-width: 58%;
+}
+
+.summary-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  border-top: 1px solid var(--line);
+  margin-top: 14px;
+  padding-top: 17px;
+}
+
+.summary-total span {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.summary-total strong {
+  font-size: 24px;
+  color: var(--green);
+  font-family: "Playfair Display",serif;
+}
+
+.summary-extra {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 7px;
+}
+
+.summary-panel .btn {
+  width: 100%;
+  margin-top: 18px;
+}
+
+.order-status,
+.contact-status {
+  font-size: 12px;
+  color: var(--green);
+  margin-top: 12px;
+  overflow-wrap: anywhere;
+}
+
+/* How it works and about */
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 20px;
+}
+
+.step-card {
+  padding: 23px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.5);
+  border-radius: 12px;
+}
+
+.step-number {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--green);
+  color: white;
+  font-family: "Playfair Display",serif;
+  font-size: 19px;
+  margin-bottom: 17px;
+}
+
+.step-card h3 {
+  color: var(--green);
+  font-size: 15px;
+  margin-bottom: 7px;
+}
+
+.step-card p {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-image-wrap {
+  position: relative;
+}
+
+.about-image {
+  height: 460px;
+  border-radius: 12px 100px 12px 12px;
+}
+
+.about-note {
+  position: absolute;
+  bottom: 22px;
+  right: -18px;
+  background: white;
+  box-shadow: var(--shadow);
+  border-radius: 10px;
+  padding: 17px;
+  max-width: 225px;
+  color: var(--green);
+  font-family: "Playfair Display",serif;
+  font-size: 17px;
+}
+
+.about-copy > p {
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.value-item {
+  padding: 14px;
+  background: white;
+  border-radius: 9px;
+}
+
+.value-item strong {
+  display: block;
+  color: var(--green);
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.value-item span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.quote-banner {
+  background: var(--green);
+  color: white;
+  border-radius: 20px;
+  padding: 52px 30px;
+  text-align: center;
+}
+
+.quote-banner .label {
+  color: #e8b39b;
+}
+
+.quote-banner h2 {
+  font-family: "Playfair Display",serif;
+  font-size: clamp(31px,4vw,46px);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.quote-banner p:not(.label) {
+  color: #dbe4dc;
+  max-width: 580px;
+  margin: 0 auto 24px;
+  font-size: 13px;
+}
+
+/* Contact and FAQ */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.contact-info h3,
+.contact-form h3 {
+  color: var(--green);
+  font-family: "Playfair Display",serif;
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
+.contact-info > p,
+.contact-form > p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.contact-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 41px;
+  height: 41px;
+  border-radius: 8px;
+  background: var(--pale);
+  font-size: 18px;
+}
+
+.contact-item strong {
+  display: block;
+  color: var(--green);
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+.contact-item p,
+.contact-item a {
+  color: var(--muted);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.contact-item a:hover {
+  color: var(--orange);
+}
+
+.contact-form {
+  background: white;
+  padding: 28px;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+}
+
+.faq-list {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.faq-list details {
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0;
+}
+
+.faq-list summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--green);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-list summary::after {
+  content: "+";
+  color: var(--orange);
+  font-size: 22px;
+}
+
+.faq-list details[open] summary::after {
+  content: "−";
+}
+
+.faq-list details p {
+  color: var(--muted);
+  font-size: 12px;
+  padding-top: 11px;
+  max-width: 720px;
+}
+
+/* Footer */
+
+footer {
+  background: var(--dark-green);
+  color: white;
+  padding: 55px 0 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr .8fr .8fr 1fr;
+  gap: 34px;
+  padding-bottom: 42px;
+}
+
+.footer-logo {
+  color: white;
+  margin-bottom: 17px;
+}
+
+.footer-logo .logo-symbol {
+  background: white;
+  color: var(--green);
+}
+
+.footer-logo .logo-tagline {
+  color: #c6d3c9;
+}
+
+.footer-about {
+  color: #c6d3c9;
+  font-size: 12px;
+  max-width: 280px;
+  margin-bottom: 18px;
+}
+
+.footer-grid h4 {
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+  color: #c6d3c9;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.social-links {
+  display: flex;
+  gap: 9px;
+}
+
+.social-links a {
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  border: 1px solid #547164;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.social-links a:hover {
+  background: white;
+  color: var(--green);
+}
+
+.footer-bottom {
+  border-top: 1px solid #3a574a;
+  padding: 17px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+  color: #c6d3c9;
+  font-size: 10px;
+}
+
+.back-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 500;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--orange);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  display: none;
+}
+
+.back-top.visible {
+  display: block;
+}
+
+/* Responsive layout */
+
+@media (max-width: 1000px) {
+  .nav-links { gap: 12px; }
+  .hero-grid, .about-grid { gap: 35px; }
+  .category-grid, .product-grid { grid-template-columns: repeat(2,1fr); }
+  .benefit-grid { grid-template-columns: repeat(2,1fr); }
+  .footer-grid { grid-template-columns: repeat(2,1fr); }
+  .steps-grid { grid-template-columns: repeat(2,1fr); }
+  .design-gallery { grid-template-columns: repeat(2,1fr); }
+}
+
+@media (max-width: 760px) {
+  .section { padding: 62px 0; }
+  .navbar { min-height: 70px; }
+  .menu-toggle { display: block; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    padding: 18px 5%;
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .nav-links.open { display: flex; }
+  .nav-links li { padding: 11px 0; border-bottom: 1px solid var(--line); }
+  .nav-links li:last-child { border-bottom: 0; }
+  .nav-quote { width: 100%; }
+
+  .hero { padding: 45px 0 58px; }
+  .hero-grid, .about-grid, .feature-banner, .contact-grid, .order-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-grid { gap: 35px; }
+  .hero-visual { min-height: 365px; margin: 0 12px; }
+  .hero-main-image { height: 360px; }
+  .hero-card { left: -10px; bottom: 13px; width: 175px; }
+  .hero-stamp { right: -8px; width: 84px; height: 84px; font-size: 12px; }
+
+  .benefit-grid { gap: 19px 12px; }
+  .benefit strong { font-size: 11px; }
+  .benefit span { font-size: 9px; }
+
+  .category-card img { height: 180px; }
+  .feature-banner { padding: 27px; gap: 22px; }
+  .feature-banner img { height: 250px; }
+  .about-image { height: 365px; }
+  .about-note { right: -4px; }
+
+  .contact-grid { gap: 32px; }
+  .summary-panel { position: static; }
+  .order-panel, .contact-form { padding: 22px; }
+  .footer-grid { gap: 28px 20px; }
+}
+
+@media (max-width: 460px) {
+  .container { width: 91%; }
+  .logo-name { font-size: 24px; }
+  .hero h1 { font-size: 44px; }
+  .hero-actions .btn { width: 100%; }
+
+  .category-grid, .product-grid { gap: 12px; }
+  .category-card img, .product-image img { height: 150px; }
+  .category-info { padding: 12px; }
+  .category-info h3 { font-size: 16px; }
+  .product-info { padding: 12px; }
+  .product-info h3 { font-size: 12px; }
+  .product-bottom { align-items: flex-start; flex-direction: column; }
+  .product-quote { width: 100%; }
+
+  .field-grid { grid-template-columns: 1fr; gap: 0; }
+  .field.full { grid-column: auto; }
+  .radio-tiles { grid-template-columns: 1fr; }
+  .radio-tile label { min-height: 58px; }
+  .design-gallery { grid-template-columns: repeat(2,1fr); }
+  .steps-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .step-card { padding: 15px; }
+  .values-grid { gap: 10px; }
+
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid > div:first-child { grid-column: 1 / -1; }
+  .footer-bottom { flex-direction: column; }
+  .summary-panel { padding: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <div class="announcement">
-    Thoughtfully printed. Beautifully presented. Made for your ideas.
+<div class="announcement">
+  Thoughtfully printed. Beautifully presented. Made for your ideas.
+</div>
+
+<header>
+  <div class="container navbar">
+    <a href="#home" class="logo" aria-label="PressCo. homepage">
+      <span class="logo-symbol">P.</span>
+      <span>
+        <span class="logo-name">PressCo.</span>
+        <span class="logo-tagline">Crisp Print. Fresh Takes.</span>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Open navigation" aria-expanded="false"
+      aria-controls="navLinks">☰</button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#collections">Collections</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#order">Build Your Order</a></li>
+      <li><a href="#contact" class="btn btn-primary nav-quote">Contact Us ↗</a></li>
+    </ul>
   </div>
-
-  <header>
-    <div class="container navbar">
-      <a href="#home" class="logo" aria-label="PressCo. homepage">
-        <span class="logo-symbol">P.</span>
-        <span>
-          <span class="logo-name">PressCo.</span>
-          <span class="logo-tagline">Crisp Print. Fresh Takes.</span>
-        </span>
-      </a>
-
-      <button class="menu-toggle" id="menuToggle"
-        aria-label="Open navigation" aria-expanded="false"
-        aria-controls="navLinks">☰</button>
-
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#collections">Collections</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-        <li><a href="#contact" class="btn btn-primary nav-quote">Request a Quote ↗</a></li>
-      </ul>
-    </div>
-  </header>
-
-  <main>
-    <!-- HERO -->
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div>
-          <p class="section-label">Modern custom printing studio</p>
-          <h1>Crisp Print.<br><span>Fresh Takes.</span></h1>
-
-          <p class="hero-description">
-            Your ideas deserve more than ordinary paper. Discover thoughtfully
-            designed, professionally printed paper products made for your
-            business, your creativity, and your special moments.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#products" class="btn btn-primary">Explore Products ↗</a>
-            <a href="#about" class="btn btn-outline">Discover PressCo.</a>
-          </div>
-
-          <div class="hero-note">
-            <span>✳</span>
-            <span><strong>Small details. Big impressions.</strong><br>
-              Paper products that help your ideas stand out.</span>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <img class="hero-main-image"
-            src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=85"
-            alt="Beautifully arranged notebooks and paper stationery">
-
-          <div class="hero-card">
-            <img
-              src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=500&q=80"
-              alt="Minimal stationery and notebook">
-            <strong>Made for your ideas.</strong>
-            <p>Designed with care. Printed with purpose.</p>
-          </div>
-
-          <div class="hero-stamp">Made to<br>make an<br>impression ✳</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BENEFITS -->
-    <section class="benefits">
-      <div class="container benefit-grid">
-        <div class="benefit">
-          <div class="benefit-icon">✳</div>
-          <div><strong>Thoughtful Designs</strong><span>Made around your ideas</span></div>
-        </div>
-        <div class="benefit">
-          <div class="benefit-icon">▤</div>
-          <div><strong>Paper Options</strong><span>Choose your preferred style</span></div>
-        </div>
-        <div class="benefit">
-          <div class="benefit-icon">♡</div>
-          <div><strong>Personalized Orders</strong><span>For work and special moments</span></div>
-        </div>
-        <div class="benefit">
-          <div class="benefit-icon">✉</div>
-          <div><strong>Easy Inquiries</strong><span>Tell us what you need</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- COLLECTIONS -->
-    <section class="section" id="collections">
-      <div class="container">
-        <p class="section-label">Explore our collections</p>
-        <h2 class="section-heading">Print something worth remembering.</h2>
-        <p class="section-description">
-          From everyday business essentials to meaningful personal touches,
-          discover paper products that bring your ideas to life.
-        </p>
-
-        <div class="category-grid">
-          <article class="category-card">
-            <img
-              src="https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&w=650&q=80"
-              alt="Professional paper and business stationery"
-              loading="lazy">
-            <div class="category-info">
-              <h3>Business Essentials</h3>
-              <p>Business cards, letterheads, and professional stationery.</p>
-              <a class="text-link" href="#products" data-filter-link="business">Explore collection ↗</a>
-            </div>
-          </article>
-
-          <article class="category-card">
-            <img
-              src="https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=650&q=80"
-              alt="Creative printed designs and paper materials"
-              loading="lazy">
-            <div class="category-info">
-              <h3>Marketing Materials</h3>
-              <p>Flyers, brochures, and promotional print products.</p>
-              <a class="text-link" href="#products" data-filter-link="marketing">Explore collection ↗</a>
-            </div>
-          </article>
-
-          <article class="category-card">
-            <img
-              src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=650&q=80"
-              alt="Greeting cards for celebrations and special occasions"
-              loading="lazy">
-            <div class="category-info">
-              <h3>Personal Moments</h3>
-              <p>Invitations, greeting cards, and memorable keepsakes.</p>
-              <a class="text-link" href="#products" data-filter-link="personal">Explore collection ↗</a>
-            </div>
-          </article>
-
-          <article class="category-card">
-            <img
-              src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=650&q=80"
-              alt="Creative workspace with writing and stationery materials"
-              loading="lazy">
-            <div class="category-info">
-              <h3>Creative Prints</h3>
-              <p>Posters, stickers, and personalized paper creations.</p>
-              <a class="text-link" href="#products" data-filter-link="creative">Explore collection ↗</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURE BANNER -->
-    <section class="section" style="padding-top:0">
-      <div class="container">
-        <div class="feature-banner">
-          <div>
-            <p class="section-label">Your vision, on paper</p>
-            <h2>Good ideas deserve a great first impression.</h2>
-            <p>
-              Give your business a professional look or make your special
-              occasions more personal with custom-printed paper products.
-              Start with an idea, and let us help you plan the details.
-            </p>
-            <a href="#contact" class="btn btn-primary">Let's Create Something ↗</a>
-          </div>
-          <img
-            src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=85"
-            alt="Creative materials and colorful paper for design projects"
-            loading="lazy">
-        </div>
-      </div>
-    </section>
-
-    <!-- PRODUCTS -->
-    <section class="section products-section" id="products">
-      <div class="container">
-        <div class="products-top">
-          <div>
-            <p class="section-label">The PressCo. catalog</p>
-            <h2 class="section-heading">Find your perfect print.</h2>
-            <p class="section-description">
-              Browse our sample products and request a quote for your project.
-            </p>
-          </div>
-        </div>
-
-        <div class="filter-buttons" aria-label="Filter products">
-          <button class="filter-btn active" data-filter="all" aria-pressed="true">All Products</button>
-          <button class="filter-btn" data-filter="business" aria-pressed="false">Business</button>
-          <button class="filter-btn" data-filter="marketing" aria-pressed="false">Marketing</button>
-          <button class="filter-btn" data-filter="personal" aria-pressed="false">Personal</button>
-          <button class="filter-btn" data-filter="creative" aria-pressed="false">Creative</button>
-        </div>
-
-        <div class="product-grid" id="productGrid">
-
-          <article class="product-card" data-category="business">
-            <div class="product-image">
-              <img
-                src="https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&w=600&q=80"
-                alt="Business stationery and card mockup" loading="lazy">
-              <span class="product-tag">Business</span>
-            </div>
-            <div class="product-info">
-              <h3>Business Cards</h3>
-              <p>Make your brand memorable with professional cards.</p>
-              <div class="product-bottom">
-                <div class="product-price">₱250 <small>Sample price / 100 pcs</small></div>
-                <button class="product-quote" data-product="Business Cards">Get a Quote ↗</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card" data-category="marketing">
-            <div class="product-image">
-              <img
-                src="https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=600&q=80"
-                alt="Creative promotional print materials" loading="lazy">
-              <span class="product-tag">Marketing</span>
-            </div>
-            <div class="product-info">
-              <h3>Flyers</h3>
-              <p>Share promotions, announcements, and new ideas.</p>
-              <div class="product-bottom">
-                <div class="product-price">₱350 <small>Sample price / 100 pcs</small></div>
-                <button class="product-quote" data-product="Flyers">Get a Quote ↗</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card" data-category="marketing">
-            <div class="product-image">
-              <img
-                src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=600&q=80"
-                alt="Printed booklets and brochure-style paper products" loading="lazy">
-              <span class="product-tag">Marketing</span>
-            </div>
-            <div class="product-info">
-              <h3>Brochures</h3>
-              <p>Present your services, products, and business story.</p>
-              <div class="product-bottom">
-                <div class="product-price">₱650 <small>Sample price / 100 pcs</small></div>
-                <button class="product-quote" data-product="Brochures">Get a Quote ↗</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card" data-category="personal">
-            <div class="product-image">
-              <img
-                src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=600&q=80"
-                alt="Cards and paper for special celebrations" loading="lazy">
-              <span class="product-tag">Personal</span>
-            </div>
-            <div class="product-info">
-              <h3>Greeting Cards</h3>
-              <p>Send a thoughtful message with a personal touch.</p>
-              <div class="product-bottom">
-                <div class="product-price">₱300 <small>Sample price / 20 pcs</small></div>
-                <button class="product-quote" data-product="Greeting Cards">Get a Quote ↗</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card" data-category="creative">
-            <div class="product-image">
-              <img
-                src="https://images.unsplash.com/photo-1509223197845-458d87318791?auto=format&fit=crop&w=600&q=80"
-                alt="Creative stationery and paper artwork" loading="lazy">
-              <span class="product-tag">Creative</span>
-            </div>
-            <div class="product-info">
-              <h3>Posters</h3>
-              <p>Display your event, artwork, or message in print.</p>
-              <div class="product-bottom">
-                <div class="product-price">₱80 <small>Sample price / A3 sheet</small></div>
-                <button class="product-quote" data-product="Posters">Get a Quote ↗</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card" data-category="creative">
-            <div class="product-image">
-              <img
-                src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=600&q=80"
-                alt="Colorful creative stationery and paper products" loading="lazy">
-              <span class="product-tag">Creative</span>
-            </div>
-            <div class="product-info">
-              <h3>Custom Stickers</h3>
-              <p>Add personality to packaging, gifts, and notebooks.</p>
-              <div class="product-bottom">
-                <div class="product-price">₱200 <small>Sample price / 50 pcs</small></div>
-                <button class="product-quote" data-product="Custom Stickers">Get a Quote ↗</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card" data-category="personal">
-            <div class="product-image">
-              <img
-                src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=600&q=80"
-                alt="Wedding and celebration stationery" loading="lazy">
-              <span class="product-tag">Personal</span>
-            </div>
-            <div class="product-info">
-              <h3>Invitations</h3>
-              <p>Set the tone for birthdays, weddings, and events.</p>
-              <div class="product-bottom">
-                <div class="product-price">₱350 <small>Sample price / 20 pcs</small></div>
-                <button class="product-quote" data-product="Invitations">Get a Quote ↗</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card" data-category="business">
-            <div class="product-image">
-              <img
-                src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"
-                alt="Notebook and professional paper stationery" loading="lazy">
-              <span class="product-tag">Business</span>
-            </div>
-            <div class="product-info">
-              <h3>Custom Stationery</h3>
-              <p>Personalized paper materials for everyday work.</p>
-              <div class="product-bottom">
-                <div class="product-price">Custom <small>Price depends on order</small></div>
-                <button class="product-quote" data-product="Custom Stationery">Get a Quote ↗</button>
-              </div>
-            </div>
-          </article>
-
-        </div>
-
-        <p class="pricing-note">
-          Please note: Prices shown are illustrative starting prices for this website prototype,
-          not confirmed final quotations. Final costs depend on paper stock, size, quantity,
-          printing specifications, finishing, and design requirements.
-        </p>
-      </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section class="section" id="how-it-works">
-      <div class="container">
-        <p class="section-label">Simple from start to finish</p>
-        <h2 class="section-heading">How ordering works.</h2>
-        <p class="section-description">
-          Tell us what you have in mind. We'll use your requirements to prepare
-          a quotation and discuss the next steps.
-        </p>
-
-        <div class="steps-grid">
-          <article class="step-card">
-            <div class="step-number">01</div>
-            <h3>Choose Your Product</h3>
-            <p>Browse the catalog and decide what kind of printed material you need.</p>
-          </article>
-
-          <article class="step-card">
-            <div class="step-number">02</div>
-            <h3>Send Your Details</h3>
-            <p>Tell us the quantity, dimensions, paper preference, and deadline.</p>
-          </article>
-
-          <article class="step-card">
-            <div class="step-number">03</div>
-            <h3>Receive a Quote</h3>
-            <p>We can review your requirements and provide a quotation for confirmation.</p>
-          </article>
-
-          <article class="step-card">
-            <div class="step-number">04</div>
-            <h3>Confirm Your Order</h3>
-            <p>Finalize the design, price, payment arrangements, and delivery or pickup details.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="section" id="about">
-      <div class="container about-grid">
-        <div class="about-image-wrap">
-          <img class="about-image"
-            src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=85"
-            alt="Creative paper stationery arranged on a work desk"
-            loading="lazy">
-          <div class="about-note">Thoughtful paper.<br>Fresh possibilities.</div>
-        </div>
-
-        <div class="about-copy">
-          <p class="section-label">A little about us</p>
-          <h2 class="section-heading">Ideas are better when they come to life.</h2>
-
-          <p>
-            Welcome to PressCo., your online destination for modern custom printing.
-            From professional business cards to creative brochures and personalized
-            greeting cards, we aim to help turn everyday ideas into meaningful
-            printed materials.
-          </p>
-
-          <p>
-            We believe that print is more than ink on paper. It is a way to communicate
-            a brand, share information, celebrate milestones, and leave a lasting
-            impression. Our goal is to make exploring paper products and requesting
-            a custom quote straightforward and convenient.
-          </p>
-
-          <div class="values-grid">
-            <div class="value-item">
-              <strong>Our Mission</strong>
-              <span>To make custom paper printing approachable, creative, and convenient.</span>
-            </div>
-            <div class="value-item">
-              <strong>Our Vision</strong>
-              <span>To be a trusted choice for thoughtful printed products and fresh ideas.</span>
-            </div>
-            <div class="value-item">
-              <strong>Creativity</strong>
-              <span>We welcome different ideas, styles, and personal touches.</span>
-            </div>
-            <div class="value-item">
-              <strong>Attention to Detail</strong>
-              <span>We encourage clear specifications and careful planning for every order.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- QUOTE BANNER -->
-    <section class="section" style="padding-top:0">
-      <div class="container">
-        <div class="quote-banner">
-          <p class="section-label">Have something in mind?</p>
-          <h2>Let's put your ideas on paper.</h2>
-          <p>
-            Whether you need business materials, promotional prints, or personalized
-            paper products, share your requirements and request a quotation.
-          </p>
-          <a href="#contact" class="btn btn-light">Request Your Quote ↗</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section contact-section" id="contact">
-      <div class="container">
-        <p class="section-label">Let's talk about your project</p>
-        <h2 class="section-heading">Get in touch with PressCo.</h2>
-        <p class="section-description">
-          Have a question or a custom order in mind? Use the form to prepare an inquiry.
-          We'll need your actual business contact details configured to receive responses.
-        </p>
-
-        <div class="contact-grid">
-          <div class="contact-info">
-            <h3>Contact information</h3>
-            <p>
-              Share your printing requirements, ask about product options, or request
-              a personalized quotation.
-            </p>
-
-            <div class="contact-item">
-              <div class="contact-icon">✉</div>
-              <div>
-                <strong>Email us</strong>
-                <a href="mailto:pressco.prints@gmail.com">
-                  pressco.prints@gmail.com
-                </a>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div class="contact-icon">☎</div>
-              <div>
-                <strong>Call or message</strong>
-                 <a href="tel:+639175550123">+63 917 555 0123</a>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div class="contact-icon">⌖</div>
-              <div>
-                <strong>Service area</strong>
-                <p>Ormoc City, Leyte, Philippines</p>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div class="contact-icon">◷</div>
-              <div>
-                <strong>Suggested business hours</strong>
-                <p>Monday–Saturday: 9:00 AM–6:00 PM</p>
-                <p>Sunday: By appointment</p>
-              </div>
-            </div>
-
-            <p class="form-help">
-              Note: The location and hours are suggested prototype details.
-              Update them if your actual business operates differently.
-            </p>
-          </div>
-
-          <form class="contact-form" id="quoteForm">
-            <h3>Request a quotation</h3>
-            <p class="form-intro">
-              Complete the fields below. Your email application will open with your
-              inquiry prepared for review.
-            </p>
-
-            <div class="form-grid">
-              <div class="form-group">
-                <label for="customerName">Full name *</label>
-                <input id="customerName" name="customerName"
-                  type="text" placeholder="Your full name" required>
-              </div>
-
-              <div class="form-group">
-                <label for="customerEmail">Email address *</label>
-                <input id="customerEmail" name="customerEmail"
-                  type="email" placeholder="you@example.com" required>
-              </div>
-
-              <div class="form-group">
-                <label for="customerPhone">Mobile number</label>
-                <input id="customerPhone" name="customerPhone"
-                  type="tel" placeholder="Your contact number">
-              </div>
-
-              <div class="form-group">
-                <label for="productSelect">Product *</label>
-                <select id="productSelect" name="productSelect" required>
-                  <option value="">Choose a product</option>
-                  <option>Business Cards</option>
-                  <option>Flyers</option>
-                  <option>Brochures</option>
-                  <option>Greeting Cards</option>
-                  <option>Posters</option>
-                  <option>Custom Stickers</option>
-                  <option>Invitations</option>
-                  <option>Custom Stationery</option>
-                  <option>Other Custom Product</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="quantity">Estimated quantity *</label>
-                <input id="quantity" name="quantity"
-                  type="number" min="1" placeholder="e.g. 100" required>
-              </div>
-
-              <div class="form-group">
-                <label for="size">Preferred size</label>
-                <select id="size" name="size">
-                  <option value="Not sure yet">Not sure yet</option>
-                  <option>A4</option>
-                  <option>A3</option>
-                  <option>Business card size</option>
-                  <option>Custom dimensions</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="paper">Paper preference</label>
-                <select id="paper" name="paper">
-                  <option value="Need recommendations">Need recommendations</option>
-                  <option>Matte</option>
-                  <option>Glossy</option>
-                  <option>Cardstock</option>
-                  <option>Uncoated paper</option>
-                  <option>Other / custom</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="deadline">Target deadline</label>
-                <input id="deadline" name="deadline" type="date">
-              </div>
-
-              <div class="form-group full">
-                <label for="design">Design and order details *</label>
-                <textarea id="design" name="design"
-                  placeholder="Describe your design, colors, finishing, delivery preferences, and other requirements."
-                  required></textarea>
-              </div>
-
-              <div class="form-group full">
-                <button type="submit" class="btn btn-primary" style="width:100%">
-                  Prepare My Inquiry ↗
-                </button>
-                <p class="form-help">
-                  This form opens your default email application. It does not automatically
-                  send, save, or confirm an order. Your email application must be configured.
-                </p>
-                <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section" id="faq">
-      <div class="container">
-        <div style="text-align:center">
-          <p class="section-label">Frequently asked questions</p>
-          <h2 class="section-heading">A few things to know.</h2>
-          <p class="section-description" style="margin-left:auto;margin-right:auto">
-            Here are some helpful details before you request your quotation.
-          </p>
-        </div>
-
-        <div class="faq-list">
-          <details>
-            <summary>How can I request a quotation?</summary>
-            <p>
-              Complete the inquiry form with your product, quantity, size, paper preference,
-              deadline, and design details. The form will prepare an email for you to review.
-            </p>
-          </details>
-
-          <details>
-            <summary>Are the prices displayed final?</summary>
-            <p>
-              No. The displayed prices are sample starting prices for this website prototype.
-              Actual prices should be confirmed based on your selected specifications and costs.
-            </p>
-          </details>
-
-          <details>
-            <summary>Can I request a custom design?</summary>
-            <p>
-              You can describe your preferred design in the inquiry form. Design availability,
-              artwork preparation, and any additional fees must be confirmed before ordering.
-            </p>
-          </details>
-
-          <details>
-            <summary>What is the minimum order quantity?</summary>
-            <p>
-              The quantity depends on the product and printing specifications. Include your
-              desired quantity in the form so it can be reviewed for your quotation.
-            </p>
-          </details>
-
-          <details>
-            <summary>How long will printing take?</summary>
-            <p>
-              Turnaround time depends on the product, quantity, design approval, and production
-              arrangements. Include your target deadline so it can be considered in the quote.
-            </p>
-          </details>
-
-          <details>
-            <summary>Do you offer delivery?</summary>
-            <p>
-              Delivery or pickup options have not yet been confirmed for this prototype.
-              Add your preferred arrangement to your inquiry for discussion.
-            </p>
-          </details>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <a href="#home" class="logo footer-logo">
-            <span class="logo-symbol">P.</span>
-            <span>
-              <span class="logo-name">PressCo.</span>
-              <span class="logo-tagline">Crisp Print. Fresh Takes.</span>
-            </span>
-          </a>
-
-          <p class="footer-about">
-            Your ideas deserve more than ordinary paper. Explore modern custom
-            paper products for businesses, creators, students, and special occasions.
-          </p>
-
-          <div class="social-links">
-            <!-- Replace # with your actual social media page URLs -->
-            <a href="#contact" aria-label="Facebook — add your page URL">f</a>
-            <a href="#contact" aria-label="Instagram — add your profile URL">ig</a>
-            <a href="mailto:pressco.prints@gmail.com" aria-label="Email PressCo.">@</a>
-          </div>
-        </div>
-
-        <div>
-          <h4>Explore</h4>
-          <ul class="footer-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#collections">Collections</a></li>
-            <li><a href="#products">Products & Pricing</a></li>
-            <li><a href="#how-it-works">How It Works</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>Customer Care</h4>
-          <ul class="footer-links">
-            <li><a href="#contact">Request a Quote</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-            <li><a href="#faq">FAQs</a></li>
-            <li><a href="mailto:pressco.prints@gmail.com">Email Inquiries</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>Get in touch</h4>
-          <ul class="footer-links">
-            <li><a href="mailto:pressco.prints@gmail.com">pressco.prints@gmail.com</a></li>
-            <li>Ormoc City, Leyte, Philippines</li>
-            <li>Mon–Sat, 9 AM–6 PM</li>
-           <li><a href="tel:+639175550123">+63 917 555 0123</a></li>
-          </ul>
-        </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <p class="label">Modern custom printing studio</p>
+      <h1>Crisp Print.<br><span>Fresh Takes.</span></h1>
+      <p class="hero-description">
+        Your ideas deserve more than ordinary paper. Discover thoughtfully
+        designed, professionally printed paper products made for your
+        business, your creativity, and your special moments.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#products" class="btn btn-primary">Explore Products ↗</a>
+        <a href="#about" class="btn btn-outline">Discover PressCo.</a>
       </div>
 
-      <div class="footer-bottom">
-        <p>© <span id="currentYear"></span> PressCo. All rights reserved.</p>
-        <p>Crisp Print. Fresh Takes.</p>
+      <div class="hero-note">
+        <span>✳</span>
+        <span><strong>Small details. Big impressions.</strong><br>
+          Paper products that help your ideas stand out.</span>
       </div>
     </div>
-  </footer>
 
-  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+    <div class="hero-visual">
+      <img class="hero-main-image"
+        src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=85"
+        alt="Beautifully arranged notebooks and paper stationery">
 
-  <script>
-    // ==========================================
-    // PRESSCO. WEBSITE SETTINGS
-    // Update the sample email and contact details
-    // before using this website for a real business.
-    // ==========================================
+      <div class="hero-card">
+        <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=500&q=80"
+          alt="Minimal notebook and stationery">
+        <strong>Made for your ideas.</strong>
+        <p>Designed with care. Printed with purpose.</p>
+      </div>
 
-    const BUSINESS_EMAIL = "pressco.prints@gmail.com";
+      <div class="hero-stamp">Made to<br>make an<br>impression ✳</div>
+    </div>
+  </div>
+</section>
 
-    // Mobile navigation
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="container benefit-grid">
+    <div class="benefit">
+      <div class="benefit-icon">✳</div>
+      <div><strong>Thoughtful Designs</strong><span>Made around your ideas</span></div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">▤</div>
+      <div><strong>Paper Options</strong><span>Choose your preferred style</span></div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">♡</div>
+      <div><strong>Personalized Orders</strong><span>For work and special moments</span></div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">✉</div>
+      <div><strong>Easy Inquiries</strong><span>Tell us what you need</span></div>
+    </div>
+  </div>
+</section>
 
-    menuToggle.addEventListener("click", function () {
-      const isOpen = navLinks.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
-      menuToggle.setAttribute("aria-label",
-        isOpen ? "Close navigation" : "Open navigation");
-      menuToggle.textContent = isOpen ? "✕" : "☰";
+<!-- COLLECTIONS -->
+<section class="section" id="collections">
+  <div class="container">
+    <p class="label">Explore our collections</p>
+    <h2 class="heading">Print something worth remembering.</h2>
+    <p class="description">
+      From everyday business essentials to meaningful personal touches,
+      discover paper products that bring your ideas to life.
+    </p>
+
+    <div class="category-grid">
+      <article class="category-card">
+        <img src="https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&w=650&q=80"
+          alt="Professional paper and business stationery" loading="lazy">
+        <div class="category-info">
+          <h3>Business Essentials</h3>
+          <p>Business cards, letterheads, and professional stationery.</p>
+          <a class="text-link" href="#products" data-filter-link="business">Explore collection ↗</a>
+        </div>
+      </article>
+
+      <article class="category-card">
+        <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=650&q=80"
+          alt="Creative printed designs and paper materials" loading="lazy">
+        <div class="category-info">
+          <h3>Marketing Materials</h3>
+          <p>Flyers, brochures, and promotional print products.</p>
+          <a class="text-link" href="#products" data-filter-link="marketing">Explore collection ↗</a>
+        </div>
+      </article>
+
+      <article class="category-card">
+        <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=650&q=80"
+          alt="Greeting cards for special occasions" loading="lazy">
+        <div class="category-info">
+          <h3>Personal Moments</h3>
+          <p>Invitations, greeting cards, and memorable keepsakes.</p>
+          <a class="text-link" href="#products" data-filter-link="personal">Explore collection ↗</a>
+        </div>
+      </article>
+
+      <article class="category-card">
+        <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=650&q=80"
+          alt="Creative workspace and stationery materials" loading="lazy">
+        <div class="category-info">
+          <h3>Creative Prints</h3>
+          <p>Posters, stickers, and personalized paper creations.</p>
+          <a class="text-link" href="#products" data-filter-link="creative">Explore collection ↗</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE BANNER -->
+<section class="section feature-section">
+  <div class="container">
+    <div class="feature-banner">
+      <div>
+        <p class="label">Your vision, on paper</p>
+        <h2>Good ideas deserve a great first impression.</h2>
+        <p>
+          Give your business a professional look or make your special
+          occasions more personal with custom-printed paper products.
+          Start with an idea, then choose the details that fit your project.
+        </p>
+        <a href="#order" class="btn btn-primary">Build Your Order ↗</a>
+      </div>
+
+      <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=85"
+        alt="Creative materials and colorful paper for design projects" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section products-section" id="products">
+  <div class="container">
+    <p class="label">The PressCo. catalog</p>
+    <h2 class="heading">Find your perfect print.</h2>
+    <p class="description">
+      Explore printed products and personalize the specifications
+      that suit your project.
+    </p>
+
+    <div class="filter-buttons" aria-label="Filter products">
+      <button class="filter-btn active" data-filter="all" aria-pressed="true">All Products</button>
+      <button class="filter-btn" data-filter="business" aria-pressed="false">Business</button>
+      <button class="filter-btn" data-filter="marketing" aria-pressed="false">Marketing</button>
+      <button class="filter-btn" data-filter="personal" aria-pressed="false">Personal</button>
+      <button class="filter-btn" data-filter="creative" aria-pressed="false">Creative</button>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+
+      <article class="product-card" data-category="business">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&w=600&q=80"
+            alt="Business stationery and card design" loading="lazy">
+          <span class="product-tag">Business</span>
+        </div>
+        <div class="product-info">
+          <h3>Premium Business Cards</h3>
+          <p>Make your brand memorable with professional cards.</p>
+          <div class="product-bottom">
+            <div class="product-price">From ₱250<small>per 100 pieces</small></div>
+            <button class="product-quote" data-product="Premium Business Cards">Customize ↗</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="marketing">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=600&q=80"
+            alt="Promotional print materials" loading="lazy">
+          <span class="product-tag">Marketing</span>
+        </div>
+        <div class="product-info">
+          <h3>Flyers</h3>
+          <p>Share promotions, announcements, and new ideas.</p>
+          <div class="product-bottom">
+            <div class="product-price">From ₱350<small>per 100 pieces</small></div>
+            <button class="product-quote" data-product="Flyers">Customize ↗</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="marketing">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=600&q=80"
+            alt="Printed booklets and brochures" loading="lazy">
+          <span class="product-tag">Marketing</span>
+        </div>
+        <div class="product-info">
+          <h3>Brochures</h3>
+          <p>Present your services, products, and business story.</p>
+          <div class="product-bottom">
+            <div class="product-price">From ₱1,200<small>per 100 pieces</small></div>
+            <button class="product-quote" data-product="Brochures">Customize ↗</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="personal">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=600&q=80"
+            alt="Greeting cards for celebrations" loading="lazy">
+          <span class="product-tag">Personal</span>
+        </div>
+        <div class="product-info">
+          <h3>Greeting Cards</h3>
+          <p>Send a thoughtful message with a personal touch.</p>
+          <div class="product-bottom">
+            <div class="product-price">From ₱400<small>per 20 pieces</small></div>
+            <button class="product-quote" data-product="Greeting Cards">Customize ↗</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="creative">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1509223197845-458d87318791?auto=format&fit=crop&w=600&q=80"
+            alt="Creative stationery and artwork" loading="lazy">
+          <span class="product-tag">Creative</span>
+        </div>
+        <div class="product-info">
+          <h3>Posters</h3>
+          <p>Display your event, artwork, or message in print.</p>
+          <div class="product-bottom">
+            <div class="product-price">From ₱90<small>per sheet</small></div>
+            <button class="product-quote" data-product="Posters">Customize ↗</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="creative">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=600&q=80"
+            alt="Colorful stickers and stationery" loading="lazy">
+          <span class="product-tag">Creative</span>
+        </div>
+        <div class="product-info">
+          <h3>Custom Stickers</h3>
+          <p>Add personality to packaging, gifts, and notebooks.</p>
+          <div class="product-bottom">
+            <div class="product-price">From ₱300<small>per 50 pieces</small></div>
+            <button class="product-quote" data-product="Custom Stickers">Customize ↗</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="personal">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=600&q=80"
+            alt="Invitations and celebration stationery" loading="lazy">
+          <span class="product-tag">Personal</span>
+        </div>
+        <div class="product-info">
+          <h3>Invitations</h3>
+          <p>Set the tone for birthdays, weddings, and events.</p>
+          <div class="product-bottom">
+            <div class="product-price">From ₱450<small>per 20 pieces</small></div>
+            <button class="product-quote" data-product="Invitations">Customize ↗</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="business">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"
+            alt="Notebook and custom stationery" loading="lazy">
+          <span class="product-tag">Business</span>
+        </div>
+        <div class="product-info">
+          <h3>Custom Stationery</h3>
+          <p>Personalized paper materials for everyday work.</p>
+          <div class="product-bottom">
+            <div class="product-price">From ₱500<small>per 100 pieces</small></div>
+            <button class="product-quote" data-product="Custom Stationery">Customize ↗</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- BUILD YOUR ORDER -->
+<section class="section order-section" id="order">
+  <div class="container">
+    <p class="label">Make it yours</p>
+    <h2 class="heading">Build your order.</h2>
+    <p class="description order-intro">
+      Choose your product, select a design direction, and customize
+      the print details. Your request summary updates as you make
+      your selections.
+    </p>
+
+    <div class="order-layout">
+
+      <form class="order-panel" id="orderBuilder">
+
+        <!-- Product specifications -->
+        <div class="builder-block">
+          <div class="builder-title">
+            <span class="builder-number">01</span>
+            <h3>Choose your product</h3>
+          </div>
+
+          <div class="field-grid">
+            <div class="field">
+              <label for="productLine">Product line</label>
+              <select id="productLine">
+                <option value="business">The Business Line</option>
+                <option value="marketing">The Marketing Line</option>
+                <option value="personal">The Personal Line</option>
+                <option value="creative">The Creative Line</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="productType">Product type</label>
+              <select id="productType">
+                <option>Premium Business Cards</option>
+                <option>Flyers</option>
+                <option>Brochures</option>
+                <option>Greeting Cards</option>
+                <option>Posters</option>
+                <option>Custom Stickers</option>
+                <option>Invitations</option>
+                <option>Custom Stationery</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="printingSides">Printing sides</label>
+              <select id="printingSides">
+                <option>Single-sided</option>
+                <option>Double-sided</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="printSize">Size</label>
+              <select id="printSize">
+                <option>Standard business card (3.5 × 2 in)</option>
+                <option>A4</option>
+                <option>A3</option>
+                <option>5 × 7 in</option>
+                <option>Custom dimensions</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="quantity">Quantity</label>
+              <input id="quantity" type="number" min="100" step="1"
+                value="100" inputmode="numeric" required>
+            </div>
+
+            <div class="field">
+              <label for="paperWeight">Paper weight</label>
+              <select id="paperWeight">
+                <option>120 gsm</option>
+                <option>170 gsm</option>
+                <option>250 gsm</option>
+                <option selected>300 gsm</option>
+                <option>350 gsm</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="paperStock">Paper stock</label>
+              <select id="paperStock">
+                <option>Matte coated</option>
+                <option>Glossy coated</option>
+                <option>Uncoated paper</option>
+                <option>Premium cardstock</option>
+                <option>Recycled paper</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="finish">Finish</label>
+              <select id="finish">
+                <option>None</option>
+                <option>Matte lamination</option>
+                <option>Gloss lamination</option>
+                <option>Soft-touch finish</option>
+                <option>Spot UV</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="cornerStyle">Corner style</label>
+              <select id="cornerStyle">
+                <option>Square corners</option>
+                <option>Rounded corners</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Design method -->
+        <div class="builder-block">
+          <div class="builder-title">
+            <span class="builder-number">02</span>
+            <h3>Your design</h3>
+          </div>
+
+          <div class="radio-tiles" role="radiogroup" aria-label="Design method">
+            <div class="radio-tile">
+              <input type="radio" id="designUpload" name="designMethod"
+                value="Upload My Design">
+              <label for="designUpload">
+                Upload My Design
+                <span>Use your own artwork</span>
+              </label>
+            </div>
+
+            <div class="radio-tile">
+              <input type="radio" id="designBrowse" name="designMethod"
+                value="Browse Designs" checked>
+              <label for="designBrowse">
+                Browse Designs
+                <span>Choose a visual direction</span>
+              </label>
+            </div>
+
+            <div class="radio-tile">
+              <input type="radio" id="designCustom" name="designMethod"
+                value="Request a Custom Design">
+              <label for="designCustom">
+                Request a Custom Design
+                <span>Share your idea</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="conditional" id="uploadArea">
+            <div class="field">
+              <label for="designFile">Select your artwork file</label>
+              <input id="designFile" type="file"
+                accept=".pdf,.png,.jpg,.jpeg,.svg,.ai,.eps">
+              <p class="field-help">
+                Accepted file types: PDF, PNG, JPG, SVG, AI, and EPS.
+              </p>
+            </div>
+          </div>
+
+          <div class="conditional show" id="browseArea">
+            <p class="field-label">Choose a design direction</p>
+
+            <div class="design-gallery" id="designGallery">
+              <button class="design-card" type="button"
+                data-design="Minimal 01" aria-pressed="false">
+                <div class="design-art minimal">
+                  <small>PRESSCO / STUDIO</small>
+                  <strong>Simply<br>considered.</strong>
+                  <small>LESS, WITH PURPOSE</small>
+                </div>
+                <div class="design-caption">
+                  <strong>Minimal 01</strong>
+                  <span>Business · Clean</span>
+                </div>
+              </button>
+
+              <button class="design-card" type="button"
+                data-design="Bold 02" aria-pressed="false">
+                <div class="design-art bold">
+                  <small>MAKE IT MATTER</small>
+                  <strong>BIG<br>IDEAS.</strong>
+                  <small>LOUD & CLEAR</small>
+                </div>
+                <div class="design-caption">
+                  <strong>Bold 02</strong>
+                  <span>Promo · Vibrant</span>
+                </div>
+              </button>
+
+              <button class="design-card" type="button"
+                data-design="Botanical 03" aria-pressed="false">
+                <div class="design-art botanical">
+                  <small>GROW WITH GRACE</small>
+                  <strong>Rooted<br>in nature.</strong>
+                  <small>BOTANICAL SERIES</small>
+                </div>
+                <div class="design-caption">
+                  <strong>Botanical 03</strong>
+                  <span>Personal · Organic</span>
+                </div>
+              </button>
+
+              <button class="design-card" type="button"
+                data-design="Editorial 04" aria-pressed="true">
+                <div class="design-art editorial">
+                  <small>PRESSCO / EDITION 04</small>
+                  <strong>Form.<br>Space.<br>Feeling.</strong>
+                  <small>THE EDITORIAL LINE</small>
+                </div>
+                <div class="design-caption">
+                  <strong>Editorial 04</strong>
+                  <span>Editorial · Refined</span>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div class="conditional" id="customArea">
+            <div class="field">
+              <label for="customBrief">Describe your design idea</label>
+              <textarea id="customBrief"
+                placeholder="Describe your preferred style, colors, wording, and overall look."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fulfillment and schedule -->
+        <div class="builder-block">
+          <div class="builder-title">
+            <span class="builder-number">03</span>
+            <h3>Fulfillment</h3>
+          </div>
+
+          <div class="fulfillment-tiles">
+            <div class="fulfillment-tile">
+              <input type="radio" id="fulfillmentDelivery"
+                name="fulfillment" value="Delivery" checked>
+              <label for="fulfillmentDelivery">
+                Delivery
+                <span>Have your order delivered</span>
+              </label>
+            </div>
+
+            <div class="fulfillment-tile">
+              <input type="radio" id="fulfillmentPickup"
+                name="fulfillment" value="Local Pickup">
+              <label for="fulfillmentPickup">
+                Local Pickup
+                <span>Collect your order</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="field-grid" style="margin-top:14px">
+            <div class="field full" id="addressField">
+              <label for="deliveryAddress">Delivery address</label>
+              <textarea id="deliveryAddress"
+                placeholder="House/building number, street, barangay, city"
+                required></textarea>
+            </div>
+
+            <div class="field">
+              <label for="scheduleDate">Preferred date</label>
+              <input id="scheduleDate" type="date">
+            </div>
+
+            <div class="field">
+              <label for="scheduleTime">Preferred schedule</label>
+              <select id="scheduleTime">
+                <option>Any time</option>
+                <option>Morning (9 AM–12 PM)</option>
+                <option>Afternoon (12 PM–3 PM)</option>
+                <option>Late afternoon (3 PM–6 PM)</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="additionalInstructions">Additional instructions</label>
+              <textarea id="additionalInstructions"
+                placeholder="Add any delivery, pickup, or order preferences."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customer details -->
+        <div class="builder-block">
+          <div class="builder-title">
+            <span class="builder-number">04</span>
+            <h3>Your contact details</h3>
+          </div>
+
+          <div class="field-grid">
+            <div class="field">
+              <label for="customerName">Full name</label>
+              <input id="customerName" type="text"
+                autocomplete="name" placeholder="Your full name"
+                required pattern="[A-Za-zÀ-ÿ .'-]+"
+                title="Please use letters, spaces, apostrophes, periods, or hyphens only.">
+            </div>
+
+            <div class="field">
+              <label for="customerPhone">Contact number</label>
+              <input id="customerPhone" type="tel" inputmode="numeric"
+                autocomplete="tel-national" pattern="[0-9]{10,11}"
+                maxlength="11" placeholder="09XXXXXXXXX"
+                title="Enter 10 or 11 digits, without spaces or symbols."
+                required>
+            </div>
+
+            <div class="field full">
+              <label for="customerEmail">Email address</label>
+              <input id="customerEmail" type="email"
+                autocomplete="email" placeholder="you@example.com" required>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%">
+          Request My Quotation ↗
+        </button>
+        <p class="order-status" id="orderStatus" role="status" aria-live="polite"></p>
+      </form>
+
+      <!-- Live request summary -->
+      <aside class="summary-panel" aria-live="polite">
+        <h3>Request summary</h3>
+        <p class="summary-intro">Your selections will appear here.</p>
+
+        <ul class="summary-list">
+          <li><span>Product line</span><strong id="sumLine">The Business Line</strong></li>
+          <li><span>Product type</span><strong id="sumProduct">Premium Business Cards</strong></li>
+          <li><span>Printing sides</span><strong id="sumSides">Single-sided</strong></li>
+          <li><span>Size</span><strong id="sumSize">Standard business card (3.5 × 2 in)</strong></li>
+          <li><span>Quantity</span><strong id="sumQuantity">100</strong></li>
+          <li><span>Paper weight</span><strong id="sumWeight">300 gsm</strong></li>
+          <li><span>Paper stock</span><strong id="sumStock">Matte coated</strong></li>
+          <li><span>Finish</span><strong id="sumFinish">None</strong></li>
+          <li><span>Corner style</span><strong id="sumCorners">Square corners</strong></li>
+          <li><span>Design method</span><strong id="sumMethod">Browse Designs</strong></li>
+          <li><span>Sample design</span><strong id="sumDesign">Editorial 04</strong></li>
+          <li><span>Fulfillment</span><strong id="sumFulfillment">Delivery</strong></li>
+          <li><span>Delivery address</span><strong id="sumAddress">Not provided</strong></li>
+          <li><span>Preferred schedule</span><strong id="sumSchedule">Any time</strong></li>
+          <li><span>Additional instructions</span><strong id="sumInstructions">None</strong></li>
+        </ul>
+
+        <div class="summary-total">
+          <span>Estimated total</span>
+          <strong id="sumTotal">₱370</strong>
+        </div>
+
+        <p class="summary-extra">
+          The final quotation will reflect the confirmed specifications and delivery details.
+        </p>
+        <a href="#order" class="btn btn-outline">Review Your Choices ↑</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how-it-works">
+  <div class="container">
+    <p class="label">Simple from start to finish</p>
+    <h2 class="heading">How ordering works.</h2>
+    <p class="description">
+      Tell us what you have in mind. We will use your requirements
+      to prepare a quotation and discuss the next steps.
+    </p>
+
+    <div class="steps-grid">
+      <article class="step-card">
+        <div class="step-number">01</div>
+        <h3>Choose Your Product</h3>
+        <p>Browse the catalog and select the printed material you need.</p>
+      </article>
+      <article class="step-card">
+        <div class="step-number">02</div>
+        <h3>Customize the Details</h3>
+        <p>Choose the paper, size, quantity, design, finish, and fulfillment method.</p>
+      </article>
+      <article class="step-card">
+        <div class="step-number">03</div>
+        <h3>Review Your Request</h3>
+        <p>Check the request summary and provide your contact information.</p>
+      </article>
+      <article class="step-card">
+        <div class="step-number">04</div>
+        <h3>Receive a Quotation</h3>
+        <p>Send your inquiry and confirm the final price, schedule, and order details.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT US -->
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="about-image-wrap">
+      <img class="about-image"
+        src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=85"
+        alt="Creative stationery arranged on a work desk" loading="lazy">
+      <div class="about-note">Thoughtful paper.<br>Fresh possibilities.</div>
+    </div>
+
+    <div class="about-copy">
+      <p class="label">A little about us</p>
+      <h2 class="heading">Ideas are better when they come to life.</h2>
+      <p>
+        Welcome to PressCo., your online destination for modern custom
+        printing. From professional business cards to creative brochures
+        and personalized greeting cards, we help turn everyday ideas into
+        meaningful printed materials.
+      </p>
+      <p>
+        We believe print is more than ink on paper. It is a way to communicate
+        a brand, share information, celebrate milestones, and leave a lasting
+        impression. Our goal is to make exploring paper products and
+        requesting a custom quote straightforward and convenient.
+      </p>
+
+      <div class="values-grid">
+        <div class="value-item">
+          <strong>Our Mission</strong>
+          <span>To make custom paper printing approachable, creative, and convenient.</span>
+        </div>
+        <div class="value-item">
+          <strong>Our Vision</strong>
+          <span>To be a trusted choice for thoughtful printed products and fresh ideas.</span>
+        </div>
+        <div class="value-item">
+          <strong>Creativity</strong>
+          <span>We welcome different ideas, styles, and personal touches.</span>
+        </div>
+        <div class="value-item">
+          <strong>Attention to Detail</strong>
+          <span>We value clear specifications and thoughtful design.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE BANNER -->
+<section class="section feature-section">
+  <div class="container">
+    <div class="quote-banner">
+      <p class="label">Have something in mind?</p>
+      <h2>Let's put your ideas on paper.</h2>
+      <p>
+        Whether you need business materials, promotional prints, or
+        personalized paper products, build your order and share your requirements.
+      </p>
+      <a href="#order" class="btn btn-light">Build Your Order ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <p class="label">Let's talk about your project</p>
+    <h2 class="heading">Get in touch with PressCo.</h2>
+    <p class="description">
+      Have a question or a custom order in mind? Send us your inquiry.
+    </p>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Contact information</h3>
+        <p>
+          Share your printing requirements, ask about product options,
+          or request a personalized quotation.
+        </p>
+
+        <div class="contact-item">
+          <div class="contact-icon">✉</div>
+          <div>
+            <strong>Email us</strong>
+            <a href="mailto:pressco.prints@gmail.com">pressco.prints@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">☎</div>
+          <div>
+            <strong>Call or message</strong>
+            <a href="tel:09175550123">09175550123</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">⌖</div>
+          <div>
+            <strong>Service area</strong>
+            <p>Ormoc City, Leyte, Philippines</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">◷</div>
+          <div>
+            <strong>Business hours</strong>
+            <p>Monday–Saturday: 9:00 AM–6:00 PM</p>
+            <p>Sunday: By appointment</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <h3>Send an inquiry</h3>
+        <p>Complete the form and review your message in your email application.</p>
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="contactName">Full name</label>
+            <input id="contactName" type="text" required
+              autocomplete="name" placeholder="Your full name"
+              pattern="[A-Za-zÀ-ÿ .'-]+"
+              title="Please use letters, spaces, apostrophes, periods, or hyphens only.">
+          </div>
+
+          <div class="field">
+            <label for="contactMobile">Contact number</label>
+            <input id="contactMobile" type="tel" inputmode="numeric"
+              pattern="[0-9]{10,11}" maxlength="11"
+              placeholder="09XXXXXXXXX"
+              title="Enter 10 or 11 digits, without spaces or symbols.">
+          </div>
+
+          <div class="field full">
+            <label for="contactEmail">Email address</label>
+            <input id="contactEmail" type="email" required
+              placeholder="you@example.com" autocomplete="email">
+          </div>
+
+          <div class="field full">
+            <label for="contactProduct">What can we help you with?</label>
+            <select id="contactProduct">
+              <option>General Inquiry</option>
+              <option>Business Cards</option>
+              <option>Flyers and Brochures</option>
+              <option>Invitations and Greeting Cards</option>
+              <option>Posters and Stickers</option>
+              <option>Custom Stationery</option>
+              <option>Existing Order</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label for="contactMessage">Message</label>
+            <textarea id="contactMessage" required
+              placeholder="Tell us how we can help."></textarea>
+          </div>
+
+          <div class="field full">
+            <button class="btn btn-primary" type="submit" style="width:100%">
+              Prepare Email ↗
+            </button>
+            <p class="contact-status" id="contactStatus" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div style="text-align:center">
+      <p class="label">Frequently asked questions</p>
+      <h2 class="heading">A few things to know.</h2>
+      <p class="description" style="margin-left:auto;margin-right:auto">
+        Helpful answers before you send your request.
+      </p>
+    </div>
+
+    <div class="faq-list">
+      <details>
+        <summary>How can I request a quotation?</summary>
+        <p>
+          Build your order, review the summary, and submit your request.
+          Your email application will open with the details for you to review and send.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can I use my own design?</summary>
+        <p>
+          Yes. Choose Upload My Design and select your artwork file.
+          Attach the file to your email before sending your inquiry.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can I ask for a custom design?</summary>
+        <p>
+          Yes. Choose Request a Custom Design and describe your preferred style,
+          colors, wording, and overall look in the design field.
+        </p>
+      </details>
+
+      <details>
+        <summary>How are printing prices calculated?</summary>
+        <p>
+          The estimate is based on the selected product, quantity, size, paper,
+          printing sides, and finishing options. The final quotation is confirmed
+          after the order details are reviewed.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can I choose delivery or local pickup?</summary>
+        <p>
+          Yes. Select your preferred fulfillment method in the order builder
+          and include your preferred date and schedule.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#home" class="logo footer-logo">
+          <span class="logo-symbol">P.</span>
+          <span>
+            <span class="logo-name">PressCo.</span>
+            <span class="logo-tagline">Crisp Print. Fresh Takes.</span>
+          </span>
+        </a>
+        <p class="footer-about">
+          Custom paper products for businesses, creators, students,
+          and special occasions.
+        </p>
+        <div class="social-links">
+          <a href="#contact" aria-label="Facebook">f</a>
+          <a href="#contact" aria-label="Instagram">ig</a>
+          <a href="mailto:pressco.prints@gmail.com" aria-label="Email PressCo.">@</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#collections">Collections</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#order">Build Your Order</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Customer Care</h4>
+        <ul class="footer-links">
+          <li><a href="#order">Request a Quote</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#faq">FAQs</a></li>
+          <li><a href="mailto:pressco.prints@gmail.com">Email Inquiries</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Get in touch</h4>
+        <ul class="footer-links">
+          <li><a href="mailto:pressco.prints@gmail.com">pressco.prints@gmail.com</a></li>
+          <li>Ormoc City, Leyte, Philippines</li>
+          <li>Mon–Sat, 9 AM–6 PM</li>
+          <li><a href="tel:09175550123">09175550123</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="currentYear"></span> PressCo. All rights reserved.</p>
+      <p>Crisp Print. Fresh Takes.</p>
+    </div>
+  </div>
+</footer>
+
+<button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
+<script>
+const BUSINESS_EMAIL = "pressco.prints@gmail.com";
+const $ = id => document.getElementById(id);
+
+/* Mobile navigation */
+const menuToggle = $("menuToggle");
+const navLinks = $("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  const open = navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(open));
+  menuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+  menuToggle.textContent = open ? "✕" : "☰";
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation");
+    menuToggle.textContent = "☰";
+  });
+});
+
+/* Product filters */
+const filterButtons = [...document.querySelectorAll(".filter-btn")];
+const productCards = [...document.querySelectorAll(".product-card")];
+
+function filterProducts(category) {
+  filterButtons.forEach(button => {
+    const active = button.dataset.filter === category;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+
+  productCards.forEach(card => {
+    card.hidden = category !== "all" && card.dataset.category !== category;
+  });
+}
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => filterProducts(button.dataset.filter));
+});
+
+document.querySelectorAll("[data-filter-link]").forEach(link => {
+  link.addEventListener("click", () => filterProducts(link.dataset.filterLink));
+});
+
+/* Product pricing settings */
+const productInfo = {
+  "Premium Business Cards": {line:"business",rate:2.5,def:100,min:100},
+  "Flyers": {line:"marketing",rate:3.5,def:100,min:100},
+  "Brochures": {line:"marketing",rate:12,def:100,min:100},
+  "Greeting Cards": {line:"personal",rate:20,def:20,min:20},
+  "Posters": {line:"creative",rate:90,def:1,min:1},
+  "Custom Stickers": {line:"creative",rate:6,def:50,min:50},
+  "Invitations": {line:"personal",rate:22.5,def:20,min:20},
+  "Custom Stationery": {line:"business",rate:5,def:100,min:100}
+};
+
+const lineLabels = {
+  business: "The Business Line",
+  marketing: "The Marketing Line",
+  personal: "The Personal Line",
+  creative: "The Creative Line"
+};
+
+const productType = $("productType");
+const productLine = $("productLine");
+const quantityInput = $("quantity");
+const designRadios = [...document.querySelectorAll('input[name="designMethod"]')];
+
+let selectedDesign = "Editorial 04";
+
+function activeDesignMethod() {
+  return designRadios.find(radio => radio.checked)?.value || "Browse Designs";
+}
+
+function selectedFulfillment() {
+  return document.querySelector('input[name="fulfillment"]:checked')?.value || "Delivery";
+}
+
+function formatMoney(value) {
+  return new Intl.NumberFormat("en-PH", {
+    style: "currency",
+    currency: "PHP",
+    maximumFractionDigits: 0
+  }).format(Math.round(value));
+}
+
+/* Update the live request summary and estimated cost */
+function updateSummary() {
+  const product = productType.value;
+  const info = productInfo[product] || productInfo["Premium Business Cards"];
+
+  productLine.value = info.line;
+
+  $("sumLine").textContent = lineLabels[info.line];
+  $("sumProduct").textContent = product;
+  $("sumSides").textContent = $("printingSides").value;
+  $("sumSize").textContent = $("printSize").value;
+
+  const quantity = Math.max(Number(quantityInput.value) || info.def, info.min);
+
+  $("sumQuantity").textContent = quantity.toLocaleString("en-PH");
+  $("sumWeight").textContent = $("paperWeight").value;
+  $("sumStock").textContent = $("paperStock").value;
+  $("sumFinish").textContent = $("finish").value;
+  $("sumCorners").textContent = $("cornerStyle").value;
+
+  const method = activeDesignMethod();
+  $("sumMethod").textContent = method;
+
+  if (method === "Browse Designs") {
+    $("sumDesign").textContent = selectedDesign;
+  } else if (method === "Upload My Design") {
+    $("sumDesign").textContent = $("designFile").files[0]?.name || "No file selected";
+  } else {
+    $("sumDesign").textContent = "Custom design request";
+  }
+
+  const fulfillment = selectedFulfillment();
+  $("sumFulfillment").textContent = fulfillment;
+
+  $("sumAddress").textContent = fulfillment === "Delivery"
+    ? ($("deliveryAddress").value.trim() || "Not provided")
+    : "Local pickup";
+
+  const date = $("scheduleDate").value;
+  const time = $("scheduleTime").value;
+
+  $("sumSchedule").textContent = date
+    ? new Date(date + "T12:00:00").toLocaleDateString("en-PH", {
+        year: "numeric",
+        month: "short",
+        day: "numeric"
+      }) + " · " + time
+    : time;
+
+  $("sumInstructions").textContent =
+    $("additionalInstructions").value.trim() || "None";
+
+  const weightFactor = {
+    "120 gsm": .9,
+    "170 gsm": .95,
+    "250 gsm": 1,
+    "300 gsm": 1.08,
+    "350 gsm": 1.16
+  }[$("paperWeight").value] || 1;
+
+  const stockFactor = {
+    "Matte coated": 1,
+    "Glossy coated": 1.03,
+    "Uncoated paper": .98,
+    "Premium cardstock": 1.15,
+    "Recycled paper": 1.08
+  }[$("paperStock").value] || 1;
+
+  const sideFactor = $("printingSides").value === "Double-sided" ? 1.25 : 1;
+
+  const sizeFactor = {
+    "Standard business card (3.5 × 2 in)": 1,
+    "A4": 1.6,
+    "A3": 2.5,
+    "5 × 7 in": 1.5,
+    "Custom dimensions": 1.8
+  }[$("printSize").value] || 1;
+
+  const finishRate = {
+    "None": 0,
+    "Matte lamination": 1.5,
+    "Gloss lamination": 1.5,
+    "Soft-touch finish": 3,
+    "Spot UV": 2.5
+  }[$("finish").value] || 0;
+
+  const cornerRate = $("cornerStyle").value === "Rounded corners" ? .75 : 0;
+  const designCost = method === "Request a Custom Design" ? 500 : 0;
+  const deliveryCost = fulfillment === "Delivery" ? 100 : 0;
+
+  const estimated = Math.max(
+    0,
+    quantity * info.rate * weightFactor * stockFactor * sideFactor * sizeFactor
+    + quantity * (finishRate + cornerRate)
+    + designCost
+    + deliveryCost
+  );
+
+  $("sumTotal").textContent = formatMoney(estimated);
+
+  return {product, info, quantity, method, fulfillment, estimated};
+}
+
+/* Show the appropriate design controls */
+function updateDesignMethod() {
+  const method = activeDesignMethod();
+
+  $("uploadArea").classList.toggle("show", method === "Upload My Design");
+  $("browseArea").classList.toggle("show", method === "Browse Designs");
+  $("customArea").classList.toggle("show", method === "Request a Custom Design");
+
+  updateSummary();
+}
+
+/* Show the delivery address only for delivery orders */
+function updateFulfillment() {
+  const delivery = selectedFulfillment() === "Delivery";
+
+  $("addressField").style.display = delivery ? "block" : "none";
+  $("deliveryAddress").required = delivery;
+
+  updateSummary();
+}
+
+/* Keep product line and product type consistent */
+productType.addEventListener("change", () => {
+  const info = productInfo[productType.value];
+
+  productLine.value = info.line;
+  quantityInput.min = info.min;
+  quantityInput.value = info.def;
+
+  updateSummary();
+});
+
+productLine.addEventListener("change", () => {
+  const next = Object.keys(productInfo).find(
+    name => productInfo[name].line === productLine.value
+  );
+
+  if (next) {
+    productType.value = next;
+
+    const info = productInfo[next];
+    quantityInput.min = info.min;
+    quantityInput.value = info.def;
+  }
+
+  updateSummary();
+});
+
+/* Refresh the summary when order options change */
+[
+  "printingSides",
+  "printSize",
+  "quantity",
+  "paperWeight",
+  "paperStock",
+  "finish",
+  "cornerStyle",
+  "deliveryAddress",
+  "scheduleDate",
+  "scheduleTime",
+  "additionalInstructions"
+].forEach(id => {
+  $(id).addEventListener("input", updateSummary);
+});
+
+[
+  "printingSides",
+  "printSize",
+  "paperWeight",
+  "paperStock",
+  "finish",
+  "cornerStyle",
+  "scheduleTime"
+].forEach(id => {
+  $(id).addEventListener("change", updateSummary);
+});
+
+designRadios.forEach(radio => {
+  radio.addEventListener("change", updateDesignMethod);
+});
+
+document.querySelectorAll(".design-card").forEach(button => {
+  button.addEventListener("click", () => {
+    selectedDesign = button.dataset.design;
+
+    document.querySelectorAll(".design-card").forEach(card => {
+      card.setAttribute("aria-pressed", String(card === button));
     });
 
-    // Close mobile navigation after choosing a section
-    navLinks.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "Open navigation");
-        menuToggle.textContent = "☰";
-      });
-    });
+    updateSummary();
+  });
+});
 
-    // Product filters
-    const filterButtons = document.querySelectorAll(".filter-btn");
-    const productCards = document.querySelectorAll(".product-card");
+$("designFile").addEventListener("change", updateSummary);
 
-    function filterProducts(category) {
-      filterButtons.forEach(function (button) {
-        const active = button.dataset.filter === category;
-        button.classList.toggle("active", active);
-        button.setAttribute("aria-pressed", String(active));
-      });
+document.querySelectorAll('input[name="fulfillment"]').forEach(radio => {
+  radio.addEventListener("change", updateFulfillment);
+});
 
-      productCards.forEach(function (card) {
-        card.hidden = category !== "all" &&
-          card.dataset.category !== category;
-      });
-    }
+/* Name fields remove numbers; telephone fields keep digits only */
+function numbersOnly(input, max = 11) {
+  input.value = input.value.replace(/\D/g, "").slice(0, max);
+}
 
-    filterButtons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        filterProducts(button.dataset.filter);
-      });
-    });
+$("customerPhone").addEventListener("input", event => numbersOnly(event.target));
+$("contactMobile").addEventListener("input", event => numbersOnly(event.target));
 
-    // Category collection links filter the catalog
-    document.querySelectorAll("[data-filter-link]").forEach(function (link) {
-      link.addEventListener("click", function () {
-        filterProducts(link.dataset.filterLink);
-      });
-    });
+function lettersOnly(input) {
+  input.value = input.value.replace(/[0-9]/g, "");
+}
 
-    // Product quote buttons preselect the product in the inquiry form
-    const productSelect = document.getElementById("productSelect");
+$("customerName").addEventListener("input", event => lettersOnly(event.target));
+$("contactName").addEventListener("input", event => lettersOnly(event.target));
 
-    document.querySelectorAll("[data-product]").forEach(function (button) {
-      button.addEventListener("click", function () {
-        productSelect.value = button.dataset.product;
-        document.getElementById("contact").scrollIntoView({
-          behavior: "smooth"
-        });
-        window.setTimeout(function () {
-          document.getElementById("customerName").focus({
-            preventScroll: true
-          });
-        }, 500);
-      });
-    });
+/* Do not allow a past preferred date */
+$("scheduleDate").min = new Date(
+  Date.now() - new Date().getTimezoneOffset() * 60000
+).toISOString().slice(0,10);
 
-    // Prevent selecting a past date as the requested deadline
-    const deadlineInput = document.getElementById("deadline");
-    const today = new Date();
-    const localToday = new Date(
-      today.getTime() - today.getTimezoneOffset() * 60000
-    ).toISOString().split("T")[0];
+/* Product buttons preselect the product in the order builder */
+productCards.forEach(card => {
+  const button = card.querySelector("[data-product]");
 
-    deadlineInput.min = localToday;
+  button.addEventListener("click", () => {
+    productType.value = button.dataset.product;
 
-    // Quotation form: opens an email draft
-    const quoteForm = document.getElementById("quoteForm");
-    const formStatus = document.getElementById("formStatus");
+    const info = productInfo[productType.value];
 
-    quoteForm.addEventListener("submit", function (event) {
-      event.preventDefault();
+    productLine.value = info.line;
+    quantityInput.min = info.min;
+    quantityInput.value = info.def;
 
-      if (!quoteForm.reportValidity()) {
-        return;
-      }
+    updateSummary();
 
-      const formData = new FormData(quoteForm);
+    $("order").scrollIntoView({behavior: "smooth"});
+  });
+});
 
-      const name = formData.get("customerName").trim();
-      const email = formData.get("customerEmail").trim();
-      const phone = formData.get("customerPhone").trim();
-      const product = formData.get("productSelect");
-      const quantity = formData.get("quantity");
-      const size = formData.get("size");
-      const paper = formData.get("paper");
-      const deadline = formData.get("deadline") || "Not specified";
-      const details = formData.get("design").trim();
+/* Prepare an email containing the complete order summary */
+$("orderBuilder").addEventListener("submit", event => {
+  event.preventDefault();
 
-      const subject = "PressCo. Quotation Inquiry - " + product;
+  const status = $("orderStatus");
 
-      const body = [
-        "Hello PressCo.,",
-        "",
-        "I would like to request a quotation.",
-        "",
-        "CUSTOMER INFORMATION",
-        "Name: " + name,
-        "Email: " + email,
-        "Mobile number: " + (phone || "Not provided"),
-        "",
-        "ORDER DETAILS",
-        "Product: " + product,
-        "Quantity: " + quantity,
-        "Preferred size: " + size,
-        "Paper preference: " + paper,
-        "Target deadline: " + deadline,
-        "",
-        "DESIGN AND REQUIREMENTS",
-        details,
-        "",
-        "Please let me know the estimated price and next steps.",
-        "",
-        "Thank you!"
-      ].join("\n");
+  if (!event.currentTarget.reportValidity()) return;
 
-      const mailto =
-        "mailto:" + BUSINESS_EMAIL +
-        "?subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(body);
+  const order = updateSummary();
+  const file = $("designFile").files[0];
 
-      formStatus.textContent =
-        "Opening your email application. Review the inquiry and press Send there. " +
-        "If nothing opens, email " + BUSINESS_EMAIL + " directly.";
+  const detail = [
+    "Hello PressCo.",
+    "",
+    "I would like to request a quotation for this order.",
+    "",
+    "CUSTOMER DETAILS",
+    "Name: " + $("customerName").value.trim(),
+    "Email: " + $("customerEmail").value.trim(),
+    "Contact number: " + $("customerPhone").value,
+    "",
+    "REQUEST SUMMARY",
+    "Product line: " + lineLabels[order.info.line],
+    "Product type: " + order.product,
+    "Printing sides: " + $("printingSides").value,
+    "Size: " + $("printSize").value,
+    "Quantity: " + order.quantity,
+    "Paper weight: " + $("paperWeight").value,
+    "Paper stock: " + $("paperStock").value,
+    "Finish: " + $("finish").value,
+    "Corner style: " + $("cornerStyle").value,
+    "Design method: " + order.method,
+    "Sample design: " + (
+      order.method === "Browse Designs"
+        ? selectedDesign
+        : order.method === "Upload My Design"
+          ? (file ? file.name : "File will be attached separately")
+          : "Custom design request"
+    ),
+    "Design brief: " + ($("customBrief").value.trim() || "None"),
+    "Fulfillment: " + order.fulfillment,
+    "Delivery address: " + (
+      order.fulfillment === "Delivery"
+        ? $("deliveryAddress").value.trim()
+        : "Local pickup"
+    ),
+    "Preferred schedule: " +
+      ($("scheduleDate").value || "Not specified") +
+      " / " + $("scheduleTime").value,
+    "Additional instructions: " +
+      ($("additionalInstructions").value.trim() || "None"),
+    "Estimated total: " + $("sumTotal").textContent,
+    "",
+    "Please confirm the final quotation and next steps.",
+    "",
+    "Thank you!"
+  ].join("\n");
 
-      window.location.href = mailto;
-    });
+  status.textContent = file && order.method === "Upload My Design"
+    ? "Your email draft is opening. Attach the selected artwork file before sending."
+    : "Your email draft is opening. Review the details before sending.";
 
-    // Back-to-top button
-    const backTop = document.getElementById("backTop");
+  const subject = "PressCo. Quotation Request - " + order.product;
 
-    window.addEventListener("scroll", function () {
-      backTop.classList.toggle("visible", window.scrollY > 500);
-    });
+  window.location.href =
+    "mailto:" + BUSINESS_EMAIL +
+    "?subject=" + encodeURIComponent(subject) +
+    "&body=" + encodeURIComponent(detail);
+});
 
-    backTop.addEventListener("click", function () {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+/* Contact form */
+$("contactForm").addEventListener("submit", event => {
+  event.preventDefault();
 
-    // Current copyright year
-    document.getElementById("currentYear").textContent =
-      new Date().getFullYear();
-  </script>
+  const form = event.currentTarget;
+
+  if (!form.reportValidity()) return;
+
+  const body = [
+    "Hello PressCo.",
+    "",
+    "I have an inquiry.",
+    "",
+    "Name: " + $("contactName").value.trim(),
+    "Email: " + $("contactEmail").value.trim(),
+    "Contact number: " + ($("contactMobile").value || "Not provided"),
+    "Product: " + $("contactProduct").value,
+    "",
+    "Message:",
+    $("contactMessage").value.trim()
+  ].join("\n");
+
+  $("contactStatus").textContent =
+    "Your email draft is opening. Review the details before sending.";
+
+  window.location.href =
+    "mailto:" + BUSINESS_EMAIL +
+    "?subject=" + encodeURIComponent(
+      "PressCo. Inquiry - " + $("contactProduct").value
+    ) +
+    "&body=" + encodeURIComponent(body);
+});
+
+/* Back-to-top button and copyright year */
+const backTop = $("backTop");
+
+window.addEventListener("scroll", () => {
+  backTop.classList.toggle("visible", window.scrollY > 500);
+});
+
+backTop.addEventListener("click", () => {
+  window.scrollTo({top: 0, behavior: "smooth"});
+});
+
+$("currentYear").textContent = new Date().getFullYear();
+
+updateFulfillment();
+updateSummary();
+</script>
 
 </body>
 </html>
