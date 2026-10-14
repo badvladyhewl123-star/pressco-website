@@ -356,20 +356,31 @@ textarea {
   margin-bottom: 18px;
 }
 
+
+.contact-content h2,
+.contact-content h3 {
+  text-align: center;
+}
+
+.contact-content h2 {
+  font: bold 38px Georgia, serif;
+  color: var(--green);
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
 .contact-content h3 {
   font: bold 26px Georgia, serif;
   color: var(--green);
-  text-align: left;
   margin-top: 0;
   margin-bottom: 12px;
 }
 
-.contact-content p {
-  text-align: left;
-  margin-top: 0;
-  margin-bottom: 12px;
-  line-height: 1.6;
+/* Center only the introductory description */
+.contact-content > p:first-of-type {
+  text-align: center;
 }
+
 
 /* Contact links are not bold */
 .contact-content a {
