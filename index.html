@@ -1,269 +1,1044 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PressCo. | Crisp Print. Fresh Takes.</title>
+<meta name="description" content="PressCo. is a modern custom paper products and printing studio in Ormoc City. Crisp Print. Fresh Takes.">
 
 <style>
 :root {
-  --cream:#f8f7f1;
-  --white:#fff;
-  --green:#294334;
-  --dark:#1e3026;
-  --sage:#aab69e;
-  --orange:#c77c52;
-  --muted:#777b70;
-  --line:#e6e4d9;
+  --cream: #f8f6ef;
+  --white: #ffffff;
+  --green: #244d3b;
+  --dark: #18382c;
+  --sage: #dce6d8;
+  --sage-dark: #a9bda6;
+  --orange: #d8794f;
+  --text: #26352d;
+  --muted: #777f77;
+  --line: #e6e8df;
+  --shadow: 0 12px 35px rgba(31, 58, 43, .08);
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--cream);color:var(--dark);font-family:Arial,Helvetica,sans-serif}
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
-img{display:block;max-width:100%}
-a{color:inherit;text-decoration:none}
-
-header{
-  height:76px;background:rgba(248,247,241,.97);
-  border-bottom:1px solid var(--line);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 6%;position:sticky;top:0;z-index:100;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.brand{display:flex;align-items:center;gap:12px;border:0;background:none;text-align:left;color:inherit}
-.brand-logo{
-  width:43px;height:43px;background:var(--green);color:var(--cream);
-  display:flex;justify-content:center;align-items:center;
-  font-family:Georgia,serif;font-size:29px;font-weight:bold;
-  border-radius:3px;flex-shrink:0;
+html {
+  scroll-behavior: smooth;
 }
-.brand-text{display:flex;flex-direction:column;gap:3px}
-.brand-text strong{font-family:Georgia,serif;font-size:26px;letter-spacing:-1px}
-.brand-text small{font-size:10px;letter-spacing:1.5px;color:var(--muted)}
 
-nav{display:flex;align-items:center;gap:30px}
-nav button{
-  border:0;background:none;color:var(--dark);font-size:12px;
-  font-weight:bold;letter-spacing:.5px;padding:10px 0;
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
 }
-nav button:hover,nav button.active{color:var(--orange)}
-nav .nav-order{background:var(--green);color:white;padding:13px 21px;border-radius:3px}
-nav .nav-order:hover{background:var(--orange);color:white}
-.menu-toggle{display:none;background:none;border:0;font-size:25px;color:var(--green)}
 
-.page{display:none;min-height:calc(100vh - 76px);animation:appear .3s ease}
-.page.active{display:block}
-@keyframes appear{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
-
-.container{width:88%;max-width:1250px;margin:auto}
-.eyebrow{color:var(--orange);font-size:10px;font-weight:bold;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:17px}
-h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:normal}
-
-.primary-btn,.secondary-btn{
-  border:1px solid var(--green);display:inline-flex;
-  justify-content:center;align-items:center;padding:15px 23px;
-  font-size:11px;font-weight:bold;letter-spacing:1px;transition:.2s;
+button, input, select, textarea {
+  font: inherit;
 }
-.primary-btn{background:var(--green);color:white}
-.primary-btn:hover{background:var(--orange);border-color:var(--orange)}
-.secondary-btn{color:var(--green);background:transparent}
-.secondary-btn:hover{background:var(--green);color:white}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: min(1160px, 92%);
+  margin: auto;
+}
+
+/* HEADER */
+
+header {
+  background: rgba(248, 246, 239, .97);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--line);
+}
+
+.navbar {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  background: var(--green);
+  color: white;
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  font-family: Georgia, serif;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.brand-name {
+  font-family: Georgia, serif;
+  color: var(--green);
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 1.1;
+}
+
+.brand-tagline {
+  font-size: 10px;
+  letter-spacing: 1.1px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+}
+
+.nav-links button {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  transition: .2s;
+}
+
+.nav-links button:hover,
+.nav-links button.active {
+  color: var(--orange);
+}
+
+.nav-links .nav-cta {
+  background: var(--green);
+  color: white;
+  padding: 11px 18px;
+  border-radius: 30px;
+}
+
+.nav-links .nav-cta:hover {
+  background: var(--orange);
+  color: white;
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: none;
+  color: var(--green);
+  font-size: 27px;
+}
+
+/* PAGE NAVIGATION */
+
+.page {
+  display: none;
+  min-height: 70vh;
+  animation: fadeIn .3s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: .5; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 /* HOME */
-.home-hero{
-  min-height:570px;display:grid;grid-template-columns:1.05fr .95fr;
-  align-items:center;gap:55px;padding:65px 0;
+
+.ad-banner {
+  background: var(--green);
+  color: white;
+  text-align: center;
+  padding: 11px 15px;
+  font-size: 12px;
+  letter-spacing: .5px;
 }
-.home-copy h1{font-size:clamp(55px,7vw,91px);line-height:.99;letter-spacing:-4px;margin-bottom:26px}
-.home-copy h1 em{color:var(--orange);font-weight:normal}
-.hero-buttons{display:flex;flex-wrap:wrap;gap:12px}
-.hero-image{position:relative;height:430px}
-.hero-image img{width:100%;height:100%;object-fit:cover;border-radius:2px}
-.image-note{
-  position:absolute;bottom:-19px;left:-25px;background:var(--white);
-  padding:19px 23px;box-shadow:0 8px 30px #263c2814;
+
+.ad-banner strong {
+  color: #f3bd9f;
 }
-.image-note strong{display:block;font-family:Georgia,serif;font-size:18px;margin-bottom:5px}
-.image-note span{font-size:10px;color:var(--muted)}
-.home-bottom{
-  border-top:1px solid var(--line);padding:27px 0;
-  display:flex;justify-content:space-between;gap:20px;align-items:center;
+
+.home-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 55px;
+  padding: 75px 0 55px;
 }
-.home-bottom strong{font-family:Georgia,serif;font-size:21px}
-.home-bottom p{font-size:11px;color:var(--muted)}
-.quick-links{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.quick-link{
-  padding:24px 20px;border-right:1px solid var(--line);
-  background:transparent;border-top:0;border-bottom:0;border-left:0;
-  text-align:left;transition:.2s;
+
+.eyebrow {
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 17px;
 }
-.quick-link:last-child{border-right:0}
-.quick-link:hover{background:#eeeee5}
-.quick-link .symbol{font-size:23px;color:var(--orange);margin-bottom:13px}
-.quick-link strong{display:block;font-family:Georgia,serif;font-size:17px;margin-bottom:5px}
-.quick-link small{color:var(--muted);font-size:10px}
+
+.home-copy h1 {
+  font-family: Georgia, serif;
+  color: var(--green);
+  font-size: clamp(45px, 6vw, 76px);
+  line-height: 1.03;
+  letter-spacing: -2px;
+  margin-bottom: 22px;
+}
+
+.home-copy h1 em {
+  color: var(--orange);
+  font-weight: normal;
+}
+
+.home-copy p {
+  color: var(--muted);
+  max-width: 470px;
+  font-size: 15px;
+  margin-bottom: 28px;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  border: none;
+  padding: 13px 22px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: .2s;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--orange);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  border: 1px solid var(--green);
+  background: transparent;
+  color: var(--green);
+}
+
+.btn-outline:hover {
+  background: var(--sage);
+}
+
+.hero-image {
+  position: relative;
+  padding: 13px;
+  background: var(--sage);
+  border-radius: 25px;
+  transform: rotate(1deg);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 17px;
+}
+
+.hero-label {
+  position: absolute;
+  bottom: 28px;
+  left: 28px;
+  background: var(--white);
+  padding: 13px 18px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.hero-label small {
+  display: block;
+  color: var(--orange);
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.hero-label strong {
+  color: var(--green);
+  font-family: Georgia, serif;
+  font-size: 17px;
+}
+
+.home-bottom {
+  padding: 25px 0 60px;
+}
+
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.quick-link {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+}
+
+.quick-link span {
+  color: var(--orange);
+  font-size: 22px;
+}
+
+.quick-link h3 {
+  font-family: Georgia, serif;
+  color: var(--green);
+  font-size: 17px;
+  margin: 7px 0 3px;
+}
+
+.quick-link p {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* GENERAL SECTIONS */
+
+.section {
+  padding: 65px 0;
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 35px;
+}
+
+.section-heading h2 {
+  color: var(--green);
+  font-family: Georgia, serif;
+  font-size: clamp(30px, 4vw, 43px);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.section-tag {
+  color: var(--orange);
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
 /* PRODUCTS */
-.section-head{padding:60px 0 30px;display:flex;align-items:end;justify-content:space-between;gap:20px}
-.section-head h2{font-size:clamp(35px,5vw,53px);margin-bottom:10px}
-.section-head p{color:var(--muted);font-size:13px;line-height:1.7}
-.filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:30px}
-.filter{background:transparent;border:1px solid var(--line);padding:10px 17px;font-size:10px;color:var(--dark);border-radius:30px}
-.filter.active,.filter:hover{background:var(--green);color:white;border-color:var(--green)}
-.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px 18px;padding-bottom:65px}
-.product-card{background:white;border:1px solid var(--line);overflow:hidden;transition:.25s}
-.product-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px #273b2810}
-.product-card img{width:100%;height:205px;object-fit:cover;background:#eeece4}
-.product-info{padding:18px}
-.category{font-size:9px;text-transform:uppercase;color:var(--orange);font-weight:bold;letter-spacing:1.6px}
-.product-info h3{font-size:21px;margin:9px 0}
-.product-info p{font-size:11px;line-height:1.7;color:var(--muted);min-height:38px}
-.price{font-size:12px;font-weight:bold;margin:15px 0}
-.price span{display:block;font-weight:normal;color:var(--muted);font-size:10px;margin-top:4px}
-.customize-btn{width:100%;padding:12px;background:var(--green);color:white;border:0;font-size:10px;font-weight:bold;letter-spacing:1px}
-.customize-btn:hover{background:var(--orange)}
 
-/* ORDER */
-.order-intro{padding:50px 0 30px}
-.order-intro h2{font-size:48px;margin-bottom:12px}
-.order-intro p{color:var(--muted);font-size:13px;line-height:1.8;max-width:650px}
-.order-layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:25px;align-items:start;padding-bottom:70px}
-.order-main{display:flex;flex-direction:column;gap:18px}
-.form-card,.summary-card{background:white;border:1px solid var(--line);padding:27px}
-.step-title{display:flex;gap:14px;align-items:center;margin-bottom:25px}
-.step-number{width:34px;height:34px;background:var(--green);color:white;display:grid;place-items:center;font-size:12px;border-radius:50%;flex-shrink:0}
-.step-title h3{font-size:24px}
-.step-title p{font-size:10px;color:var(--muted);margin-top:4px}
-.fields{display:grid;grid-template-columns:1fr 1fr;gap:17px}
-.field.full{grid-column:1/-1}
-.field label{display:block;font-size:10px;font-weight:bold;letter-spacing:.5px;margin-bottom:8px}
-.field input,.field select,.field textarea{
-  width:100%;padding:12px;border:1px solid var(--line);
-  background:#fdfdfb;outline:none;color:var(--dark);font-size:12px;border-radius:2px;
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
 }
-.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--sage)}
-.field textarea{min-height:85px;resize:vertical}
-.field input[type=file]{padding:9px}
 
-.design-options{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
-.design-option{border:1px solid var(--line);background:#faf9f5;padding:15px 11px;text-align:left;color:var(--dark)}
-.design-option.active{border:2px solid var(--green);background:#f0f2e9}
-.design-option strong{display:block;font-family:Georgia,serif;font-size:16px;margin-bottom:6px}
-.design-option small{font-size:9px;color:var(--muted)}
-.design-samples{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.sample{border:1px solid var(--line);padding:9px;background:white;cursor:pointer;text-align:center}
-.sample.active{border:2px solid var(--orange)}
-.sample-art{height:100px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;padding:5px;margin-bottom:9px;overflow:hidden}
-.sample-art strong{font-family:Georgia,serif;font-size:13px}
-.sample-art small{font-size:7px;letter-spacing:1px}
-.art-one{background:#e8e8dd;color:#294334}
-.art-two{background:#bc704e;color:white}
-.art-three{background:#dce4d1;color:#405b42}
-.art-four{background:#293d33;color:#f8f5e9}
-.sample b{font-size:10px;display:block}
-.sample span{font-size:8px;color:var(--muted)}
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  overflow: hidden;
+  transition: .25s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.product-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  background: var(--sage);
+}
+
+.product-info {
+  padding: 19px;
+}
+
+.product-info h3 {
+  font-family: Georgia, serif;
+  color: var(--green);
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.product-info p {
+  font-size: 12px;
+  color: var(--muted);
+  min-height: 40px;
+  margin-bottom: 16px;
+}
+
+.product-info .btn {
+  width: 100%;
+}
+
+/* ORDER BUILDER */
+
+.order-intro {
+  padding: 55px 0 30px;
+  text-align: center;
+}
+
+.order-intro h1 {
+  font-family: Georgia, serif;
+  font-size: 42px;
+  color: var(--green);
+  line-height: 1.15;
+  margin: 10px 0;
+}
+
+.order-intro p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.order-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(280px, .8fr);
+  align-items: start;
+  gap: 25px;
+  padding-bottom: 70px;
+}
+
+.order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-card,
+.summary-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 25px;
+}
+
+.form-card h2 {
+  font-family: Georgia, serif;
+  color: var(--green);
+  font-size: 21px;
+  margin-bottom: 5px;
+}
+
+.form-card .description {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.step-number {
+  display: inline-grid;
+  place-items: center;
+  background: var(--sage);
+  color: var(--green);
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 7px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 12px 13px;
+  background: #fcfcf9;
+  border: 1px solid #dfe4db;
+  border-radius: 9px;
+  outline: none;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--sage-dark);
+  box-shadow: 0 0 0 3px rgba(169, 189, 166, .2);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.field small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+/* DESIGN OPTIONS */
+
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.option-card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 13px;
+  background: #fcfcf9;
+  text-align: left;
+  color: var(--text);
+  transition: .2s;
+}
+
+.option-card strong {
+  display: block;
+  font-size: 12px;
+  color: var(--green);
+  margin-bottom: 4px;
+}
+
+.option-card span {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.option-card.selected {
+  border: 2px solid var(--green);
+  background: var(--sage);
+}
+
+.sample-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.sample-option {
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 10px;
+  background: white;
+  font-size: 11px;
+  color: var(--green);
+}
+
+.sample-option.selected {
+  border: 2px solid var(--orange);
+  background: #fff5ef;
+}
+
+.hidden {
+  display: none !important;
+}
 
 /* SHIPPING AND PAYMENT */
-.shipping-options,.payment-options{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:22px}
-.shipping-option,.payment-option{
-  background:white;border:1px solid var(--line);padding:17px;
-  text-align:left;color:var(--dark);transition:.2s;
+
+.shipping-options,
+.payment-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 12px 0 18px;
 }
-.shipping-option.active,.payment-option.active{border:2px solid var(--green);background:#f1f3ec}
-.shipping-option strong,.payment-option strong{display:block;font-size:12px;margin-bottom:7px}
-.shipping-option small,.payment-option small{display:block;color:var(--muted);font-size:10px;line-height:1.6}
-.shipping-option .delivery-price{display:block;color:var(--orange);font-weight:bold;font-size:12px;margin-top:9px}
-.delivery-estimate{background:#f1f3ec;padding:15px;margin:15px 0 20px;border-left:3px solid var(--green)}
-.delivery-estimate strong{display:block;font-size:12px;margin-bottom:5px}
-.delivery-estimate span{color:var(--muted);font-size:11px;line-height:1.6}
-.payment-note{color:var(--muted);font-size:10px;line-height:1.7;margin-top:12px}
+
+.choice-card {
+  border: 1px solid var(--line);
+  background: #fcfcf9;
+  border-radius: 10px;
+  padding: 13px 10px;
+  cursor: pointer;
+  text-align: left;
+  color: var(--text);
+  transition: .2s;
+}
+
+.choice-card strong {
+  display: block;
+  color: var(--green);
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.choice-card span {
+  display: block;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.choice-card.selected {
+  border: 2px solid var(--green);
+  background: var(--sage);
+}
+
+.payment-note {
+  font-size: 11px;
+  color: var(--muted);
+  background: #f7f7f1;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
 
 /* SUMMARY */
-.summary-card{position:sticky;top:95px}
-.summary-card h3{font-size:25px;margin-bottom:8px}
-.summary-card>p{font-size:10px;color:var(--muted);line-height:1.6;margin-bottom:20px}
-.summary-line{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid #efeee8;font-size:10px}
-.summary-line span{color:var(--muted)}
-.summary-line strong{text-align:right;max-width:58%;font-size:10px;overflow-wrap:anywhere}
-.summary-total{margin-top:18px;padding-top:17px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
-.summary-total span{font-size:12px;font-weight:bold}
-.summary-total strong{font-family:Georgia,serif;font-size:25px;color:var(--green)}
-.summary-note{font-size:9px;color:var(--muted);line-height:1.7;margin:14px 0}
-.submit-btn{width:100%;border:0;background:var(--green);color:white;padding:16px;font-size:10px;font-weight:bold;letter-spacing:1px}
-.submit-btn:hover{background:var(--orange)}
-.copy-btn{margin-top:10px;width:100%;background:white;border:1px solid var(--line);padding:12px;font-size:10px;color:var(--green)}
-.copy-btn:hover{background:#f1f3ec}
 
-/* ABOUT AND CONTACT */
-.about-hero{padding:90px 0;display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
-.about-hero img{width:100%;height:390px;object-fit:cover}
-.about-hero h2{font-size:54px;line-height:1.1;margin-bottom:22px}
-.about-hero p{color:var(--muted);font-size:13px;line-height:2;margin-bottom:17px}
-.values{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:65px}
-.value{padding:30px 20px;border-right:1px solid var(--line)}
-.value:last-child{border:0}
-.value h3{font-size:22px;margin-bottom:10px}
-.value p{font-size:11px;color:var(--muted);line-height:1.8}
-.contact-layout{padding:75px 0;display:grid;grid-template-columns:1fr 1fr;gap:65px}
-.contact-layout h2{font-size:55px;margin-bottom:18px}
-.contact-layout p{color:var(--muted);font-size:13px;line-height:1.9}
-.contact-item{padding:19px 0;border-bottom:1px solid var(--line)}
-.contact-item small{display:block;color:var(--orange);text-transform:uppercase;font-size:9px;letter-spacing:1.5px;margin-bottom:7px}
-.contact-item strong{font-size:14px}
-
-footer{background:var(--green);color:white;padding:30px 6%;display:flex;align-items:center;justify-content:space-between;gap:20px}
-footer strong{font-family:Georgia,serif;font-size:23px}
-footer p{color:#d0d8ce;font-size:10px;margin-top:5px}
-footer button{border:1px solid #ffffff66;color:white;background:transparent;padding:12px 18px;font-size:10px}
-footer button:hover{background:white;color:var(--green)}
-.hidden{display:none!important}
-
-@media(max-width:900px){
-  .product-grid{grid-template-columns:repeat(2,1fr)}
-  .order-layout{grid-template-columns:1fr}
-  .summary-card{position:static}
-  .home-hero{gap:30px}
-  .hero-image{height:350px}
+.summary-card {
+  position: sticky;
+  top: 100px;
 }
-@media(max-width:650px){
-  header{height:67px;padding:0 5%}
-  .menu-toggle{display:block}
-  nav{display:none;position:absolute;top:66px;left:0;width:100%;background:var(--cream);border-bottom:1px solid var(--line);padding:15px 6%;flex-direction:column;align-items:stretch;gap:5px}
-  nav.open{display:flex}
-  nav button{text-align:left;padding:13px}
-  .brand-text strong{font-size:23px}
-  .brand-text small{font-size:8px}
-  .brand-logo{width:39px;height:39px;font-size:26px}
-  .container{width:90%}
-  .home-hero{grid-template-columns:1fr;padding:48px 0;gap:35px}
-  .home-copy h1{font-size:65px}
-  .hero-image{height:300px;margin-left:10px}
-  .image-note{left:-10px}
-  .home-bottom{align-items:flex-start;flex-direction:column}
-  .quick-links{grid-template-columns:1fr 1fr}
-  .quick-link:nth-child(2){border-right:0}
-  .quick-link:nth-child(-n+2){border-bottom:1px solid var(--line)}
-  .section-head{padding:40px 0 25px;display:block}
-  .product-grid{gap:12px}
-  .product-card img{height:145px}
-  .product-info{padding:12px}
-  .product-info h3{font-size:17px}
-  .product-info p{font-size:10px}
-  .design-options{grid-template-columns:1fr}
-  .design-samples{grid-template-columns:repeat(2,1fr)}
-  .fields{grid-template-columns:1fr}
-  .field.full{grid-column:auto}
-  .form-card,.summary-card{padding:19px}
-  .order-intro h2{font-size:39px}
-  .shipping-options,.payment-options{grid-template-columns:1fr}
-  .about-hero,.contact-layout{grid-template-columns:1fr;gap:30px;padding:50px 0}
-  .about-hero h2,.contact-layout h2{font-size:43px}
-  .values{grid-template-columns:1fr}
-  .value{border-right:0;border-bottom:1px solid var(--line)}
-  footer{flex-direction:column;align-items:flex-start}
+
+.summary-card h2 {
+  color: var(--green);
+  font-family: Georgia, serif;
+  font-size: 23px;
+  margin-bottom: 5px;
+}
+
+.summary-card > p {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.summary-list {
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0eb;
+  font-size: 11px;
+}
+
+.summary-row span:first-child {
+  color: var(--muted);
+}
+
+.summary-row span:last-child {
+  text-align: right;
+  font-weight: 600;
+  max-width: 58%;
+  overflow-wrap: anywhere;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  margin-top: 5px;
+}
+
+.summary-total span {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--green);
+}
+
+.summary-total strong {
+  font-family: Georgia, serif;
+  font-size: 25px;
+  color: var(--orange);
+}
+
+.summary-card .btn {
+  width: 100%;
+}
+
+.summary-help {
+  font-size: 10px;
+  text-align: center;
+  color: var(--muted);
+  margin-top: 12px;
+}
+
+/* ABOUT */
+
+.about-hero {
+  background: var(--sage);
+  padding: 75px 0;
+  text-align: center;
+}
+
+.about-hero h1 {
+  font-family: Georgia, serif;
+  color: var(--green);
+  font-size: clamp(40px, 5vw, 60px);
+  margin: 12px 0;
+}
+
+.about-hero p {
+  max-width: 650px;
+  margin: auto;
+  color: #526458;
+  font-size: 14px;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 45px;
+}
+
+.about-content img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+.about-content h2 {
+  font-family: Georgia, serif;
+  color: var(--green);
+  font-size: 34px;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.about-content p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 13px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+  margin-top: 30px;
+}
+
+.value-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 22px;
+}
+
+.value-card h3 {
+  font-family: Georgia, serif;
+  color: var(--green);
+  font-size: 18px;
+  margin-bottom: 7px;
+}
+
+.value-card p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* CONTACT */
+
+.contact-hero {
+  text-align: center;
+  padding: 65px 0 35px;
+}
+
+.contact-hero h1 {
+  color: var(--green);
+  font-family: Georgia, serif;
+  font-size: 45px;
+}
+
+.contact-hero p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  padding-bottom: 70px;
+}
+
+.contact-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.contact-card h2 {
+  font-family: Georgia, serif;
+  color: var(--green);
+  font-size: 24px;
+  margin-bottom: 13px;
+}
+
+.contact-card p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.social-links a {
+  background: var(--sage);
+  color: var(--green);
+  border-radius: 25px;
+  padding: 9px 15px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.social-links a:hover {
+  background: var(--green);
+  color: white;
+}
+
+/* FOOTER */
+
+footer {
+  background: var(--dark);
+  color: white;
+  padding: 45px 0 20px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding-bottom: 30px;
+}
+
+.footer-brand {
+  font-family: Georgia, serif;
+  font-size: 26px;
+  margin-bottom: 5px;
+}
+
+.footer-content p {
+  font-size: 12px;
+  color: #c2d0c4;
+  max-width: 320px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+}
+
+.footer-links button {
+  background: none;
+  border: none;
+  color: #e0e8df;
+  font-size: 12px;
+}
+
+.footer-links button:hover {
+  color: #f3bd9f;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.15);
+  padding-top: 17px;
+  color: #bdc9bd;
+  font-size: 10px;
+  text-align: center;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .nav-links {
+    gap: 14px;
+  }
+
+  .nav-links button {
+    font-size: 11px;
+  }
+
+  .home-hero {
+    gap: 25px;
+  }
+
+  .order-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-card {
+    position: static;
+  }
+}
+
+@media (max-width: 650px) {
+  .navbar {
+    min-height: 68px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    width: 100%;
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+    padding: 18px 5%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 17px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links button {
+    text-align: left;
+    font-size: 13px;
+  }
+
+  .nav-links .nav-cta {
+    text-align: center;
+  }
+
+  .home-hero {
+    grid-template-columns: 1fr;
+    padding-top: 45px;
+  }
+
+  .home-copy h1 {
+    font-size: 53px;
+  }
+
+  .hero-image img {
+    height: 300px;
+  }
+
+  .quick-links,
+  .product-grid,
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card img {
+    height: 240px;
+  }
+
+  .about-content,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-content img {
+    height: 270px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field.full {
+    grid-column: auto;
+  }
+
+  .option-grid,
+  .sample-grid,
+  .shipping-options,
+  .payment-options {
+    grid-template-columns: 1fr;
+  }
+
+  .form-card,
+  .summary-card {
+    padding: 19px;
+  }
+
+  .order-intro h1 {
+    font-size: 34px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+  }
 }
 </style>
 </head>
@@ -271,239 +1046,295 @@ footer button:hover{background:white;color:var(--green)}
 <body>
 
 <header>
-  <button class="brand" onclick="showPage('home')">
-    <span class="brand-logo">P.</span>
-    <span class="brand-text">
-      <strong>PressCo.</strong>
-      <small>Crisp Print. Fresh Takes.</small>
-    </span>
-  </button>
+  <div class="container navbar">
+    <a href="#home" class="brand" onclick="showPage('home')">
+      <div class="brand-mark">P.</div>
+      <div>
+        <div class="brand-name">PressCo.</div>
+        <div class="brand-tagline">CRISP PRINT. FRESH TAKES.</div>
+      </div>
+    </a>
 
-  <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Open navigation">☰</button>
 
-  <nav id="navigation">
-    <button class="active" data-page="home" onclick="showPage('home')">HOME</button>
-    <button data-page="products" onclick="showPage('products')">PRODUCTS</button>
-    <button data-page="order" onclick="showPage('order')">CUSTOMIZE ORDER</button>
-    <button data-page="about" onclick="showPage('about')">ABOUT</button>
-    <button data-page="contact" onclick="showPage('contact')">CONTACT</button>
-    <button class="nav-order" onclick="showPage('order')">START AN ORDER ↗</button>
-  </nav>
+    <nav class="nav-links" id="navLinks">
+      <button class="active" onclick="showPage('home')">Home</button>
+      <button onclick="showPage('products')">Products</button>
+      <button onclick="showPage('customize')">Customize Order</button>
+      <button onclick="showPage('about')">About</button>
+      <button onclick="showPage('contact')">Contact</button>
+      <button class="nav-cta" onclick="showPage('customize')">Request a Quote</button>
+    </nav>
+  </div>
 </header>
 
+<main>
+
 <!-- HOME PAGE -->
-<main id="home" class="page active">
+<section class="page active" id="home">
+
+  <div class="ad-banner">
+    <strong>MAKE YOUR IDEAS STAND OUT.</strong>
+    &nbsp; Custom paper products, thoughtfully made by PressCo.
+  </div>
+
   <div class="container">
     <section class="home-hero">
+
       <div class="home-copy">
         <div class="eyebrow">Modern custom printing studio</div>
-        <h1>Crisp Print.<br><em>Fresh Takes.</em></h1>
-        <div class="hero-buttons">
-          <button class="primary-btn" onclick="showPage('products')">EXPLORE PRODUCTS ↗</button>
-          <button class="secondary-btn" onclick="showPage('about')">DISCOVER PRESSCO.</button>
+
+        <h1>
+          Crisp Print.<br>
+          <em>Fresh Takes.</em>
+        </h1>
+
+        <p>
+          Your ideas deserve more than ordinary paper. Discover thoughtfully designed,
+          professionally printed paper products made to bring your ideas to life.
+        </p>
+
+        <div class="button-row">
+          <button class="btn btn-primary" onclick="showPage('products')">
+            Explore Products →
+          </button>
+
+          <button class="btn btn-outline" onclick="showPage('customize')">
+            Start Your Order
+          </button>
         </div>
       </div>
 
       <div class="hero-image">
         <img src="businesscard.jpg" alt="Premium printed business cards">
-        <div class="image-note">
-          <strong>BEST SELLER</strong>
-          <span>Premium Business Cards · Customer Favorite</span>
+        <div class="hero-label">
+          <small>BEST SELLER</small>
+          <strong>Premium Business Cards</strong>
         </div>
       </div>
+
     </section>
 
-    <div class="home-bottom">
-      <div>
-        <strong>Small details. Big impressions.</strong>
-        <p>Paper products that help your ideas stand out.</p>
-      </div>
-      <button class="secondary-btn" onclick="showPage('products')">VIEW THE CATALOG ↗</button>
-    </div>
+    <section class="home-bottom">
+      <div class="quick-links">
 
-    <div class="quick-links">
-      <button class="quick-link" onclick="showPage('products')">
-        <div class="symbol">▤</div>
-        <strong>Our Products</strong>
-        <small>Explore all print products →</small>
-      </button>
-      <button class="quick-link" onclick="showPage('order')">
-        <div class="symbol">✳</div>
-        <strong>Customize</strong>
-        <small>Build your own order →</small>
-      </button>
-      <button class="quick-link" onclick="showPage('about')">
-        <div class="symbol">◈</div>
-        <strong>About PressCo.</strong>
-        <small>Discover our story →</small>
-      </button>
-      <button class="quick-link" onclick="showPage('contact')">
-        <div class="symbol">✉</div>
-        <strong>Get in Touch</strong>
-        <small>Connect with us →</small>
-      </button>
-    </div>
+        <div class="quick-link">
+          <span>✦</span>
+          <h3>Thoughtful Designs</h3>
+          <p>Paper products that reflect your brand and personality.</p>
+        </div>
+
+        <div class="quick-link">
+          <span>▤</span>
+          <h3>Quality Printing</h3>
+          <p>Clean layouts and carefully finished printed materials.</p>
+        </div>
+
+        <div class="quick-link">
+          <span>♡</span>
+          <h3>Made for Your Ideas</h3>
+          <p>Customizable products for businesses, events, and everyday use.</p>
+        </div>
+
+      </div>
+    </section>
   </div>
-</main>
+
+  <section class="section" style="background:#eef1e9;">
+    <div class="container">
+      <div class="section-heading">
+        <div class="section-tag">Our collection</div>
+        <h2>Prints for every purpose.</h2>
+        <p>From business essentials to personal celebrations, find the right print for your next idea.</p>
+      </div>
+
+      <div class="product-grid">
+
+        <article class="product-card">
+          <img src="businesscard.jpg" alt="Business cards">
+          <div class="product-info">
+            <h3>Business Cards</h3>
+            <p>Make a memorable first impression with professionally designed cards.</p>
+            <button class="btn btn-primary" onclick="selectProduct('Business Cards')">Customize</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="Flyer.jpg" alt="Custom flyers">
+          <div class="product-info">
+            <h3>Promotional Flyers</h3>
+            <p>Share your announcements, promotions, and business information.</p>
+            <button class="btn btn-primary" onclick="selectProduct('Promotional Flyers')">Customize</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="brochure.jpg" alt="Printed brochures">
+          <div class="product-info">
+            <h3>Corporate Brochures</h3>
+            <p>Present your products and services through organized printed materials.</p>
+            <button class="btn btn-primary" onclick="selectProduct('Corporate Brochures')">Customize</button>
+          </div>
+        </article>
+
+      </div>
+
+      <div style="text-align:center;margin-top:30px;">
+        <button class="btn btn-outline" onclick="showPage('products')">View All Products →</button>
+      </div>
+    </div>
+  </section>
+</section>
 
 <!-- PRODUCTS PAGE -->
-<main id="products" class="page">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">The PressCo. catalog</div>
+<section class="page" id="products">
+  <div class="section">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="section-tag">The PressCo. collection</div>
         <h2>Find your perfect print.</h2>
-        <p>Explore printed products and personalize the specifications that suit your project.</p>
+        <p>Explore our paper products and choose what works best for your business, event, or personal project.</p>
       </div>
-      <button class="primary-btn" onclick="showPage('order')">BUILD YOUR ORDER ↗</button>
-    </div>
 
-    <div class="filters">
-      <button class="filter active" onclick="filterProducts('All',this)">All Products</button>
-      <button class="filter" onclick="filterProducts('Business',this)">Business</button>
-      <button class="filter" onclick="filterProducts('Marketing',this)">Marketing</button>
-      <button class="filter" onclick="filterProducts('Personal',this)">Personal</button>
-      <button class="filter" onclick="filterProducts('Creative',this)">Creative</button>
-    </div>
+      <div class="product-grid">
 
-    <div class="product-grid" id="productGrid">
-      <article class="product-card" data-category="Business">
-        <img src="businesscard.jpg" alt="Premium business cards">
-        <div class="product-info">
-          <span class="category">Business</span>
-          <h3>Premium Business Cards</h3>
-          <p>Make your brand memorable with professional cards.</p>
-          <div class="price">From ₱250 <span>per 100 pieces</span></div>
-          <button class="customize-btn" onclick="chooseProduct('Premium Business Cards')">CUSTOMIZE ↗</button>
-        </div>
-      </article>
+        <article class="product-card">
+          <img src="businesscard.jpg" alt="Business cards">
+          <div class="product-info">
+            <h3>Business Cards</h3>
+            <p>Professional cards for networking, branding, and everyday business use.</p>
+            <button class="btn btn-primary" onclick="selectProduct('Business Cards')">Customize This</button>
+          </div>
+        </article>
 
-      <article class="product-card" data-category="Marketing">
-        <img src="Flyer.jpg" alt="Printed flyers">
-        <div class="product-info">
-          <span class="category">Marketing</span>
-          <h3>Flyers</h3>
-          <p>Share promotions, announcements, and new ideas.</p>
-          <div class="price">From ₱350 <span>per 100 pieces</span></div>
-          <button class="customize-btn" onclick="chooseProduct('Flyers')">CUSTOMIZE ↗</button>
-        </div>
-      </article>
+        <article class="product-card">
+          <img src="Flyer.jpg" alt="Promotional flyers">
+          <div class="product-info">
+            <h3>Promotional Flyers</h3>
+            <p>Eye-catching flyers for announcements, promotions, and campaigns.</p>
+            <button class="btn btn-primary" onclick="selectProduct('Promotional Flyers')">Customize This</button>
+          </div>
+        </article>
 
-      <article class="product-card" data-category="Marketing">
-        <img src="brochure.jpg" alt="Printed brochures">
-        <div class="product-info">
-          <span class="category">Marketing</span>
-          <h3>Brochures</h3>
-          <p>Present your services, products, and business story.</p>
-          <div class="price">From ₱1,200 <span>per 100 pieces</span></div>
-          <button class="customize-btn" onclick="chooseProduct('Brochures')">CUSTOMIZE ↗</button>
-        </div>
-      </article>
+        <article class="product-card">
+          <img src="brochure.jpg" alt="Corporate brochures">
+          <div class="product-info">
+            <h3>Corporate Brochures</h3>
+            <p>Organized and informative printed materials for your business.</p>
+            <button class="btn btn-primary" onclick="selectProduct('Corporate Brochures')">Customize This</button>
+          </div>
+        </article>
 
-      <article class="product-card" data-category="Personal">
-        <img src="greetingcard.jpg" alt="Greeting cards">
-        <div class="product-info">
-          <span class="category">Personal</span>
-          <h3>Greeting Cards</h3>
-          <p>Send a thoughtful message with a personal touch.</p>
-          <div class="price">From ₱400 <span>per 20 pieces</span></div>
-          <button class="customize-btn" onclick="chooseProduct('Greeting Cards')">CUSTOMIZE ↗</button>
-        </div>
-      </article>
+        <article class="product-card">
+          <img src="greetingcard.jpg" alt="Greeting cards">
+          <div class="product-info">
+            <h3>Greeting Cards</h3>
+            <p>Personalized cards for celebrations, appreciation, and special moments.</p>
+            <button class="btn btn-primary" onclick="selectProduct('Greeting Cards')">Customize This</button>
+          </div>
+        </article>
 
-      <article class="product-card" data-category="Creative">
-        <img src="POSTERS.jpg" alt="Printed posters">
-        <div class="product-info">
-          <span class="category">Creative</span>
-          <h3>Posters</h3>
-          <p>Display your event, artwork, or message in print.</p>
-          <div class="price">From ₱90 <span>per sheet</span></div>
-          <button class="customize-btn" onclick="chooseProduct('Posters')">CUSTOMIZE ↗</button>
-        </div>
-      </article>
+        <article class="product-card">
+          <img src="POSTERS.jpg" alt="Custom posters">
+          <div class="product-info">
+            <h3>Posters</h3>
+            <p>Make your message visible with custom poster printing.</p>
+            <button class="btn btn-primary" onclick="selectProduct('Posters')">Customize This</button>
+          </div>
+        </article>
 
-      <article class="product-card" data-category="Creative">
-        <img src="customizedsticker.jpg" alt="Custom stickers">
-        <div class="product-info">
-          <span class="category">Creative</span>
-          <h3>Custom Stickers</h3>
-          <p>Add personality to packaging, gifts, and notebooks.</p>
-          <div class="price">From ₱300 <span>per 50 pieces</span></div>
-          <button class="customize-btn" onclick="chooseProduct('Custom Stickers')">CUSTOMIZE ↗</button>
-        </div>
-      </article>
+        <article class="product-card">
+          <img src="customizedsticker.jpg" alt="Customized stickers">
+          <div class="product-info">
+            <h3>Custom Stickers</h3>
+            <p>Personalized stickers for packaging, branding, and creative projects.</p>
+            <button class="btn btn-primary" onclick="selectProduct('Custom Stickers')">Customize This</button>
+          </div>
+        </article>
 
-      <article class="product-card" data-category="Personal">
-        <img src="invitationcard.jpg" alt="Invitation cards">
-        <div class="product-info">
-          <span class="category">Personal</span>
-          <h3>Invitations</h3>
-          <p>Set the tone for birthdays, weddings, and events.</p>
-          <div class="price">From ₱450 <span>per 20 pieces</span></div>
-          <button class="customize-btn" onclick="chooseProduct('Invitations')">CUSTOMIZE ↗</button>
-        </div>
-      </article>
+        <article class="product-card">
+          <img src="invitationcard.jpg" alt="Invitation cards">
+          <div class="product-info">
+            <h3>Invitation Cards</h3>
+            <p>Custom invitations for birthdays, weddings, and other special occasions.</p>
+            <button class="btn btn-primary" onclick="selectProduct('Invitation Cards')">Customize This</button>
+          </div>
+        </article>
 
-      <article class="product-card" data-category="Business">
-        <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80" alt="Custom stationery">
-        <div class="product-info">
-          <span class="category">Business</span>
-          <h3>Custom Stationery</h3>
-          <p>Personalized paper materials for everyday work.</p>
-          <div class="price">From ₱500 <span>per 100 pieces</span></div>
-          <button class="customize-btn" onclick="chooseProduct('Custom Stationery')">CUSTOMIZE ↗</button>
-        </div>
-      </article>
+      </div>
     </div>
   </div>
-</main>
+</section>
 
 <!-- CUSTOMIZE ORDER PAGE -->
-<main id="order" class="page">
+<section class="page" id="customize">
+
   <div class="container">
     <div class="order-intro">
-      <div class="eyebrow">Make it yours</div>
-      <h2>Build your order.</h2>
-      <p>Choose your product, select a design direction, and customize the print details. Your request summary updates as you make your selections.</p>
+      <div class="section-tag">Let's make something</div>
+      <h1>Build Your Order.</h1>
+      <p>Choose your product, customize the details, and send your request for a quotation.</p>
     </div>
 
     <div class="order-layout">
-      <div class="order-main">
+
+      <form class="order-form" id="orderForm" onsubmit="submitRequest(event)">
 
         <!-- STEP 1 -->
-        <section class="form-card">
-          <div class="step-title">
-            <div class="step-number">01</div>
-            <div><h3>Choose your product</h3><p>Select your preferred printing specifications.</p></div>
-          </div>
+        <div class="form-card">
+          <h2><span class="step-number">1</span> Product Details</h2>
+          <p class="description">Select the product and printing specifications you need.</p>
 
-          <div class="fields">
-            <div class="field">
-              <label>Product line</label>
-              <select id="productLine" onchange="updateSummary()">
-                <option>The Business Line</option>
-                <option>The Marketing Line</option>
-                <option>The Personal Line</option>
-                <option>The Creative Line</option>
-              </select>
-            </div>
+          <div class="form-grid">
 
             <div class="field">
-              <label>Product type</label>
-              <select id="productType" onchange="syncProductLine();updateSummary()">
-                <option>Premium Business Cards</option>
-                <option>Flyers</option>
-                <option>Brochures</option>
+              <label for="productType">Product type *</label>
+              <select id="productType" required onchange="updateSummary()">
+                <option value="">Select a product</option>
+                <option>Business Cards</option>
+                <option>Promotional Flyers</option>
+                <option>Corporate Brochures</option>
                 <option>Greeting Cards</option>
                 <option>Posters</option>
                 <option>Custom Stickers</option>
-                <option>Invitations</option>
-                <option>Custom Stationery</option>
+                <option>Invitation Cards</option>
               </select>
             </div>
 
             <div class="field">
-              <label>Printing sides</label>
+              <label for="size">Preferred size *</label>
+              <select id="size" required onchange="updateSummary()">
+                <option value="">Select a size</option>
+                <option>Standard</option>
+                <option>A6</option>
+                <option>A5</option>
+                <option>A4</option>
+                <option>A3</option>
+                <option>Custom size</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="quantity">Quantity *</label>
+              <input type="number" id="quantity" min="1" value="100" required oninput="updateSummary()">
+            </div>
+
+            <div class="field">
+              <label for="stock">Paper stock *</label>
+              <select id="stock" required onchange="updateSummary()">
+                <option value="">Choose paper stock</option>
+                <option>Standard Paper</option>
+                <option>Premium Paper</option>
+                <option>Cardstock</option>
+                <option>Matte Paper</option>
+                <option>Glossy Paper</option>
+                <option>Other / To be discussed</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="sides">Printing sides</label>
               <select id="sides" onchange="updateSummary()">
                 <option>Single-sided</option>
                 <option>Double-sided</option>
@@ -511,601 +1342,755 @@ footer button:hover{background:white;color:var(--green)}
             </div>
 
             <div class="field">
-              <label>Size</label>
-              <select id="size" onchange="updateSummary()">
-                <option>Standard business card (3.5 × 2 in)</option>
-                <option>A4</option>
-                <option>A3</option>
-                <option>5 × 7 in</option>
-                <option>Custom dimensions</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label>Quantity</label>
-              <input id="quantity" type="number" min="1" step="1" value="100"
-                oninput="if(this.value.includes('.'))this.value=this.value.split('.')[0];if(Number(this.value)<1&&this.value!=='')this.value=1;updateSummary()"
-                onkeydown="if(['e','E','+','-','.'].includes(event.key))event.preventDefault()" required>
-            </div>
-
-            <div class="field">
-              <label>Paper stock</label>
-              <select id="stock" onchange="updateSummary()">
-                <option>Matte coated</option>
-                <option>Glossy coated</option>
-                <option>Uncoated paper</option>
-                <option>Premium cardstock</option>
-                <option>Recycled paper</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label>Finish</label>
+              <label for="finish">Print finish</label>
               <select id="finish" onchange="updateSummary()">
-                <option>None</option>
-                <option>Matte lamination</option>
-                <option>Gloss lamination</option>
-                <option>Soft-touch finish</option>
-                <option>Spot UV</option>
+                <option>Standard Finish</option>
+                <option>Matte Finish</option>
+                <option>Glossy Finish</option>
               </select>
             </div>
 
-            <div class="field full">
-              <label>Corner style</label>
-              <select id="corner" onchange="updateSummary()">
-                <option>Square corners</option>
-                <option>Rounded corners</option>
+            <div class="field">
+              <label for="corners">Corner style</label>
+              <select id="corners" onchange="updateSummary()">
+                <option>Square Corners</option>
+                <option>Rounded Corners</option>
               </select>
             </div>
+
           </div>
-        </section>
-
-        <!-- STEP 2 -->
-        <section class="form-card">
-          <div class="step-title">
-            <div class="step-number">02</div>
-            <div><h3>Your design</h3><p>Tell us how you want your printed product to look.</p></div>
-          </div>
-
-          <div class="design-options">
-            <button type="button" class="design-option" id="uploadOption" onclick="setDesignMethod('Upload My Design')">
-              <strong>Upload My Design</strong><small>Use your own artwork</small>
-            </button>
-            <button type="button" class="design-option active" id="browseOption" onclick="setDesignMethod('Browse Designs')">
-              <strong>Browse Designs</strong><small>Choose a visual direction</small>
-            </button>
-            <button type="button" class="design-option" id="customOption" onclick="setDesignMethod('Request a Custom Design')">
-              <strong>Custom Design</strong><small>Share your idea</small>
-            </button>
-          </div>
-
-          <div class="field hidden" id="uploadField">
-            <label>Upload your artwork</label>
-            <input type="file" id="artwork" accept="image/*,.pdf,.ai,.psd" onchange="updateSummary()">
-          </div>
-
-          <div id="sampleArea">
-            <label style="font-size:10px;font-weight:bold;display:block;margin-bottom:12px">CHOOSE A DESIGN DIRECTION</label>
-            <div class="design-samples">
-              <button type="button" class="sample" onclick="chooseSample('Minimal 01',this)">
-                <div class="sample-art art-one"><small>PRESSCO / STUDIO</small><strong>Simply</strong><small>CONSIDERED.</small><strong>LESS, WITH PURPOSE</strong></div>
-                <b>Minimal 01</b><span>Business · Clean</span>
-              </button>
-              <button type="button" class="sample" onclick="chooseSample('Bold 02',this)">
-                <div class="sample-art art-two"><small>MAKE IT MATTER</small><strong>BIG</strong><strong>IDEAS.</strong><small>LOUD & CLEAR</small></div>
-                <b>Bold 02</b><span>Promo · Vibrant</span>
-              </button>
-              <button type="button" class="sample" onclick="chooseSample('Botanical 03',this)">
-                <div class="sample-art art-three"><small>GROW WITH GRACE</small><strong>Rooted</strong><small>in nature.</small><strong>BOTANICAL SERIES</strong></div>
-                <b>Botanical 03</b><span>Personal · Organic</span>
-              </button>
-              <button type="button" class="sample active" onclick="chooseSample('Editorial 04',this)">
-                <div class="sample-art art-four"><small>PRESSCO / EDITION 04</small><strong>Form.</strong><strong>Space.</strong><strong>Feeling.</strong><small>THE EDITORIAL LINE</small></div>
-                <b>Editorial 04</b><span>Editorial · Refined</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="field" style="margin-top:20px">
-            <label>Design notes or ideas</label>
-            <textarea id="designNotes" placeholder="Describe your preferred colors, layout, text, or design inspiration..." oninput="updateSummary()"></textarea>
-          </div>
-        </section>
-
-        <!-- STEP 3: SHIPPING AND PAYMENT -->
-        <section class="form-card">
-          <div class="step-title">
-            <div class="step-number">03</div>
-            <div><h3>Shipping & Payment</h3><p>Choose your delivery and payment preferences.</p></div>
-          </div>
-
-          <label style="font-size:10px;font-weight:bold;display:block;margin-bottom:12px">SHIPPING METHOD</label>
-
-          <div class="shipping-options">
-            <button type="button" class="shipping-option active" id="standardBtn" onclick="setFulfillment('Standard Shipping')">
-              <strong>📦 Standard Shipping</strong>
-              <small>Estimated arrival: 5–7 business days after production</small>
-              <span class="delivery-price">₱80</span>
-            </button>
-
-            <button type="button" class="shipping-option" id="expressBtn" onclick="setFulfillment('Express Shipping')">
-              <strong>⚡ Express Shipping</strong>
-              <small>Estimated arrival: 2–3 business days after production</small>
-              <span class="delivery-price">₱150</span>
-            </button>
-
-            <button type="button" class="shipping-option" id="pickupBtn" onclick="setFulfillment('Local Pickup')">
-              <strong>⌂ Local Pickup</strong>
-              <small>Collect your order in Ormoc City</small>
-              <span class="delivery-price">FREE</span>
-            </button>
-          </div>
-
-          <div class="delivery-estimate">
-            <strong>Estimated delivery date</strong>
-            <span id="deliveryEstimate"></span>
-            <small style="display:block;color:var(--muted);font-size:9px;margin-top:7px">Illustrative estimate only. Actual delivery timing begins after production and depends on courier availability.</small>
-          </div>
-
-          <div class="fields">
-            <div class="field full" id="addressField">
-              <label>Complete delivery address</label>
-              <input id="address" placeholder="House number, street, barangay, city" oninput="updateSummary()">
-            </div>
-          </div>
-
-          <div style="margin-top:30px;margin-bottom:15px">
-            <label style="font-size:10px;font-weight:bold;display:block;margin-bottom:12px">PAYMENT METHOD</label>
-            <div class="payment-options">
-              <button type="button" class="payment-option active" id="codBtn" onclick="setPayment('Cash on Delivery')">
-                <strong>💵 Cash on Delivery</strong>
-                <small>Pay when your order arrives.</small>
-              </button>
-              <button type="button" class="payment-option" id="gcashBtn" onclick="setPayment('GCash')">
-                <strong>📱 GCash</strong>
-                <small>Pay using your GCash account.</small>
-              </button>
-              <button type="button" class="payment-option" id="onlineBtn" onclick="setPayment('Online Payment')">
-                <strong>💳 Online Payment</strong>
-                <small>Pay electronically after quotation confirmation.</small>
-              </button>
-            </div>
-          </div>
-
-          <p class="payment-note">Payment instructions will be provided after your order quotation has been confirmed. Payment options are subject to confirmation.</p>
-
-          <div class="fields" style="margin-top:25px">
-            <div class="field full">
-              <label>Additional instructions</label>
-              <textarea id="instructions" placeholder="Any special instructions for your order?" oninput="updateSummary()"></textarea>
-            </div>
-          </div>
-        </section>
-
-        <!-- STEP 4: CONTACT DETAILS -->
-        <section class="form-card">
-          <div class="step-title">
-            <div class="step-number">04</div>
-            <div><h3>Your contact details</h3><p>Provide your information for quotation and order coordination.</p></div>
-          </div>
-
-          <div class="fields">
-            <div class="field">
-              <label>Full name</label>
-              <input id="customerName" type="text" placeholder="Your full name" maxlength="100"
-                oninput="this.value=this.value.replace(/[^a-zA-ZÀ-ÿñÑ\s.'-]/g,'');updateSummary()" required>
-            </div>
-
-            <div class="field">
-              <label>Contact number</label>
-              <input id="phone" type="tel" inputmode="numeric" placeholder="09XX XXX XXXX"
-                maxlength="11" pattern="09[0-9]{9}"
-                oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,11);updateSummary()" required>
-              <small style="color:#777b70;font-size:10px">Enter your 11-digit Philippine mobile number.</small>
-            </div>
-
-            <div class="field full">
-              <label>Email address</label>
-              <input id="email" type="email" placeholder="you@example.com" maxlength="100" oninput="updateSummary()" required>
-            </div>
-          </div>
-        </section>
-
-      </div>
-
-      <!-- LIVE SUMMARY -->
-      <aside class="summary-card">
-        <div class="eyebrow">Your selections</div>
-        <h3>Request summary</h3>
-        <p>Your selections will appear here as you customize your order.</p>
-        <div id="summaryContent"></div>
-
-        <div class="summary-total">
-          <span>Estimated total</span>
-          <strong id="estimatedTotal">₱250</strong>
         </div>
 
-        <p class="summary-note">The final quotation will reflect the confirmed specifications and delivery details. Delivery fees and additional design charges may apply.</p>
+        <!-- STEP 2 -->
+        <div class="form-card">
+          <h2><span class="step-number">2</span> Design Preferences</h2>
+          <p class="description">Tell us how you want your design to be prepared.</p>
 
-        <button class="submit-btn" onclick="submitRequest()">REQUEST MY QUOTATION ↗</button>
-        <button class="copy-btn" onclick="copySummary()">COPY ORDER SUMMARY</button>
-        <button class="copy-btn" onclick="showPage('products')">← BACK TO PRODUCTS</button>
+          <div class="option-grid">
+
+            <button type="button" class="option-card selected" data-design="Upload My Design" onclick="setDesignMethod(this)">
+              <strong>Upload My Design</strong>
+              <span>I already have a ready-to-print file.</span>
+            </button>
+
+            <button type="button" class="option-card" data-design="Browse Designs" onclick="setDesignMethod(this)">
+              <strong>Browse Designs</strong>
+              <span>I want to choose a sample style.</span>
+            </button>
+
+            <button type="button" class="option-card" data-design="Request Custom Design" onclick="setDesignMethod(this)">
+              <strong>Request Custom Design</strong>
+              <span>I need help creating my design.</span>
+            </button>
+
+          </div>
+
+          <div class="field" id="uploadField">
+            <label for="artwork">Upload your artwork</label>
+            <input type="file" id="artwork" accept=".jpg,.jpeg,.png,.pdf,.ai,.psd" onchange="updateSummary()">
+            <small>Accepted formats: JPG, PNG, PDF, AI, PSD.</small>
+          </div>
+
+          <div id="sampleField" class="hidden">
+            <label style="font-size:12px;font-weight:bold;">Choose a sample design</label>
+            <div class="sample-grid">
+              <button type="button" class="sample-option" onclick="chooseSample(this,'Minimalist')">Minimalist</button>
+              <button type="button" class="sample-option" onclick="chooseSample(this,'Modern')">Modern</button>
+              <button type="button" class="sample-option" onclick="chooseSample(this,'Creative')">Creative</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="designNotes">Design notes</label>
+            <textarea id="designNotes" placeholder="Describe your preferred colors, layout, text, or design inspiration..." oninput="updateSummary()"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="instructions">Additional instructions</label>
+            <textarea id="instructions" placeholder="Any other details you want us to know?" oninput="updateSummary()"></textarea>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="form-card">
+          <h2><span class="step-number">3</span> Shipping & Payment</h2>
+          <p class="description">Choose how you would like to receive and pay for your order.</p>
+
+          <label style="font-size:12px;font-weight:bold;">Shipping method *</label>
+
+          <div class="shipping-options">
+
+            <button type="button" class="choice-card selected" data-shipping="Standard Shipping" onclick="setShipping(this)">
+              <strong>Standard Shipping</strong>
+              <span>₱80 sample fee</span>
+            </button>
+
+            <button type="button" class="choice-card" data-shipping="Express Shipping" onclick="setShipping(this)">
+              <strong>Express Shipping</strong>
+              <span>₱150 sample fee</span>
+            </button>
+
+            <button type="button" class="choice-card" data-shipping="Local Pickup" onclick="setShipping(this)">
+              <strong>Local Pickup</strong>
+              <span>₱0 · Ormoc City</span>
+            </button>
+
+          </div>
+
+          <div class="field" id="addressField">
+            <label for="address">Complete delivery address *</label>
+            <textarea id="address" placeholder="House number, street, barangay, city..." oninput="updateSummary()"></textarea>
+          </div>
+
+          <div class="field">
+            <label>Estimated delivery / fulfillment</label>
+            <input type="text" id="deliveryEstimate" readonly value="Estimated after production">
+            <small>Sample estimate only. Delivery timeline begins after production and may vary.</small>
+          </div>
+
+          <label style="font-size:12px;font-weight:bold;">Payment method *</label>
+
+          <div class="payment-options">
+
+            <button type="button" class="choice-card selected" data-payment="GCash" onclick="setPayment(this)">
+              <strong>GCash</strong>
+              <span>Online payment through GCash</span>
+            </button>
+
+            <button type="button" class="choice-card" data-payment="Cash on Delivery" onclick="setPayment(this)">
+              <strong>Cash on Delivery</strong>
+              <span>Pay when your order arrives</span>
+            </button>
+
+            <button type="button" class="choice-card" data-payment="Cash on Pickup" onclick="setPayment(this)">
+              <strong>Cash on Pickup</strong>
+              <span>Pay when collecting your order</span>
+            </button>
+
+          </div>
+
+          <div class="payment-note">
+            Payment instructions will be provided after your quotation is confirmed.
+            Payment is not processed directly through this demo website.
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="form-card">
+          <h2><span class="step-number">4</span> Contact Details</h2>
+          <p class="description">Provide your information so we can contact you about your request.</p>
+
+          <div class="form-grid">
+
+            <div class="field">
+              <label for="customerName">Full name *</label>
+              <input
+                type="text"
+                id="customerName"
+                placeholder="Enter your full name"
+                required
+                oninput="this.value=this.value.replace(/[^a-zA-ZÀ-ÿñÑ\s.'-]/g,'');updateSummary()">
+            </div>
+
+            <div class="field">
+              <label for="phone">Contact number *</label>
+              <input
+                type="tel"
+                id="phone"
+                placeholder="09XXXXXXXXX"
+                inputmode="numeric"
+                maxlength="11"
+                pattern="09[0-9]{9}"
+                required
+                oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,11);updateSummary()">
+              <small>Enter an 11-digit Philippine mobile number.</small>
+            </div>
+
+            <div class="field full">
+              <label for="email">Email address *</label>
+              <input type="email" id="email" placeholder="you@example.com" required oninput="updateSummary()">
+            </div>
+
+          </div>
+        </div>
+
+      </form>
+
+      <!-- LIVE ORDER SUMMARY -->
+      <aside class="summary-card">
+        <h2>Request Summary</h2>
+        <p>Your selections will appear here.</p>
+
+        <div class="summary-list" id="summaryList">
+          <div class="summary-row">
+            <span>Product</span>
+            <span>Not selected</span>
+          </div>
+        </div>
+
+        <div class="summary-total">
+          <span>Estimated Total</span>
+          <strong id="estimatedTotal">₱0.00</strong>
+        </div>
+
+        <button type="submit" form="orderForm" class="btn btn-primary">
+          Submit Request →
+        </button>
+
+        <p class="summary-help">
+          This is an estimated quotation only. Final pricing will be confirmed by PressCo.
+        </p>
       </aside>
+
     </div>
   </div>
-</main>
+</section>
 
 <!-- ABOUT PAGE -->
-<main id="about" class="page">
-  <div class="container">
-    <section class="about-hero">
-      <div>
-        <div class="eyebrow">A fresh take on printing</div>
-        <h2>Thoughtfully made. Beautifully printed.</h2>
-        <p>PressCo. is a modern custom paper-products and printing studio that brings together professional printing solutions and a clean, contemporary visual aesthetic inspired by the idea of being presko.</p>
-        <p>We believe that printed materials are more than just paper. They are a way to express ideas, build identities, share stories, and create lasting impressions.</p>
-        <p>From business essentials to personal celebrations, PressCo. makes every print feel intentional.</p>
-        <button class="primary-btn" onclick="showPage('products')">EXPLORE OUR PRODUCTS ↗</button>
-      </div>
-      <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=85" alt="Creative paper stationery">
-    </section>
+<section class="page" id="about">
 
-    <div class="eyebrow">What makes us PressCo.</div>
-    <div class="values">
-      <div class="value"><h3>Creativity</h3><p>We believe every idea deserves a thoughtful and distinctive presentation.</p></div>
-      <div class="value"><h3>Quality</h3><p>We value carefully considered materials, details, and printing specifications.</p></div>
-      <div class="value"><h3>Purpose</h3><p>We create printed products that communicate, connect, and leave an impression.</p></div>
+  <div class="about-hero">
+    <div class="container">
+      <div class="section-tag">A little about us</div>
+      <h1>Fresh ideas deserve<br>fresh prints.</h1>
+      <p>
+        PressCo. is a modern custom paper-products studio built around the idea
+        that good printing should feel creative, personal, and accessible.
+      </p>
     </div>
   </div>
-</main>
+
+  <div class="section">
+    <div class="container">
+
+      <div class="about-content">
+        <img src="brochure.jpg" alt="PressCo printed paper products">
+
+        <div>
+          <div class="section-tag">Our story</div>
+          <h2>Inspired by the idea of presko.</h2>
+
+          <p>
+            PressCo. brings together professional printing solutions and a clean,
+            contemporary visual identity. Our brand takes inspiration from the
+            Filipino concept of “presko” — fresh, light, and refreshing.
+          </p>
+
+          <p>
+            We aim to help students, entrepreneurs, small businesses, and individuals
+            turn their ideas into printed materials that communicate clearly and
+            leave a lasting impression.
+          </p>
+
+          <p>
+            From business essentials to personalized paper products, every print
+            begins with an idea worth sharing.
+          </p>
+        </div>
+      </div>
+
+      <div class="values-grid">
+
+        <div class="value-card">
+          <h3>Creativity</h3>
+          <p>We value thoughtful designs that help every idea stand out.</p>
+        </div>
+
+        <div class="value-card">
+          <h3>Quality</h3>
+          <p>We focus on clean presentation and carefully considered print details.</p>
+        </div>
+
+        <div class="value-card">
+          <h3>Personalization</h3>
+          <p>We make room for individual preferences, needs, and creative direction.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- CONTACT PAGE -->
-<main id="contact" class="page">
+<section class="page" id="contact">
+
   <div class="container">
-    <section class="contact-layout">
-      <div>
-        <div class="eyebrow">Let's create something</div>
-        <h2>Have an idea? Let's put it on paper.</h2>
-        <p>Whether you need business materials, promotional prints, or personalized paper products, PressCo. is ready to help bring your ideas to life.</p>
-        <br>
-        <button class="primary-btn" onclick="showPage('order')">START YOUR ORDER ↗</button>
+    <div class="contact-hero">
+      <div class="section-tag">Let's connect</div>
+      <h1>Have an idea?</h1>
+      <p>Let's turn it into something worth printing.</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <div class="contact-card">
+        <h2>Get in touch.</h2>
+        <p>
+          Have questions about our products, customization, or quotation process?
+          Send us a message through our social media pages.
+        </p>
+
+        <p><strong>Location:</strong><br>Ormoc City, Leyte, Philippines</p>
+
+        <p><strong>Business:</strong><br>Custom Paper Products & Printing Studio</p>
+
+        <div class="social-links">
+          <a href="https://www.facebook.com/PressCoPrints" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/pressco.prints/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@pressco.prints" target="_blank" rel="noopener">TikTok</a>
+        </div>
       </div>
 
-      <div>
-        <div class="contact-item"><small>Location</small><strong>Ormoc City, Leyte, Philippines</strong></div>
-        <div class="contact-item"><small>Facebook</small><strong><a href="https://www.facebook.com/PressCoPrints" target="_blank" rel="noopener">PressCoPrints ↗</a></strong></div>
-        <div class="contact-item"><small>Instagram</small><strong><a href="https://www.instagram.com/pressco.prints/" target="_blank" rel="noopener">@pressco.prints ↗</a></strong></div>
-        <div class="contact-item"><small>TikTok</small><strong><a href="https://www.tiktok.com/@pressco.prints" target="_blank" rel="noopener">@pressco.prints ↗</a></strong></div>
+      <div class="contact-card">
+        <h2>Ready to start?</h2>
+        <p>
+          Choose your preferred product, provide your specifications, and send
+          your request through our order builder.
+        </p>
+
+        <p>
+          Our team can review your selections and provide a quotation based on
+          your requested quantity, materials, and design preferences.
+        </p>
+
+        <button class="btn btn-primary" onclick="showPage('customize')">
+          Request a Quote →
+        </button>
       </div>
-    </section>
+
+    </div>
   </div>
+</section>
+
 </main>
 
+<!-- FOOTER -->
 <footer>
-  <div>
-    <strong>PressCo.</strong>
-    <p>Crisp Print. Fresh Takes. © 2026 PressCo.</p>
+  <div class="container">
+
+    <div class="footer-content">
+      <div>
+        <div class="footer-brand">PressCo.</div>
+        <p>Crisp Print. Fresh Takes.<br>Custom Paper Products & Printing Studio.</p>
+      </div>
+
+      <div class="footer-links">
+        <button onclick="showPage('home')">Home</button>
+        <button onclick="showPage('products')">Products</button>
+        <button onclick="showPage('customize')">Customize Order</button>
+        <button onclick="showPage('about')">About</button>
+        <button onclick="showPage('contact')">Contact</button>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="year"></span> PressCo. All rights reserved. | Crisp Print. Fresh Takes.
+    </div>
+
   </div>
-  <button onclick="showPage('home')">BACK TO HOME ↑</button>
 </footer>
 
 <script>
-const pages=['home','products','order','about','contact'];
+/* PAGE NAVIGATION */
 
-function showPage(page){
-  pages.forEach(id=>{
-    document.getElementById(id).classList.toggle('active',id===page);
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
   });
-  document.querySelectorAll('nav button[data-page]').forEach(btn=>{
-    btn.classList.toggle('active',btn.dataset.page===page);
-  });
-  document.getElementById('navigation').classList.remove('open');
-  window.scrollTo({top:0,behavior:'smooth'});
-  if(page==='order')updateSummary();
-}
 
-function toggleMenu(){
-  document.getElementById('navigation').classList.toggle('open');
-}
+  const selectedPage = document.getElementById(pageId);
 
-function filterProducts(category,button){
-  document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));
-  button.classList.add('active');
-  document.querySelectorAll('.product-card').forEach(card=>{
-    card.classList.toggle('hidden',category!=='All'&&card.dataset.category!==category);
-  });
-}
-
-const productLines={
-  'Premium Business Cards':'The Business Line',
-  'Flyers':'The Marketing Line',
-  'Brochures':'The Marketing Line',
-  'Greeting Cards':'The Personal Line',
-  'Posters':'The Creative Line',
-  'Custom Stickers':'The Creative Line',
-  'Invitations':'The Personal Line',
-  'Custom Stationery':'The Business Line'
-};
-
-const basePrices={
-  'Premium Business Cards':250,
-  'Flyers':350,
-  'Brochures':1200,
-  'Greeting Cards':400,
-  'Posters':90,
-  'Custom Stickers':300,
-  'Invitations':450,
-  'Custom Stationery':500
-};
-
-const baseQuantities={
-  'Premium Business Cards':100,
-  'Flyers':100,
-  'Brochures':100,
-  'Greeting Cards':20,
-  'Posters':1,
-  'Custom Stickers':50,
-  'Invitations':20,
-  'Custom Stationery':100
-};
-
-function syncProductLine(){
-  const product=document.getElementById('productType').value;
-  document.getElementById('productLine').value=productLines[product];
-}
-
-function chooseProduct(product){
-  document.getElementById('productType').value=product;
-  document.getElementById('productLine').value=productLines[product];
-  document.getElementById('quantity').value=baseQuantities[product];
-  showPage('order');
-  updateSummary();
-}
-
-let designMethod='Browse Designs';
-let selectedSample='Editorial 04';
-let fulfillment='Standard Shipping';
-let paymentMethod='Cash on Delivery';
-
-function setDesignMethod(method){
-  designMethod=method;
-  document.getElementById('uploadOption').classList.toggle('active',method==='Upload My Design');
-  document.getElementById('browseOption').classList.toggle('active',method==='Browse Designs');
-  document.getElementById('customOption').classList.toggle('active',method==='Request a Custom Design');
-  document.getElementById('uploadField').classList.toggle('hidden',method!=='Upload My Design');
-  document.getElementById('sampleArea').classList.toggle('hidden',method!=='Browse Designs');
-  updateSummary();
-}
-
-function chooseSample(sample,button){
-  selectedSample=sample;
-  document.querySelectorAll('.sample').forEach(b=>b.classList.remove('active'));
-  button.classList.add('active');
-  updateSummary();
-}
-
-function setFulfillment(type){
-  fulfillment=type;
-
-  document.getElementById('standardBtn').classList.toggle('active',type==='Standard Shipping');
-  document.getElementById('expressBtn').classList.toggle('active',type==='Express Shipping');
-  document.getElementById('pickupBtn').classList.toggle('active',type==='Local Pickup');
-
-  const isPickup=type==='Local Pickup';
-  document.getElementById('addressField').classList.toggle('hidden',isPickup);
-
-  if(isPickup)document.getElementById('address').value='';
-
-  updateSummary();
-}
-
-function setPayment(method){
-  paymentMethod=method;
-  document.getElementById('codBtn').classList.toggle('active',method==='Cash on Delivery');
-  document.getElementById('gcashBtn').classList.toggle('active',method==='GCash');
-  document.getElementById('onlineBtn').classList.toggle('active',method==='Online Payment');
-  updateSummary();
-}
-
-function addBusinessDays(date,days){
-  let result=new Date(date);
-  let added=0;
-  while(added<days){
-    result.setDate(result.getDate()+1);
-    if(result.getDay()!==0&&result.getDay()!==6)added++;
+  if (selectedPage) {
+    selectedPage.classList.add('active');
   }
-  return result;
+
+  document.querySelectorAll('.nav-links button').forEach(button => {
+    button.classList.remove('active');
+  });
+
+  const navButtons = document.querySelectorAll('.nav-links button');
+
+  navButtons.forEach(button => {
+    if (button.textContent.trim().toLowerCase().includes(pageId.toLowerCase())) {
+      button.classList.add('active');
+    }
+  });
+
+  document.getElementById('navLinks').classList.remove('open');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function formatDate(date){
-  return date.toLocaleDateString('en-PH',{
-    month:'short',day:'numeric',year:'numeric'
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+/* PRODUCT SELECTION */
+
+function selectProduct(product) {
+  showPage('customize');
+
+  const productSelect = document.getElementById('productType');
+  productSelect.value = product;
+
+  updateSummary();
+}
+
+/* DESIGN SELECTION */
+
+let designMethod = 'Upload My Design';
+let selectedSample = '';
+
+function setDesignMethod(button) {
+  designMethod = button.dataset.design;
+
+  document.querySelectorAll('[data-design]').forEach(option => {
+    option.classList.remove('selected');
+  });
+
+  button.classList.add('selected');
+
+  const uploadField = document.getElementById('uploadField');
+  const sampleField = document.getElementById('sampleField');
+
+  uploadField.classList.toggle('hidden', designMethod !== 'Upload My Design');
+  sampleField.classList.toggle('hidden', designMethod !== 'Browse Designs');
+
+  updateSummary();
+}
+
+function chooseSample(button, sample) {
+  selectedSample = sample;
+
+  document.querySelectorAll('.sample-option').forEach(option => {
+    option.classList.remove('selected');
+  });
+
+  button.classList.add('selected');
+  updateSummary();
+}
+
+/* SHIPPING */
+
+let shippingMethod = 'Standard Shipping';
+
+const shippingFees = {
+  'Standard Shipping': 80,
+  'Express Shipping': 150,
+  'Local Pickup': 0
+};
+
+function setShipping(button) {
+  shippingMethod = button.dataset.shipping;
+
+  document.querySelectorAll('[data-shipping]').forEach(option => {
+    option.classList.remove('selected');
+  });
+
+  button.classList.add('selected');
+
+  const addressField = document.getElementById('addressField');
+  const addressInput = document.getElementById('address');
+
+  if (shippingMethod === 'Local Pickup') {
+    addressField.classList.add('hidden');
+    addressInput.required = false;
+  } else {
+    addressField.classList.remove('hidden');
+    addressInput.required = true;
+  }
+
+  updateSummary();
+}
+
+/* PAYMENT */
+
+let paymentMethod = 'GCash';
+
+function setPayment(button) {
+  paymentMethod = button.dataset.payment;
+
+  document.querySelectorAll('[data-payment]').forEach(option => {
+    option.classList.remove('selected');
+  });
+
+  button.classList.add('selected');
+
+  updateSummary();
+}
+
+/* PRICING */
+
+const basePrices = {
+  'Business Cards': 2.50,
+  'Promotional Flyers': 5.00,
+  'Corporate Brochures': 15.00,
+  'Greeting Cards': 8.00,
+  'Posters': 25.00,
+  'Custom Stickers': 3.00,
+  'Invitation Cards': 10.00
+};
+
+function getValue(id) {
+  const element = document.getElementById(id);
+  return element ? element.value.trim() : '';
+}
+
+function peso(amount) {
+  return '₱' + Number(amount).toLocaleString('en-PH', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
   });
 }
 
-function getDeliveryEstimate(){
-  if(fulfillment==='Local Pickup'){
-    return 'Pickup in Ormoc City. We will notify you when your order is ready.';
+function escapeHTML(value) {
+  return String(value || '').replace(/[&<>"']/g, character => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  })[character]);
+}
+
+function calculatePrice() {
+  const product = getValue('productType');
+  const quantity = Math.max(1, Number(getValue('quantity')) || 1);
+
+  if (!product || !basePrices[product]) {
+    return 0;
   }
-  const today=new Date();
-  const minDays=fulfillment==='Express Shipping'?2:5;
-  const maxDays=fulfillment==='Express Shipping'?3:7;
-  const earliest=addBusinessDays(today,minDays);
-  const latest=addBusinessDays(today,maxDays);
-  return formatDate(earliest)+' – '+formatDate(latest)+' (assuming production is complete today)';
+
+  let unitPrice = basePrices[product];
+
+  if (getValue('sides') === 'Double-sided') {
+    unitPrice *= 1.35;
+  }
+
+  const finish = getValue('finish');
+
+  if (finish === 'Matte Finish' || finish === 'Glossy Finish') {
+    unitPrice *= 1.15;
+  }
+
+  return (unitPrice * quantity) + (shippingFees[shippingMethod] || 0);
 }
 
-function getValue(id){
-  const element=document.getElementById(id);
-  if(!element)return 'Not provided';
-  return element.value.trim()||'Not provided';
+/* DELIVERY ESTIMATE */
+
+function getDeliveryEstimate() {
+  if (shippingMethod === 'Local Pickup') {
+    return 'We’ll notify you when your order is ready for pickup in Ormoc City.';
+  }
+
+  const today = new Date();
+  const minimumDays = shippingMethod === 'Express Shipping' ? 2 : 5;
+  const maximumDays = shippingMethod === 'Express Shipping' ? 3 : 7;
+
+  function addBusinessDays(date, days) {
+    const result = new Date(date);
+    let added = 0;
+
+    while (added < days) {
+      result.setDate(result.getDate() + 1);
+
+      if (result.getDay() !== 0 && result.getDay() !== 6) {
+        added++;
+      }
+    }
+
+    return result;
+  }
+
+  const start = addBusinessDays(today, minimumDays);
+  const end = addBusinessDays(today, maximumDays);
+
+  const options = { month: 'short', day: 'numeric' };
+
+  return start.toLocaleDateString('en-PH', options) +
+    ' – ' +
+    end.toLocaleDateString('en-PH', options) +
+    ' (sample estimate after production)';
 }
 
-function getShippingFee(){
-  if(fulfillment==='Standard Shipping')return 80;
-  if(fulfillment==='Express Shipping')return 150;
-  return 0;
-}
+/* LIVE SUMMARY */
 
-function calculatePrice(){
-  const product=getValue('productType');
-  const base=basePrices[product]||250;
-  const standard=baseQuantities[product]||100;
-  const qty=Math.max(1,Number(document.getElementById('quantity').value)||1);
+function updateSummary() {
+  const product = getValue('productType') || 'Not selected';
+  const quantity = getValue('quantity') || '1';
+  const sides = getValue('sides') || 'Not selected';
+  const size = getValue('size') || 'Not selected';
+  const stock = getValue('stock') || 'Not selected';
+  const finish = getValue('finish') || 'Not selected';
+  const corners = getValue('corners') || 'Not selected';
 
-  let total=base*(qty/standard);
+  const artworkInput = document.getElementById('artwork');
+  const artworkFile = artworkInput && artworkInput.files && artworkInput.files[0]
+    ? artworkInput.files[0].name
+    : 'No file uploaded';
 
-  if(getValue('sides')==='Double-sided')total*=1.25;
-  if(getValue('finish')!=='None')total*=1.15;
+  const address = shippingMethod === 'Local Pickup'
+    ? 'Local pickup – Ormoc City'
+    : (getValue('address') || 'Not provided');
 
-  total+=getShippingFee();
-  return Math.round(total);
-}
+  const estimate = getDeliveryEstimate();
+  const estimateElement = document.getElementById('deliveryEstimate');
 
-function updateSummary(){
-  const product=getValue('productType');
-  const file=document.getElementById('artwork').files[0];
+  if (estimateElement) {
+    estimateElement.value = estimate;
+  }
 
-  const entries=[
-    ['Product line',getValue('productLine')],
-    ['Product type',product],
-    ['Printing sides',getValue('sides')],
-    ['Size',getValue('size')],
-    ['Quantity',getValue('quantity')],
-    ['Paper stock',getValue('stock')],
-    ['Finish',getValue('finish')],
-    ['Corner style',getValue('corner')],
-    ['Design method',designMethod],
-    ['Sample design',designMethod==='Browse Designs'?selectedSample:'Not applicable'],
-    ['Artwork file',file?file.name:'None'],
-    ['Shipping method',fulfillment],
-    ['Estimated delivery',getDeliveryEstimate()],
-    ['Shipping fee',getShippingFee()===0?'FREE':'₱'+getShippingFee()],
-    ['Delivery address',fulfillment!=='Local Pickup'?getValue('address'):'Local pickup'],
-    ['Payment method',paymentMethod],
-    ['Design notes',getValue('designNotes')],
-    ['Additional instructions',getValue('instructions')],
-    ['Full name',getValue('customerName')],
-    ['Contact number',getValue('phone')],
-    ['Email address',getValue('email')]
+  const entries = [
+    ['Product', product],
+    ['Printing sides', sides],
+    ['Size', size],
+    ['Quantity', quantity],
+    ['Paper stock', stock],
+    ['Finish', finish],
+    ['Corner style', corners],
+    ['Design method', designMethod],
+    ['Sample design', designMethod === 'Browse Designs' ? (selectedSample || 'Not selected') : 'N/A'],
+    ['Artwork file', artworkFile],
+    ['Shipping method', shippingMethod],
+    ['Estimated delivery', estimate],
+    ['Delivery address', address],
+    ['Payment method', paymentMethod],
+    ['Design notes', getValue('designNotes') || 'None'],
+    ['Additional instructions', getValue('instructions') || 'None'],
+    ['Full name', getValue('customerName') || 'Not provided'],
+    ['Contact number', getValue('phone') || 'Not provided'],
+    ['Email address', getValue('email') || 'Not provided']
   ];
 
-  document.getElementById('summaryContent').innerHTML=entries.map(([label,value])=>
-    `<div class="summary-line"><span>${escapeHTML(String(label))}</span><strong>${escapeHTML(String(value))}</strong></div>`
-  ).join('');
+  const summaryList = document.getElementById('summaryList');
 
-  document.getElementById('estimatedTotal').textContent='₱'+calculatePrice().toLocaleString('en-PH');
-  document.getElementById('deliveryEstimate').textContent=getDeliveryEstimate();
+  summaryList.innerHTML = entries.map(([label, value]) => `
+    <div class="summary-row">
+      <span>${escapeHTML(label)}</span>
+      <span>${escapeHTML(value)}</span>
+    </div>
+  `).join('');
+
+  const total = calculatePrice();
+
+  document.getElementById('estimatedTotal').textContent = peso(total);
 }
 
-function escapeHTML(value){
-  return value.replace(/[&<>"']/g,char=>({
-    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
-  })[char]);
+/* ORDER SUMMARY TEXT */
+
+function getOrderText() {
+  const product = getValue('productType') || 'Not selected';
+  const quantity = getValue('quantity') || '1';
+
+  const artworkInput = document.getElementById('artwork');
+  const artworkFile = artworkInput && artworkInput.files && artworkInput.files[0]
+    ? artworkInput.files[0].name
+    : 'No file uploaded';
+
+  const address = shippingMethod === 'Local Pickup'
+    ? 'Local pickup – Ormoc City'
+    : getValue('address');
+
+  const total = calculatePrice();
+
+  return [
+    'PRESSCO. – ORDER REQUEST',
+    'Crisp Print. Fresh Takes.',
+    '',
+    'PRODUCT DETAILS',
+    'Product: ' + product,
+    'Printing sides: ' + getValue('sides'),
+    'Size: ' + getValue('size'),
+    'Quantity: ' + quantity,
+    'Paper stock: ' + getValue('stock'),
+    'Finish: ' + getValue('finish'),
+    'Corner style: ' + getValue('corners'),
+    '',
+    'DESIGN PREFERENCES',
+    'Design method: ' + designMethod,
+    'Sample design: ' + (designMethod === 'Browse Designs' ? selectedSample : 'N/A'),
+    'Artwork file: ' + artworkFile,
+    'Design notes: ' + (getValue('designNotes') || 'None'),
+    'Additional instructions: ' + (getValue('instructions') || 'None'),
+    '',
+    'SHIPPING AND PAYMENT',
+    'Shipping method: ' + shippingMethod,
+    'Shipping fee: ' + peso(shippingFees[shippingMethod] || 0),
+    'Estimated fulfillment: ' + getDeliveryEstimate(),
+    'Address: ' + (address || 'Not provided'),
+    'Payment method: ' + paymentMethod,
+    '',
+    'CUSTOMER DETAILS',
+    'Full name: ' + getValue('customerName'),
+    'Contact number: ' + getValue('phone'),
+    'Email address: ' + getValue('email'),
+    '',
+    'ESTIMATED TOTAL: ' + peso(total),
+    '',
+    'Note: This is a quotation request only. Final pricing, payment instructions, and production schedule will be confirmed by PressCo.'
+  ].join('\n');
 }
 
-function getOrderText(){
-  const labels=[
-    ['Product line','productLine'],
-    ['Product type','productType'],
-    ['Printing sides','sides'],
-    ['Size','size'],
-    ['Quantity','quantity'],
-    ['Paper stock','stock'],
-    ['Finish','finish'],
-    ['Corner style','corner']
-  ];
+/* SUBMIT REQUEST */
 
-  let lines=['PRESSCO. - ORDER REQUEST',''];
+function submitRequest(event) {
+  event.preventDefault();
 
-  labels.forEach(([label,id])=>{
-    lines.push(label+': '+getValue(id));
-  });
+  const form = document.getElementById('orderForm');
 
-  lines.push('Design method: '+designMethod);
-  lines.push('Sample design: '+(designMethod==='Browse Designs'?selectedSample:'Not applicable'));
-
-  const file=document.getElementById('artwork').files[0];
-  lines.push('Artwork file: '+(file?file.name:'None'));
-  lines.push('Shipping method: '+fulfillment);
-  lines.push('Estimated delivery: '+getDeliveryEstimate());
-  lines.push('Shipping fee: '+(getShippingFee()===0?'FREE':'₱'+getShippingFee()));
-  lines.push('Delivery address: '+(fulfillment!=='Local Pickup'?getValue('address'):'Local pickup'));
-  lines.push('Payment method: '+paymentMethod);
-  lines.push('Design notes: '+getValue('designNotes'));
-  lines.push('Additional instructions: '+getValue('instructions'));
-  lines.push('Full name: '+getValue('customerName'));
-  lines.push('Contact number: '+getValue('phone'));
-  lines.push('Email address: '+getValue('email'));
-  lines.push('');
-  lines.push('Estimated total: ₱'+calculatePrice().toLocaleString('en-PH'));
-  lines.push('');
-  lines.push('Final quotation subject to confirmation.');
-
-  return lines.join('\n');
-}
-
-function copySummary(){
-  const text=getOrderText();
-
-  if(navigator.clipboard&&window.isSecureContext){
-    navigator.clipboard.writeText(text)
-      .then(()=>alert('Your order summary has been copied!'))
-      .catch(()=>fallbackCopy(text));
-  }else{
-    fallbackCopy(text);
-  }
-}
-
-function fallbackCopy(text){
-  const area=document.createElement('textarea');
-  area.value=text;
-  document.body.appendChild(area);
-  area.select();
-  document.execCommand('copy');
-  area.remove();
-  alert('Your order summary has been copied!');
-}
-
-function submitRequest(){
-  const name=document.getElementById('customerName').value.trim();
-  const phone=document.getElementById('phone').value.trim();
-  const email=document.getElementById('email');
-  const quantity=document.getElementById('quantity').value;
-
-  if(!name){
-    alert('Please enter your full name.');
-    document.getElementById('customerName').focus();
+  if (!form.checkValidity()) {
+    form.reportValidity();
     return;
   }
 
-  if(!/^09[0-9]{9}$/.test(phone)){
-    alert('Please enter a valid 11-digit Philippine mobile number starting with 09.');
+  const phone = getValue('phone');
+  const email = getValue('email');
+  const quantity = Number(getValue('quantity'));
+
+  if (!/^09[0-9]{9}$/.test(phone)) {
+    alert('Please enter a valid 11-digit Philippine mobile number beginning with 09.');
     document.getElementById('phone').focus();
     return;
   }
 
-  if(!email.value.trim()||!email.checkValidity()){
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     alert('Please enter a valid email address.');
-    email.focus();
+    document.getElementById('email').focus();
     return;
   }
 
-  if(!Number.isInteger(Number(quantity))||Number(quantity)<1){
+  if (!Number.isInteger(quantity) || quantity < 1) {
     alert('Please enter a valid quantity of at least 1.');
     document.getElementById('quantity').focus();
     return;
   }
 
-  if(fulfillment!=='Local Pickup'&&!document.getElementById('address').value.trim()){
-    alert('Please provide your delivery address.');
+  if (shippingMethod !== 'Local Pickup' && !getValue('address')) {
+    alert('Please provide your complete delivery address.');
     document.getElementById('address').focus();
     return;
   }
 
-  alert('Your order details are ready! Please copy your order summary and send it to PressCo. through our social media page for quotation and confirmation.');
-  copySummary();
+  const orderText = getOrderText();
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(orderText)
+      .then(() => {
+        alert(
+          'Your order request summary has been copied! You can now paste it into a message to PressCo. through our Facebook or Instagram page.'
+        );
+      })
+      .catch(() => {
+        window.prompt('Copy your order request below:', orderText);
+      });
+  } else {
+    window.prompt('Copy your order request below:', orderText);
+  }
 }
+
+/* INITIALIZE */
+
+document.getElementById('year').textContent = new Date().getFullYear();
 
 updateSummary();
 </script>
