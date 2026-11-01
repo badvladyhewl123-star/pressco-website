@@ -19,792 +19,206 @@
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-
 html{scroll-behavior:smooth}
-
-body{
-  background:var(--cream);
-  color:var(--dark);
-  font-family:Arial,Helvetica,sans-serif;
-}
-
+body{background:var(--cream);color:var(--dark);font-family:Arial,Helvetica,sans-serif}
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 
 header{
-  height:76px;
-  background:rgba(248,247,241,.97);
+  height:76px;background:rgba(248,247,241,.97);
   border-bottom:1px solid var(--line);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 6%;
-  position:sticky;
-  top:0;
-  z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6%;position:sticky;top:0;z-index:100;
 }
 
-.brand{
-  display:flex;
-  flex-direction:column;
-  gap:3px;
+.brand{display:flex;align-items:center;gap:12px;border:0;background:none;text-align:left;color:inherit}
+.brand-logo{
+  width:43px;height:43px;background:var(--green);color:var(--cream);
+  display:flex;justify-content:center;align-items:center;
+  font-family:Georgia,serif;font-size:29px;font-weight:bold;
+  border-radius:3px;flex-shrink:0;
 }
+.brand-text{display:flex;flex-direction:column;gap:3px}
+.brand-text strong{font-family:Georgia,serif;font-size:26px;letter-spacing:-1px}
+.brand-text small{font-size:10px;letter-spacing:1.5px;color:var(--muted)}
 
-.brand strong{
-  font-family:Georgia,serif;
-  font-size:26px;
-  letter-spacing:-1px;
-}
-
-.brand small{
-  font-size:10px;
-  letter-spacing:1.5px;
-  color:var(--muted);
-}
-
-nav{
-  display:flex;
-  align-items:center;
-  gap:30px;
-}
-
+nav{display:flex;align-items:center;gap:30px}
 nav button{
-  border:0;
-  background:none;
-  color:var(--dark);
-  font-size:12px;
-  font-weight:bold;
-  letter-spacing:.5px;
-  padding:10px 0;
+  border:0;background:none;color:var(--dark);font-size:12px;
+  font-weight:bold;letter-spacing:.5px;padding:10px 0;
 }
-
-nav button:hover,nav button.active{
-  color:var(--orange);
-}
-
-nav .nav-order{
-  background:var(--green);
-  color:white;
-  padding:13px 21px;
-  border-radius:3px;
-}
-
+nav button:hover,nav button.active{color:var(--orange)}
+nav .nav-order{background:var(--green);color:white;padding:13px 21px;border-radius:3px}
 nav .nav-order:hover{background:var(--orange);color:white}
+.menu-toggle{display:none;background:none;border:0;font-size:25px;color:var(--green)}
 
-.menu-toggle{
-  display:none;
-  background:none;
-  border:0;
-  font-size:25px;
-  color:var(--green);
-}
-
-.page{
-  display:none;
-  min-height:calc(100vh - 76px);
-  animation:appear .3s ease;
-}
-
+.page{display:none;min-height:calc(100vh - 76px);animation:appear .3s ease}
 .page.active{display:block}
+@keyframes appear{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 
-@keyframes appear{
-  from{opacity:0;transform:translateY(5px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-.container{
-  width:88%;
-  max-width:1250px;
-  margin:auto;
-}
-
-.eyebrow{
-  color:var(--orange);
-  font-size:10px;
-  font-weight:bold;
-  letter-spacing:2.5px;
-  text-transform:uppercase;
-  margin-bottom:17px;
-}
-
-h1,h2,h3{
-  font-family:Georgia,"Times New Roman",serif;
-  font-weight:normal;
-}
+.container{width:88%;max-width:1250px;margin:auto}
+.eyebrow{color:var(--orange);font-size:10px;font-weight:bold;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:17px}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:normal}
 
 .primary-btn,.secondary-btn{
-  border:1px solid var(--green);
-  display:inline-flex;
-  justify-content:center;
-  align-items:center;
-  padding:15px 23px;
-  font-size:11px;
-  font-weight:bold;
-  letter-spacing:1px;
-  transition:.2s;
+  border:1px solid var(--green);display:inline-flex;
+  justify-content:center;align-items:center;padding:15px 23px;
+  font-size:11px;font-weight:bold;letter-spacing:1px;transition:.2s;
 }
+.primary-btn{background:var(--green);color:white}
+.primary-btn:hover{background:var(--orange);border-color:var(--orange)}
+.secondary-btn{color:var(--green);background:transparent}
+.secondary-btn:hover{background:var(--green);color:white}
 
-.primary-btn{
-  background:var(--green);
-  color:white;
-}
-
-.primary-btn:hover{
-  background:var(--orange);
-  border-color:var(--orange);
-}
-
-.secondary-btn{
-  color:var(--green);
-  background:transparent;
-}
-
-.secondary-btn:hover{
-  background:var(--green);
-  color:white;
-}
-
+/* HOME */
 .home-hero{
-  min-height:570px;
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  align-items:center;
-  gap:55px;
-  padding:65px 0;
+  min-height:570px;display:grid;grid-template-columns:1.05fr .95fr;
+  align-items:center;gap:55px;padding:65px 0;
 }
-
-.home-copy h1{
-  font-size:clamp(55px,7vw,91px);
-  line-height:.99;
-  letter-spacing:-4px;
-  margin-bottom:26px;
-}
-
-.home-copy h1 em{
-  color:var(--orange);
-  font-weight:normal;
-}
-
-.home-copy>p{
-  color:#686e63;
-  font-size:14px;
-  line-height:1.9;
-  max-width:510px;
-  margin-bottom:30px;
-}
-
-.hero-buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-}
-
-.hero-image{
-  position:relative;
-  height:430px;
-}
-
-.hero-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:2px;
-}
-
+.home-copy h1{font-size:clamp(55px,7vw,91px);line-height:.99;letter-spacing:-4px;margin-bottom:26px}
+.home-copy h1 em{color:var(--orange);font-weight:normal}
+.hero-buttons{display:flex;flex-wrap:wrap;gap:12px}
+.hero-image{position:relative;height:430px}
+.hero-image img{width:100%;height:100%;object-fit:cover;border-radius:2px}
 .image-note{
-  position:absolute;
-  bottom:-19px;
-  left:-25px;
-  background:var(--white);
-  padding:19px 23px;
-  box-shadow:0 8px 30px #263c2814;
+  position:absolute;bottom:-19px;left:-25px;background:var(--white);
+  padding:19px 23px;box-shadow:0 8px 30px #263c2814;
 }
-
-.image-note strong{
-  display:block;
-  font-family:Georgia,serif;
-  font-size:18px;
-  margin-bottom:5px;
-}
-
-.image-note span{
-  font-size:10px;
-  color:var(--muted);
-}
-
+.image-note strong{display:block;font-family:Georgia,serif;font-size:18px;margin-bottom:5px}
+.image-note span{font-size:10px;color:var(--muted)}
 .home-bottom{
-  border-top:1px solid var(--line);
-  padding:27px 0;
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  align-items:center;
+  border-top:1px solid var(--line);padding:27px 0;
+  display:flex;justify-content:space-between;gap:20px;align-items:center;
 }
-
-.home-bottom strong{
-  font-family:Georgia,serif;
-  font-size:21px;
-}
-
-.home-bottom p{
-  font-size:11px;
-  color:var(--muted);
-}
-
-.quick-links{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-}
-
+.home-bottom strong{font-family:Georgia,serif;font-size:21px}
+.home-bottom p{font-size:11px;color:var(--muted)}
+.quick-links{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .quick-link{
-  padding:24px 20px;
-  border-right:1px solid var(--line);
-  background:transparent;
-  border-top:0;
-  border-bottom:0;
-  border-left:0;
-  text-align:left;
-  transition:.2s;
+  padding:24px 20px;border-right:1px solid var(--line);
+  background:transparent;border-top:0;border-bottom:0;border-left:0;
+  text-align:left;transition:.2s;
 }
-
 .quick-link:last-child{border-right:0}
 .quick-link:hover{background:#eeeee5}
-
-.quick-link .symbol{
-  font-size:23px;
-  color:var(--orange);
-  margin-bottom:13px;
-}
-
-.quick-link strong{
-  display:block;
-  font-family:Georgia,serif;
-  font-size:17px;
-  margin-bottom:5px;
-}
-
-.quick-link small{
-  color:var(--muted);
-  font-size:10px;
-}
+.quick-link .symbol{font-size:23px;color:var(--orange);margin-bottom:13px}
+.quick-link strong{display:block;font-family:Georgia,serif;font-size:17px;margin-bottom:5px}
+.quick-link small{color:var(--muted);font-size:10px}
 
 /* PRODUCTS */
-
-.section-head{
-  padding:60px 0 30px;
-  display:flex;
-  align-items:end;
-  justify-content:space-between;
-  gap:20px;
-}
-
-.section-head h2{
-  font-size:clamp(35px,5vw,53px);
-  margin-bottom:10px;
-}
-
-.section-head p{
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.7;
-}
-
-.filters{
-  display:flex;
-  flex-wrap:wrap;
-  gap:9px;
-  margin-bottom:30px;
-}
-
-.filter{
-  background:transparent;
-  border:1px solid var(--line);
-  padding:10px 17px;
-  font-size:10px;
-  color:var(--dark);
-  border-radius:30px;
-}
-
-.filter.active,.filter:hover{
-  background:var(--green);
-  color:white;
-  border-color:var(--green);
-}
-
-.product-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:24px 18px;
-  padding-bottom:65px;
-}
-
-.product-card{
-  background:white;
-  border:1px solid var(--line);
-  overflow:hidden;
-  transition:.25s;
-}
-
-.product-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 12px 30px #273b2810;
-}
-
-.product-card img{
-  width:100%;
-  height:205px;
-  object-fit:cover;
-  background:#eeece4;
-}
-
+.section-head{padding:60px 0 30px;display:flex;align-items:end;justify-content:space-between;gap:20px}
+.section-head h2{font-size:clamp(35px,5vw,53px);margin-bottom:10px}
+.section-head p{color:var(--muted);font-size:13px;line-height:1.7}
+.filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:30px}
+.filter{background:transparent;border:1px solid var(--line);padding:10px 17px;font-size:10px;color:var(--dark);border-radius:30px}
+.filter.active,.filter:hover{background:var(--green);color:white;border-color:var(--green)}
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px 18px;padding-bottom:65px}
+.product-card{background:white;border:1px solid var(--line);overflow:hidden;transition:.25s}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px #273b2810}
+.product-card img{width:100%;height:205px;object-fit:cover;background:#eeece4}
 .product-info{padding:18px}
-
-.category{
-  font-size:9px;
-  text-transform:uppercase;
-  color:var(--orange);
-  font-weight:bold;
-  letter-spacing:1.6px;
-}
-
-.product-info h3{
-  font-size:21px;
-  margin:9px 0;
-}
-
-.product-info p{
-  font-size:11px;
-  line-height:1.7;
-  color:var(--muted);
-  min-height:38px;
-}
-
-.price{
-  font-size:12px;
-  font-weight:bold;
-  margin:15px 0;
-}
-
-.price span{
-  display:block;
-  font-weight:normal;
-  color:var(--muted);
-  font-size:10px;
-  margin-top:4px;
-}
-
-.customize-btn{
-  width:100%;
-  padding:12px;
-  background:var(--green);
-  color:white;
-  border:0;
-  font-size:10px;
-  font-weight:bold;
-  letter-spacing:1px;
-}
-
+.category{font-size:9px;text-transform:uppercase;color:var(--orange);font-weight:bold;letter-spacing:1.6px}
+.product-info h3{font-size:21px;margin:9px 0}
+.product-info p{font-size:11px;line-height:1.7;color:var(--muted);min-height:38px}
+.price{font-size:12px;font-weight:bold;margin:15px 0}
+.price span{display:block;font-weight:normal;color:var(--muted);font-size:10px;margin-top:4px}
+.customize-btn{width:100%;padding:12px;background:var(--green);color:white;border:0;font-size:10px;font-weight:bold;letter-spacing:1px}
 .customize-btn:hover{background:var(--orange)}
 
 /* ORDER */
-
-.order-intro{
-  padding:50px 0 30px;
-}
-
-.order-intro h2{
-  font-size:48px;
-  margin-bottom:12px;
-}
-
-.order-intro p{
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.8;
-  max-width:650px;
-}
-
-.order-layout{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) 340px;
-  gap:25px;
-  align-items:start;
-  padding-bottom:70px;
-}
-
-.order-main{
-  display:flex;
-  flex-direction:column;
-  gap:18px;
-}
-
-.form-card,.summary-card{
-  background:white;
-  border:1px solid var(--line);
-  padding:27px;
-}
-
-.step-title{
-  display:flex;
-  gap:14px;
-  align-items:center;
-  margin-bottom:25px;
-}
-
-.step-number{
-  width:34px;
-  height:34px;
-  background:var(--green);
-  color:white;
-  display:grid;
-  place-items:center;
-  font-size:12px;
-  border-radius:50%;
-  flex-shrink:0;
-}
-
+.order-intro{padding:50px 0 30px}
+.order-intro h2{font-size:48px;margin-bottom:12px}
+.order-intro p{color:var(--muted);font-size:13px;line-height:1.8;max-width:650px}
+.order-layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:25px;align-items:start;padding-bottom:70px}
+.order-main{display:flex;flex-direction:column;gap:18px}
+.form-card,.summary-card{background:white;border:1px solid var(--line);padding:27px}
+.step-title{display:flex;gap:14px;align-items:center;margin-bottom:25px}
+.step-number{width:34px;height:34px;background:var(--green);color:white;display:grid;place-items:center;font-size:12px;border-radius:50%;flex-shrink:0}
 .step-title h3{font-size:24px}
-
-.step-title p{
-  font-size:10px;
-  color:var(--muted);
-  margin-top:4px;
-}
-
-.fields{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:17px;
-}
-
+.step-title p{font-size:10px;color:var(--muted);margin-top:4px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:17px}
 .field.full{grid-column:1/-1}
-
-.field label{
-  display:block;
-  font-size:10px;
-  font-weight:bold;
-  letter-spacing:.5px;
-  margin-bottom:8px;
-}
-
+.field label{display:block;font-size:10px;font-weight:bold;letter-spacing:.5px;margin-bottom:8px}
 .field input,.field select,.field textarea{
-  width:100%;
-  padding:12px;
-  border:1px solid var(--line);
-  background:#fdfdfb;
-  outline:none;
-  color:var(--dark);
-  font-size:12px;
-  border-radius:2px;
+  width:100%;padding:12px;border:1px solid var(--line);
+  background:#fdfdfb;outline:none;color:var(--dark);font-size:12px;border-radius:2px;
 }
-
-.field input:focus,.field select:focus,.field textarea:focus{
-  border-color:var(--sage);
-}
-
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--sage)}
 .field textarea{min-height:85px;resize:vertical}
-
 .field input[type=file]{padding:9px}
 
-.design-options{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin-bottom:20px;
-}
-
-.design-option{
-  border:1px solid var(--line);
-  background:#faf9f5;
-  padding:15px 11px;
-  text-align:left;
-  color:var(--dark);
-}
-
-.design-option.active{
-  border:2px solid var(--green);
-  background:#f0f2e9;
-}
-
-.design-option strong{
-  display:block;
-  font-family:Georgia,serif;
-  font-size:16px;
-  margin-bottom:6px;
-}
-
-.design-option small{
-  font-size:9px;
-  color:var(--muted);
-}
-
-.design-samples{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
-}
-
-.sample{
-  border:1px solid var(--line);
-  padding:9px;
-  background:white;
-  cursor:pointer;
-  text-align:center;
-}
-
+.design-options{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+.design-option{border:1px solid var(--line);background:#faf9f5;padding:15px 11px;text-align:left;color:var(--dark)}
+.design-option.active{border:2px solid var(--green);background:#f0f2e9}
+.design-option strong{display:block;font-family:Georgia,serif;font-size:16px;margin-bottom:6px}
+.design-option small{font-size:9px;color:var(--muted)}
+.design-samples{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.sample{border:1px solid var(--line);padding:9px;background:white;cursor:pointer;text-align:center}
 .sample.active{border:2px solid var(--orange)}
-
-.sample-art{
-  height:100px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  gap:6px;
-  padding:5px;
-  margin-bottom:9px;
-  overflow:hidden;
-}
-
-.sample-art strong{
-  font-family:Georgia,serif;
-  font-size:13px;
-}
-
-.sample-art small{
-  font-size:7px;
-  letter-spacing:1px;
-}
-
+.sample-art{height:100px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;padding:5px;margin-bottom:9px;overflow:hidden}
+.sample-art strong{font-family:Georgia,serif;font-size:13px}
+.sample-art small{font-size:7px;letter-spacing:1px}
 .art-one{background:#e8e8dd;color:#294334}
 .art-two{background:#bc704e;color:white}
 .art-three{background:#dce4d1;color:#405b42}
 .art-four{background:#293d33;color:#f8f5e9}
-
 .sample b{font-size:10px;display:block}
 .sample span{font-size:8px;color:var(--muted)}
 
-.fulfillment{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  margin-bottom:18px;
+/* SHIPPING AND PAYMENT */
+.shipping-options,.payment-options{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:22px}
+.shipping-option,.payment-option{
+  background:white;border:1px solid var(--line);padding:17px;
+  text-align:left;color:var(--dark);transition:.2s;
 }
+.shipping-option.active,.payment-option.active{border:2px solid var(--green);background:#f1f3ec}
+.shipping-option strong,.payment-option strong{display:block;font-size:12px;margin-bottom:7px}
+.shipping-option small,.payment-option small{display:block;color:var(--muted);font-size:10px;line-height:1.6}
+.shipping-option .delivery-price{display:block;color:var(--orange);font-weight:bold;font-size:12px;margin-top:9px}
+.delivery-estimate{background:#f1f3ec;padding:15px;margin:15px 0 20px;border-left:3px solid var(--green)}
+.delivery-estimate strong{display:block;font-size:12px;margin-bottom:5px}
+.delivery-estimate span{color:var(--muted);font-size:11px;line-height:1.6}
+.payment-note{color:var(--muted);font-size:10px;line-height:1.7;margin-top:12px}
 
-.fulfillment button{
-  background:white;
-  border:1px solid var(--line);
-  padding:17px;
-  text-align:left;
-  color:var(--dark);
-}
-
-.fulfillment button.active{
-  border:2px solid var(--green);
-  background:#f1f3ec;
-}
-
-.fulfillment strong{
-  display:block;
-  font-size:12px;
-  margin-bottom:5px;
-}
-
-.fulfillment small{
-  font-size:10px;
-  color:var(--muted);
-}
-
-.summary-card{
-  position:sticky;
-  top:95px;
-}
-
-.summary-card h3{
-  font-size:25px;
-  margin-bottom:8px;
-}
-
-.summary-card>p{
-  font-size:10px;
-  color:var(--muted);
-  line-height:1.6;
-  margin-bottom:20px;
-}
-
-.summary-line{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  padding:10px 0;
-  border-bottom:1px solid #efeee8;
-  font-size:10px;
-}
-
+/* SUMMARY */
+.summary-card{position:sticky;top:95px}
+.summary-card h3{font-size:25px;margin-bottom:8px}
+.summary-card>p{font-size:10px;color:var(--muted);line-height:1.6;margin-bottom:20px}
+.summary-line{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid #efeee8;font-size:10px}
 .summary-line span{color:var(--muted)}
-.summary-line strong{text-align:right;max-width:58%;font-size:10px}
-
-.summary-total{
-  margin-top:18px;
-  padding-top:17px;
-  border-top:1px solid var(--line);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
+.summary-line strong{text-align:right;max-width:58%;font-size:10px;overflow-wrap:anywhere}
+.summary-total{margin-top:18px;padding-top:17px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
 .summary-total span{font-size:12px;font-weight:bold}
-.summary-total strong{
-  font-family:Georgia,serif;
-  font-size:25px;
-  color:var(--green);
-}
-
-.summary-note{
-  font-size:9px;
-  color:var(--muted);
-  line-height:1.7;
-  margin:14px 0;
-}
-
-.submit-btn{
-  width:100%;
-  border:0;
-  background:var(--green);
-  color:white;
-  padding:16px;
-  font-size:10px;
-  font-weight:bold;
-  letter-spacing:1px;
-}
-
+.summary-total strong{font-family:Georgia,serif;font-size:25px;color:var(--green)}
+.summary-note{font-size:9px;color:var(--muted);line-height:1.7;margin:14px 0}
+.submit-btn{width:100%;border:0;background:var(--green);color:white;padding:16px;font-size:10px;font-weight:bold;letter-spacing:1px}
 .submit-btn:hover{background:var(--orange)}
-
-.copy-btn{
-  margin-top:10px;
-  width:100%;
-  background:white;
-  border:1px solid var(--line);
-  padding:12px;
-  font-size:10px;
-  color:var(--green);
-}
+.copy-btn{margin-top:10px;width:100%;background:white;border:1px solid var(--line);padding:12px;font-size:10px;color:var(--green)}
+.copy-btn:hover{background:#f1f3ec}
 
 /* ABOUT AND CONTACT */
-
-.about-hero{
-  padding:90px 0;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:65px;
-  align-items:center;
-}
-
-.about-hero img{
-  width:100%;
-  height:390px;
-  object-fit:cover;
-}
-
-.about-hero h2{
-  font-size:54px;
-  line-height:1.1;
-  margin-bottom:22px;
-}
-
-.about-hero p{
-  color:var(--muted);
-  font-size:13px;
-  line-height:2;
-  margin-bottom:17px;
-}
-
-.values{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  margin-bottom:65px;
-}
-
-.value{
-  padding:30px 20px;
-  border-right:1px solid var(--line);
-}
-
+.about-hero{padding:90px 0;display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+.about-hero img{width:100%;height:390px;object-fit:cover}
+.about-hero h2{font-size:54px;line-height:1.1;margin-bottom:22px}
+.about-hero p{color:var(--muted);font-size:13px;line-height:2;margin-bottom:17px}
+.values{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:65px}
+.value{padding:30px 20px;border-right:1px solid var(--line)}
 .value:last-child{border:0}
 .value h3{font-size:22px;margin-bottom:10px}
 .value p{font-size:11px;color:var(--muted);line-height:1.8}
-
-.contact-layout{
-  padding:75px 0;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:65px;
-}
-
-.contact-layout h2{
-  font-size:55px;
-  margin-bottom:18px;
-}
-
-.contact-layout p{
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.9;
-}
-
-.contact-item{
-  padding:19px 0;
-  border-bottom:1px solid var(--line);
-}
-
-.contact-item small{
-  display:block;
-  color:var(--orange);
-  text-transform:uppercase;
-  font-size:9px;
-  letter-spacing:1.5px;
-  margin-bottom:7px;
-}
-
+.contact-layout{padding:75px 0;display:grid;grid-template-columns:1fr 1fr;gap:65px}
+.contact-layout h2{font-size:55px;margin-bottom:18px}
+.contact-layout p{color:var(--muted);font-size:13px;line-height:1.9}
+.contact-item{padding:19px 0;border-bottom:1px solid var(--line)}
+.contact-item small{display:block;color:var(--orange);text-transform:uppercase;font-size:9px;letter-spacing:1.5px;margin-bottom:7px}
 .contact-item strong{font-size:14px}
 
-footer{
-  background:var(--green);
-  color:white;
-  padding:30px 6%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-}
-
-footer strong{
-  font-family:Georgia,serif;
-  font-size:23px;
-}
-
-footer p{
-  color:#d0d8ce;
-  font-size:10px;
-  margin-top:5px;
-}
-
-footer button{
-  border:1px solid #ffffff66;
-  color:white;
-  background:transparent;
-  padding:12px 18px;
-  font-size:10px;
-}
-
+footer{background:var(--green);color:white;padding:30px 6%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+footer strong{font-family:Georgia,serif;font-size:23px}
+footer p{color:#d0d8ce;font-size:10px;margin-top:5px}
+footer button{border:1px solid #ffffff66;color:white;background:transparent;padding:12px 18px;font-size:10px}
 footer button:hover{background:white;color:var(--green)}
-
 .hidden{display:none!important}
 
 @media(max-width:900px){
@@ -814,25 +228,15 @@ footer button:hover{background:white;color:var(--green)}
   .home-hero{gap:30px}
   .hero-image{height:350px}
 }
-
 @media(max-width:650px){
   header{height:67px;padding:0 5%}
   .menu-toggle{display:block}
-  nav{
-    display:none;
-    position:absolute;
-    top:66px;
-    left:0;
-    width:100%;
-    background:var(--cream);
-    border-bottom:1px solid var(--line);
-    padding:15px 6%;
-    flex-direction:column;
-    align-items:stretch;
-    gap:5px;
-  }
+  nav{display:none;position:absolute;top:66px;left:0;width:100%;background:var(--cream);border-bottom:1px solid var(--line);padding:15px 6%;flex-direction:column;align-items:stretch;gap:5px}
   nav.open{display:flex}
   nav button{text-align:left;padding:13px}
+  .brand-text strong{font-size:23px}
+  .brand-text small{font-size:8px}
+  .brand-logo{width:39px;height:39px;font-size:26px}
   .container{width:90%}
   .home-hero{grid-template-columns:1fr;padding:48px 0;gap:35px}
   .home-copy h1{font-size:65px}
@@ -854,6 +258,7 @@ footer button:hover{background:white;color:var(--green)}
   .field.full{grid-column:auto}
   .form-card,.summary-card{padding:19px}
   .order-intro h2{font-size:39px}
+  .shipping-options,.payment-options{grid-template-columns:1fr}
   .about-hero,.contact-layout{grid-template-columns:1fr;gap:30px;padding:50px 0}
   .about-hero h2,.contact-layout h2{font-size:43px}
   .values{grid-template-columns:1fr}
@@ -866,9 +271,12 @@ footer button:hover{background:white;color:var(--green)}
 <body>
 
 <header>
-  <button class="brand" onclick="showPage('home')" style="border:0;background:none;text-align:left;color:inherit">
-    <strong>PressCo.</strong>
-    <small>Crisp Print. Fresh Takes.</small>
+  <button class="brand" onclick="showPage('home')">
+    <span class="brand-logo">P.</span>
+    <span class="brand-text">
+      <strong>PressCo.</strong>
+      <small>Crisp Print. Fresh Takes.</small>
+    </span>
   </button>
 
   <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
@@ -890,7 +298,6 @@ footer button:hover{background:white;color:var(--green)}
       <div class="home-copy">
         <div class="eyebrow">Modern custom printing studio</div>
         <h1>Crisp Print.<br><em>Fresh Takes.</em></h1>
-        <p>Your ideas deserve more than ordinary paper. Discover thoughtfully designed, professionally printed paper products made for your business, your creativity, and your special moments.</p>
         <div class="hero-buttons">
           <button class="primary-btn" onclick="showPage('products')">EXPLORE PRODUCTS ↗</button>
           <button class="secondary-btn" onclick="showPage('about')">DISCOVER PRESSCO.</button>
@@ -898,11 +305,10 @@ footer button:hover{background:white;color:var(--green)}
       </div>
 
       <div class="hero-image">
-        <img src="homepage.jpg" alt="PressCo stationery and paper products"
-        onerror="this.src='https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=900&q=85'">
+        <img src="businesscard.jpg" alt="Premium printed business cards">
         <div class="image-note">
-          <strong>Made for your ideas.</strong>
-          <span>Designed with care. Printed with purpose.</span>
+          <strong>BEST SELLER</strong>
+          <span>Premium Business Cards · Customer Favorite</span>
         </div>
       </div>
     </section>
@@ -961,7 +367,6 @@ footer button:hover{background:white;color:var(--green)}
     </div>
 
     <div class="product-grid" id="productGrid">
-
       <article class="product-card" data-category="Business">
         <img src="businesscard.jpg" alt="Premium business cards">
         <div class="product-info">
@@ -1049,7 +454,6 @@ footer button:hover{background:white;color:var(--green)}
           <button class="customize-btn" onclick="chooseProduct('Custom Stationery')">CUSTOMIZE ↗</button>
         </div>
       </article>
-
     </div>
   </div>
 </main>
@@ -1086,7 +490,7 @@ footer button:hover{background:white;color:var(--green)}
 
             <div class="field">
               <label>Product type</label>
-              <select id="productType" onchange="updateSummary()">
+              <select id="productType" onchange="syncProductLine();updateSummary()">
                 <option>Premium Business Cards</option>
                 <option>Flyers</option>
                 <option>Brochures</option>
@@ -1117,23 +521,12 @@ footer button:hover{background:white;color:var(--green)}
               </select>
             </div>
 
-<div class="field">
-  <label>Quantity</label>
-  <input
-    id="quantity"
-    type="number"
-    min="1"
-    step="1"
-    value="100"
-    oninput="
-      if(this.value.includes('.')) this.value=this.value.split('.')[0];
-      if(Number(this.value)<1 && this.value!=='') this.value=1;
-      updateSummary();
-    "
-    onkeydown="if(['e','E','+','-','.'].includes(event.key)) event.preventDefault()"
-    required
-  >
-</div>
+            <div class="field">
+              <label>Quantity</label>
+              <input id="quantity" type="number" min="1" step="1" value="100"
+                oninput="if(this.value.includes('.'))this.value=this.value.split('.')[0];if(Number(this.value)<1&&this.value!=='')this.value=1;updateSummary()"
+                onkeydown="if(['e','E','+','-','.'].includes(event.key))event.preventDefault()" required>
+            </div>
 
             <div class="field">
               <label>Paper stock</label>
@@ -1175,17 +568,14 @@ footer button:hover{background:white;color:var(--green)}
           </div>
 
           <div class="design-options">
-            <button class="design-option" id="uploadOption" onclick="setDesignMethod('Upload My Design')">
-              <strong>Upload My Design</strong>
-              <small>Use your own artwork</small>
+            <button type="button" class="design-option" id="uploadOption" onclick="setDesignMethod('Upload My Design')">
+              <strong>Upload My Design</strong><small>Use your own artwork</small>
             </button>
-            <button class="design-option active" id="browseOption" onclick="setDesignMethod('Browse Designs')">
-              <strong>Browse Designs</strong>
-              <small>Choose a visual direction</small>
+            <button type="button" class="design-option active" id="browseOption" onclick="setDesignMethod('Browse Designs')">
+              <strong>Browse Designs</strong><small>Choose a visual direction</small>
             </button>
-            <button class="design-option" id="customOption" onclick="setDesignMethod('Request a Custom Design')">
-              <strong>Custom Design</strong>
-              <small>Share your idea</small>
+            <button type="button" class="design-option" id="customOption" onclick="setDesignMethod('Request a Custom Design')">
+              <strong>Custom Design</strong><small>Share your idea</small>
             </button>
           </div>
 
@@ -1197,52 +587,22 @@ footer button:hover{background:white;color:var(--green)}
           <div id="sampleArea">
             <label style="font-size:10px;font-weight:bold;display:block;margin-bottom:12px">CHOOSE A DESIGN DIRECTION</label>
             <div class="design-samples">
-
-              <button class="sample" onclick="chooseSample('Minimal 01',this)">
-                <div class="sample-art art-one">
-                  <small>PRESSCO / STUDIO</small>
-                  <strong>Simply</strong>
-                  <small>CONSIDERED.</small>
-                  <strong>LESS, WITH PURPOSE</strong>
-                </div>
-                <b>Minimal 01</b>
-                <span>Business · Clean</span>
+              <button type="button" class="sample" onclick="chooseSample('Minimal 01',this)">
+                <div class="sample-art art-one"><small>PRESSCO / STUDIO</small><strong>Simply</strong><small>CONSIDERED.</small><strong>LESS, WITH PURPOSE</strong></div>
+                <b>Minimal 01</b><span>Business · Clean</span>
               </button>
-
-              <button class="sample" onclick="chooseSample('Bold 02',this)">
-                <div class="sample-art art-two">
-                  <small>MAKE IT MATTER</small>
-                  <strong>BIG</strong>
-                  <strong>IDEAS.</strong>
-                  <small>LOUD & CLEAR</small>
-                </div>
-                <b>Bold 02</b>
-                <span>Promo · Vibrant</span>
+              <button type="button" class="sample" onclick="chooseSample('Bold 02',this)">
+                <div class="sample-art art-two"><small>MAKE IT MATTER</small><strong>BIG</strong><strong>IDEAS.</strong><small>LOUD & CLEAR</small></div>
+                <b>Bold 02</b><span>Promo · Vibrant</span>
               </button>
-
-              <button class="sample" onclick="chooseSample('Botanical 03',this)">
-                <div class="sample-art art-three">
-                  <small>GROW WITH GRACE</small>
-                  <strong>Rooted</strong>
-                  <small>in nature.</small>
-                  <strong>BOTANICAL SERIES</strong>
-                </div>
-                <b>Botanical 03</b>
-                <span>Personal · Organic</span>
+              <button type="button" class="sample" onclick="chooseSample('Botanical 03',this)">
+                <div class="sample-art art-three"><small>GROW WITH GRACE</small><strong>Rooted</strong><small>in nature.</small><strong>BOTANICAL SERIES</strong></div>
+                <b>Botanical 03</b><span>Personal · Organic</span>
               </button>
-
-              <button class="sample active" onclick="chooseSample('Editorial 04',this)">
-                <div class="sample-art art-four">
-                  <small>PRESSCO / EDITION 04</small>
-                  <strong>Form.</strong>
-                  <strong>Space.</strong>
-                  <strong>Feeling.</strong>
-                  <small>THE EDITORIAL LINE</small>
-                </div>
-                <b>Editorial 04</b>
-                <span>Editorial · Refined</span>
+              <button type="button" class="sample active" onclick="chooseSample('Editorial 04',this)">
+                <div class="sample-art art-four"><small>PRESSCO / EDITION 04</small><strong>Form.</strong><strong>Space.</strong><strong>Feeling.</strong><small>THE EDITORIAL LINE</small></div>
+                <b>Editorial 04</b><span>Editorial · Refined</span>
               </button>
-
             </div>
           </div>
 
@@ -1252,42 +612,69 @@ footer button:hover{background:white;color:var(--green)}
           </div>
         </section>
 
-        <!-- STEP 3 -->
+        <!-- STEP 3: SHIPPING AND PAYMENT -->
         <section class="form-card">
           <div class="step-title">
             <div class="step-number">03</div>
-            <div><h3>Fulfillment</h3><p>Choose how you would like to receive your order.</p></div>
+            <div><h3>Shipping & Payment</h3><p>Choose your delivery and payment preferences.</p></div>
           </div>
 
-          <div class="fulfillment">
-            <button class="active" id="deliveryBtn" onclick="setFulfillment('Delivery')">
-              <strong>↗ Delivery</strong>
-              <small>Have your order delivered</small>
+          <label style="font-size:10px;font-weight:bold;display:block;margin-bottom:12px">SHIPPING METHOD</label>
+
+          <div class="shipping-options">
+            <button type="button" class="shipping-option active" id="standardBtn" onclick="setFulfillment('Standard Shipping')">
+              <strong>📦 Standard Shipping</strong>
+              <small>Estimated arrival: 5–7 business days after production</small>
+              <span class="delivery-price">₱80</span>
             </button>
-            <button id="pickupBtn" onclick="setFulfillment('Local Pickup')">
+
+            <button type="button" class="shipping-option" id="expressBtn" onclick="setFulfillment('Express Shipping')">
+              <strong>⚡ Express Shipping</strong>
+              <small>Estimated arrival: 2–3 business days after production</small>
+              <span class="delivery-price">₱150</span>
+            </button>
+
+            <button type="button" class="shipping-option" id="pickupBtn" onclick="setFulfillment('Local Pickup')">
               <strong>⌂ Local Pickup</strong>
-              <small>Collect your order</small>
+              <small>Collect your order in Ormoc City</small>
+              <span class="delivery-price">FREE</span>
             </button>
+          </div>
+
+          <div class="delivery-estimate">
+            <strong>Estimated delivery date</strong>
+            <span id="deliveryEstimate"></span>
+            <small style="display:block;color:var(--muted);font-size:9px;margin-top:7px">Illustrative estimate only. Actual delivery timing begins after production and depends on courier availability.</small>
           </div>
 
           <div class="fields">
             <div class="field full" id="addressField">
-              <label>Delivery address</label>
-              <input id="address" placeholder="Enter your complete delivery address" oninput="updateSummary()">
+              <label>Complete delivery address</label>
+              <input id="address" placeholder="House number, street, barangay, city" oninput="updateSummary()">
             </div>
-            <div class="field">
-              <label>Preferred date</label>
-              <input id="date" type="date" onchange="updateSummary()">
+          </div>
+
+          <div style="margin-top:30px;margin-bottom:15px">
+            <label style="font-size:10px;font-weight:bold;display:block;margin-bottom:12px">PAYMENT METHOD</label>
+            <div class="payment-options">
+              <button type="button" class="payment-option active" id="codBtn" onclick="setPayment('Cash on Delivery')">
+                <strong>💵 Cash on Delivery</strong>
+                <small>Pay when your order arrives.</small>
+              </button>
+              <button type="button" class="payment-option" id="gcashBtn" onclick="setPayment('GCash')">
+                <strong>📱 GCash</strong>
+                <small>Pay using your GCash account.</small>
+              </button>
+              <button type="button" class="payment-option" id="onlineBtn" onclick="setPayment('Online Payment')">
+                <strong>💳 Online Payment</strong>
+                <small>Pay electronically after quotation confirmation.</small>
+              </button>
             </div>
-            <div class="field">
-              <label>Preferred schedule</label>
-              <select id="schedule" onchange="updateSummary()">
-                <option>Any time</option>
-                <option>Morning (9 AM–12 PM)</option>
-                <option>Afternoon (12 PM–3 PM)</option>
-                <option>Late afternoon (3 PM–6 PM)</option>
-              </select>
-            </div>
+          </div>
+
+          <p class="payment-note">Payment instructions will be provided after your order quotation has been confirmed. Payment options are subject to confirmation.</p>
+
+          <div class="fields" style="margin-top:25px">
             <div class="field full">
               <label>Additional instructions</label>
               <textarea id="instructions" placeholder="Any special instructions for your order?" oninput="updateSummary()"></textarea>
@@ -1295,65 +682,42 @@ footer button:hover{background:white;color:var(--green)}
           </div>
         </section>
 
-      <!-- STEP 4 -->
-<section class="form-card">
-  <div class="step-title">
-    <div class="step-number">04</div>
-    <div>
-      <h3>Your contact details</h3>
-      <p>Provide your information for quotation and order coordination.</p>
-    </div>
-  </div>
+        <!-- STEP 4: CONTACT DETAILS -->
+        <section class="form-card">
+          <div class="step-title">
+            <div class="step-number">04</div>
+            <div><h3>Your contact details</h3><p>Provide your information for quotation and order coordination.</p></div>
+          </div>
 
-  <div class="fields">
-    <div class="field">
-      <label>Full name</label>
-      <input
-        id="customerName"
-        type="text"
-        placeholder="Your full name"
-        maxlength="100"
-        oninput="this.value=this.value.replace(/[^a-zA-ZÀ-ÿñÑ\s.'-]/g,''); updateSummary()"
-        required
-      >
-    </div>
+          <div class="fields">
+            <div class="field">
+              <label>Full name</label>
+              <input id="customerName" type="text" placeholder="Your full name" maxlength="100"
+                oninput="this.value=this.value.replace(/[^a-zA-ZÀ-ÿñÑ\s.'-]/g,'');updateSummary()" required>
+            </div>
 
-    <div class="field">
-      <label>Contact number</label>
-      <input
-        id="phone"
-        type="tel"
-        inputmode="numeric"
-        placeholder="09XX XXX XXXX"
-        maxlength="11"
-        pattern="09[0-9]{9}"
-        oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,11); updateSummary()"
-        required
-      >
-      <small style="color:#777b70;font-size:10px;">
-        Enter your 11-digit Philippine mobile number.
-      </small>
-    </div>
+            <div class="field">
+              <label>Contact number</label>
+              <input id="phone" type="tel" inputmode="numeric" placeholder="09XX XXX XXXX"
+                maxlength="11" pattern="09[0-9]{9}"
+                oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,11);updateSummary()" required>
+              <small style="color:#777b70;font-size:10px">Enter your 11-digit Philippine mobile number.</small>
+            </div>
 
-    <div class="field full">
-      <label>Email address</label>
-      <input
-        id="email"
-        type="email"
-        placeholder="you@example.com"
-        maxlength="100"
-        oninput="updateSummary()"
-        required
-      >
-    </div>
-  </div>
-</section>
+            <div class="field full">
+              <label>Email address</label>
+              <input id="email" type="email" placeholder="you@example.com" maxlength="100" oninput="updateSummary()" required>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
       <!-- LIVE SUMMARY -->
       <aside class="summary-card">
         <div class="eyebrow">Your selections</div>
         <h3>Request summary</h3>
         <p>Your selections will appear here as you customize your order.</p>
-
         <div id="summaryContent"></div>
 
         <div class="summary-total">
@@ -1367,7 +731,6 @@ footer button:hover{background:white;color:var(--green)}
         <button class="copy-btn" onclick="copySummary()">COPY ORDER SUMMARY</button>
         <button class="copy-btn" onclick="showPage('products')">← BACK TO PRODUCTS</button>
       </aside>
-
     </div>
   </div>
 </main>
@@ -1389,18 +752,9 @@ footer button:hover{background:white;color:var(--green)}
 
     <div class="eyebrow">What makes us PressCo.</div>
     <div class="values">
-      <div class="value">
-        <h3>Creativity</h3>
-        <p>We believe every idea deserves a thoughtful and distinctive presentation.</p>
-      </div>
-      <div class="value">
-        <h3>Quality</h3>
-        <p>We value carefully considered materials, details, and printing specifications.</p>
-      </div>
-      <div class="value">
-        <h3>Purpose</h3>
-        <p>We create printed products that communicate, connect, and leave an impression.</p>
-      </div>
+      <div class="value"><h3>Creativity</h3><p>We believe every idea deserves a thoughtful and distinctive presentation.</p></div>
+      <div class="value"><h3>Quality</h3><p>We value carefully considered materials, details, and printing specifications.</p></div>
+      <div class="value"><h3>Purpose</h3><p>We create printed products that communicate, connect, and leave an impression.</p></div>
     </div>
   </div>
 </main>
@@ -1418,22 +772,10 @@ footer button:hover{background:white;color:var(--green)}
       </div>
 
       <div>
-        <div class="contact-item">
-          <small>Location</small>
-          <strong>Ormoc City, Leyte, Philippines</strong>
-        </div>
-        <div class="contact-item">
-          <small>Facebook</small>
-          <strong><a href="https://www.facebook.com/PressCoPrints" target="_blank">PressCoPrints ↗</a></strong>
-        </div>
-        <div class="contact-item">
-          <small>Instagram</small>
-          <strong><a href="https://www.instagram.com/pressco.prints/" target="_blank">@pressco.prints ↗</a></strong>
-        </div>
-        <div class="contact-item">
-          <small>TikTok</small>
-          <strong><a href="https://www.tiktok.com/@pressco.prints" target="_blank">@pressco.prints ↗</a></strong>
-        </div>
+        <div class="contact-item"><small>Location</small><strong>Ormoc City, Leyte, Philippines</strong></div>
+        <div class="contact-item"><small>Facebook</small><strong><a href="https://www.facebook.com/PressCoPrints" target="_blank" rel="noopener">PressCoPrints ↗</a></strong></div>
+        <div class="contact-item"><small>Instagram</small><strong><a href="https://www.instagram.com/pressco.prints/" target="_blank" rel="noopener">@pressco.prints ↗</a></strong></div>
+        <div class="contact-item"><small>TikTok</small><strong><a href="https://www.tiktok.com/@pressco.prints" target="_blank" rel="noopener">@pressco.prints ↗</a></strong></div>
       </div>
     </section>
   </div>
@@ -1448,21 +790,18 @@ footer button:hover{background:white;color:var(--green)}
 </footer>
 
 <script>
-const pages = ['home','products','order','about','contact'];
+const pages=['home','products','order','about','contact'];
 
 function showPage(page){
   pages.forEach(id=>{
     document.getElementById(id).classList.toggle('active',id===page);
   });
-
   document.querySelectorAll('nav button[data-page]').forEach(btn=>{
     btn.classList.toggle('active',btn.dataset.page===page);
   });
-
   document.getElementById('navigation').classList.remove('open');
   window.scrollTo({top:0,behavior:'smooth'});
-
-  if(page==='order') updateSummary();
+  if(page==='order')updateSummary();
 }
 
 function toggleMenu(){
@@ -1472,15 +811,12 @@ function toggleMenu(){
 function filterProducts(category,button){
   document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));
   button.classList.add('active');
-
   document.querySelectorAll('.product-card').forEach(card=>{
-    card.classList.toggle('hidden',
-      category!=='All' && card.dataset.category!==category
-    );
+    card.classList.toggle('hidden',category!=='All'&&card.dataset.category!==category);
   });
 }
 
-const productLines = {
+const productLines={
   'Premium Business Cards':'The Business Line',
   'Flyers':'The Marketing Line',
   'Brochures':'The Marketing Line',
@@ -1491,7 +827,7 @@ const productLines = {
   'Custom Stationery':'The Business Line'
 };
 
-const basePrices = {
+const basePrices={
   'Premium Business Cards':250,
   'Flyers':350,
   'Brochures':1200,
@@ -1502,7 +838,7 @@ const basePrices = {
   'Custom Stationery':500
 };
 
-const baseQuantities = {
+const baseQuantities={
   'Premium Business Cards':100,
   'Flyers':100,
   'Brochures':100,
@@ -1512,6 +848,11 @@ const baseQuantities = {
   'Invitations':20,
   'Custom Stationery':100
 };
+
+function syncProductLine(){
+  const product=document.getElementById('productType').value;
+  document.getElementById('productLine').value=productLines[product];
+}
 
 function chooseProduct(product){
   document.getElementById('productType').value=product;
@@ -1523,18 +864,16 @@ function chooseProduct(product){
 
 let designMethod='Browse Designs';
 let selectedSample='Editorial 04';
-let fulfillment='Delivery';
+let fulfillment='Standard Shipping';
+let paymentMethod='Cash on Delivery';
 
 function setDesignMethod(method){
   designMethod=method;
-
   document.getElementById('uploadOption').classList.toggle('active',method==='Upload My Design');
   document.getElementById('browseOption').classList.toggle('active',method==='Browse Designs');
   document.getElementById('customOption').classList.toggle('active',method==='Request a Custom Design');
-
   document.getElementById('uploadField').classList.toggle('hidden',method!=='Upload My Design');
   document.getElementById('sampleArea').classList.toggle('hidden',method!=='Browse Designs');
-
   updateSummary();
 }
 
@@ -1547,33 +886,79 @@ function chooseSample(sample,button){
 
 function setFulfillment(type){
   fulfillment=type;
-  document.getElementById('deliveryBtn').classList.toggle('active',type==='Delivery');
+
+  document.getElementById('standardBtn').classList.toggle('active',type==='Standard Shipping');
+  document.getElementById('expressBtn').classList.toggle('active',type==='Express Shipping');
   document.getElementById('pickupBtn').classList.toggle('active',type==='Local Pickup');
-  document.getElementById('addressField').classList.toggle('hidden',type==='Local Pickup');
+
+  const isPickup=type==='Local Pickup';
+  document.getElementById('addressField').classList.toggle('hidden',isPickup);
+
+  if(isPickup)document.getElementById('address').value='';
+
   updateSummary();
 }
 
+function setPayment(method){
+  paymentMethod=method;
+  document.getElementById('codBtn').classList.toggle('active',method==='Cash on Delivery');
+  document.getElementById('gcashBtn').classList.toggle('active',method==='GCash');
+  document.getElementById('onlineBtn').classList.toggle('active',method==='Online Payment');
+  updateSummary();
+}
+
+function addBusinessDays(date,days){
+  let result=new Date(date);
+  let added=0;
+  while(added<days){
+    result.setDate(result.getDate()+1);
+    if(result.getDay()!==0&&result.getDay()!==6)added++;
+  }
+  return result;
+}
+
+function formatDate(date){
+  return date.toLocaleDateString('en-PH',{
+    month:'short',day:'numeric',year:'numeric'
+  });
+}
+
+function getDeliveryEstimate(){
+  if(fulfillment==='Local Pickup'){
+    return 'Pickup in Ormoc City. We will notify you when your order is ready.';
+  }
+  const today=new Date();
+  const minDays=fulfillment==='Express Shipping'?2:5;
+  const maxDays=fulfillment==='Express Shipping'?3:7;
+  const earliest=addBusinessDays(today,minDays);
+  const latest=addBusinessDays(today,maxDays);
+  return formatDate(earliest)+' – '+formatDate(latest)+' (assuming production is complete today)';
+}
+
 function getValue(id){
-  return document.getElementById(id).value || 'Not provided';
+  const element=document.getElementById(id);
+  if(!element)return 'Not provided';
+  return element.value.trim()||'Not provided';
+}
+
+function getShippingFee(){
+  if(fulfillment==='Standard Shipping')return 80;
+  if(fulfillment==='Express Shipping')return 150;
+  return 0;
 }
 
 function calculatePrice(){
   const product=getValue('productType');
-  const base=basePrices[product] || 250;
-  const standard=baseQuantities[product] || 100;
-  const qty=Math.max(1,Number(getValue('quantity')) || 1);
+  const base=basePrices[product]||250;
+  const standard=baseQuantities[product]||100;
+  const qty=Math.max(1,Number(document.getElementById('quantity').value)||1);
 
   let total=base*(qty/standard);
 
-  const weight=getValue('weight');
-  if(weight==='350 gsm') total*=1.15;
-  if(weight==='120 gsm') total*=.90;
+  if(getValue('sides')==='Double-sided')total*=1.25;
+  if(getValue('finish')!=='None')total*=1.15;
 
-  if(getValue('sides')==='Double-sided') total*=1.25;
-
-  const finish=getValue('finish');
-  if(finish!=='None') total*=1.15;
-
+  total+=getShippingFee();
   return Math.round(total);
 }
 
@@ -1587,17 +972,17 @@ function updateSummary(){
     ['Printing sides',getValue('sides')],
     ['Size',getValue('size')],
     ['Quantity',getValue('quantity')],
-    ['Paper weight',getValue('weight')],
     ['Paper stock',getValue('stock')],
     ['Finish',getValue('finish')],
     ['Corner style',getValue('corner')],
     ['Design method',designMethod],
     ['Sample design',designMethod==='Browse Designs'?selectedSample:'Not applicable'],
     ['Artwork file',file?file.name:'None'],
-    ['Fulfillment',fulfillment],
-    ['Delivery address',fulfillment==='Delivery'?getValue('address'):'Local pickup'],
-    ['Preferred date',getValue('date')],
-    ['Preferred schedule',getValue('schedule')],
+    ['Shipping method',fulfillment],
+    ['Estimated delivery',getDeliveryEstimate()],
+    ['Shipping fee',getShippingFee()===0?'FREE':'₱'+getShippingFee()],
+    ['Delivery address',fulfillment!=='Local Pickup'?getValue('address'):'Local pickup'],
+    ['Payment method',paymentMethod],
     ['Design notes',getValue('designNotes')],
     ['Additional instructions',getValue('instructions')],
     ['Full name',getValue('customerName')],
@@ -1606,20 +991,16 @@ function updateSummary(){
   ];
 
   document.getElementById('summaryContent').innerHTML=entries.map(([label,value])=>
-    `<div class="summary-line"><span>${label}</span><strong>${escapeHTML(String(value))}</strong></div>`
+    `<div class="summary-line"><span>${escapeHTML(String(label))}</span><strong>${escapeHTML(String(value))}</strong></div>`
   ).join('');
 
-  document.getElementById('estimatedTotal').textContent=
-    '₱'+calculatePrice().toLocaleString('en-PH');
+  document.getElementById('estimatedTotal').textContent='₱'+calculatePrice().toLocaleString('en-PH');
+  document.getElementById('deliveryEstimate').textContent=getDeliveryEstimate();
 }
 
 function escapeHTML(value){
   return value.replace(/[&<>"']/g,char=>({
-    '&':'&amp;',
-    '<':'&lt;',
-    '>':'&gt;',
-    '"':'&quot;',
-    "'":'&#039;'
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
   })[char]);
 }
 
@@ -1630,35 +1011,33 @@ function getOrderText(){
     ['Printing sides','sides'],
     ['Size','size'],
     ['Quantity','quantity'],
-    ['Paper weight','weight'],
     ['Paper stock','stock'],
     ['Finish','finish'],
-    ['Corner style','corner'],
-    ['Design method',null],
-    ['Sample design',null],
-    ['Fulfillment',null],
-    ['Delivery address','address'],
-    ['Preferred date','date'],
-    ['Preferred schedule','schedule'],
-    ['Design notes','designNotes'],
-    ['Additional instructions','instructions'],
-    ['Full name','customerName'],
-    ['Contact number','phone'],
-    ['Email address','email']
+    ['Corner style','corner']
   ];
 
   let lines=['PRESSCO. - ORDER REQUEST',''];
 
   labels.forEach(([label,id])=>{
-    let value=id?getValue(id):
-      label==='Design method'?designMethod:
-      label==='Sample design'?(designMethod==='Browse Designs'?selectedSample:'Not applicable'):
-      fulfillment;
-
-    if(label==='Delivery address' && fulfillment==='Local Pickup') value='Local pickup';
-    lines.push(label+': '+value);
+    lines.push(label+': '+getValue(id));
   });
 
+  lines.push('Design method: '+designMethod);
+  lines.push('Sample design: '+(designMethod==='Browse Designs'?selectedSample:'Not applicable'));
+
+  const file=document.getElementById('artwork').files[0];
+  lines.push('Artwork file: '+(file?file.name:'None'));
+  lines.push('Shipping method: '+fulfillment);
+  lines.push('Estimated delivery: '+getDeliveryEstimate());
+  lines.push('Shipping fee: '+(getShippingFee()===0?'FREE':'₱'+getShippingFee()));
+  lines.push('Delivery address: '+(fulfillment!=='Local Pickup'?getValue('address'):'Local pickup'));
+  lines.push('Payment method: '+paymentMethod);
+  lines.push('Design notes: '+getValue('designNotes'));
+  lines.push('Additional instructions: '+getValue('instructions'));
+  lines.push('Full name: '+getValue('customerName'));
+  lines.push('Contact number: '+getValue('phone'));
+  lines.push('Email address: '+getValue('email'));
+  lines.push('');
   lines.push('Estimated total: ₱'+calculatePrice().toLocaleString('en-PH'));
   lines.push('');
   lines.push('Final quotation subject to confirmation.');
@@ -1669,7 +1048,7 @@ function getOrderText(){
 function copySummary(){
   const text=getOrderText();
 
-  if(navigator.clipboard && window.isSecureContext){
+  if(navigator.clipboard&&window.isSecureContext){
     navigator.clipboard.writeText(text)
       .then(()=>alert('Your order summary has been copied!'))
       .catch(()=>fallbackCopy(text));
@@ -1706,26 +1085,25 @@ function submitRequest(){
     return;
   }
 
-  if(!email.value.trim() || !email.checkValidity()){
+  if(!email.value.trim()||!email.checkValidity()){
     alert('Please enter a valid email address.');
     email.focus();
     return;
   }
 
-  if(!Number.isInteger(Number(quantity)) || Number(quantity)<1){
+  if(!Number.isInteger(Number(quantity))||Number(quantity)<1){
     alert('Please enter a valid quantity of at least 1.');
     document.getElementById('quantity').focus();
     return;
   }
 
-  if(fulfillment==='Delivery' && !document.getElementById('address').value.trim()){
+  if(fulfillment!=='Local Pickup'&&!document.getElementById('address').value.trim()){
     alert('Please provide your delivery address.');
     document.getElementById('address').focus();
     return;
   }
 
   alert('Your order details are ready! Please copy your order summary and send it to PressCo. through our social media page for quotation and confirmation.');
-
   copySummary();
 }
 
