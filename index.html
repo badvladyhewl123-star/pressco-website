@@ -867,7 +867,7 @@ footer button:hover{background:white;color:var(--green)}
 
 <header>
   <button class="brand" onclick="showPage('home')" style="border:0;background:none;text-align:left;color:inherit">
-    <strong>P.PressCo.</strong>
+    <strong>PressCo.</strong>
     <small>Crisp Print. Fresh Takes.</small>
   </button>
 
@@ -1117,21 +1117,23 @@ footer button:hover{background:white;color:var(--green)}
               </select>
             </div>
 
-            <div class="field">
-              <label>Quantity</label>
-              <input id="quantity" type="number" min="1" value="100" oninput="updateSummary()">
-            </div>
-
-            <div class="field">
-              <label>Paper weight</label>
-              <select id="weight" onchange="updateSummary()">
-                <option>120 gsm</option>
-                <option>170 gsm</option>
-                <option>250 gsm</option>
-                <option selected>300 gsm</option>
-                <option>350 gsm</option>
-              </select>
-            </div>
+<div class="field">
+  <label>Quantity</label>
+  <input
+    id="quantity"
+    type="number"
+    min="1"
+    step="1"
+    value="100"
+    oninput="
+      if(this.value.includes('.')) this.value=this.value.split('.')[0];
+      if(Number(this.value)<1 && this.value!=='') this.value=1;
+      updateSummary();
+    "
+    onkeydown="if(['e','E','+','-','.'].includes(event.key)) event.preventDefault()"
+    required
+  >
+</div>
 
             <div class="field">
               <label>Paper stock</label>
@@ -1174,15 +1176,15 @@ footer button:hover{background:white;color:var(--green)}
 
           <div class="design-options">
             <button class="design-option" id="uploadOption" onclick="setDesignMethod('Upload My Design')">
-              <strong>↑ Upload My Design</strong>
+              <strong>Upload My Design</strong>
               <small>Use your own artwork</small>
             </button>
             <button class="design-option active" id="browseOption" onclick="setDesignMethod('Browse Designs')">
-              <strong>▧ Browse Designs</strong>
+              <strong>Browse Designs</strong>
               <small>Choose a visual direction</small>
             </button>
             <button class="design-option" id="customOption" onclick="setDesignMethod('Request a Custom Design')">
-              <strong>✳ Custom Design</strong>
+              <strong>Custom Design</strong>
               <small>Share your idea</small>
             </button>
           </div>
@@ -1293,30 +1295,59 @@ footer button:hover{background:white;color:var(--green)}
           </div>
         </section>
 
-        <!-- STEP 4 -->
-        <section class="form-card">
-          <div class="step-title">
-            <div class="step-number">04</div>
-            <div><h3>Your contact details</h3><p>Provide your information for quotation and order coordination.</p></div>
-          </div>
+      <!-- STEP 4 -->
+<section class="form-card">
+  <div class="step-title">
+    <div class="step-number">04</div>
+    <div>
+      <h3>Your contact details</h3>
+      <p>Provide your information for quotation and order coordination.</p>
+    </div>
+  </div>
 
-          <div class="fields">
-            <div class="field">
-              <label>Full name</label>
-              <input id="customerName" placeholder="Your full name" oninput="updateSummary()">
-            </div>
-            <div class="field">
-              <label>Contact number</label>
-              <input id="phone" type="tel" placeholder="09XX XXX XXXX" oninput="updateSummary()">
-            </div>
-            <div class="field full">
-              <label>Email address</label>
-              <input id="email" type="email" placeholder="you@example.com" oninput="updateSummary()">
-            </div>
-          </div>
-        </section>
-      </div>
+  <div class="fields">
+    <div class="field">
+      <label>Full name</label>
+      <input
+        id="customerName"
+        type="text"
+        placeholder="Your full name"
+        maxlength="100"
+        oninput="this.value=this.value.replace(/[^a-zA-ZÀ-ÿñÑ\s.'-]/g,''); updateSummary()"
+        required
+      >
+    </div>
 
+    <div class="field">
+      <label>Contact number</label>
+      <input
+        id="phone"
+        type="tel"
+        inputmode="numeric"
+        placeholder="09XX XXX XXXX"
+        maxlength="11"
+        pattern="09[0-9]{9}"
+        oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,11); updateSummary()"
+        required
+      >
+      <small style="color:#777b70;font-size:10px;">
+        Enter your 11-digit Philippine mobile number.
+      </small>
+    </div>
+
+    <div class="field full">
+      <label>Email address</label>
+      <input
+        id="email"
+        type="email"
+        placeholder="you@example.com"
+        maxlength="100"
+        oninput="updateSummary()"
+        required
+      >
+    </div>
+  </div>
+</section>
       <!-- LIVE SUMMARY -->
       <aside class="summary-card">
         <div class="eyebrow">Your selections</div>
@@ -1410,7 +1441,7 @@ footer button:hover{background:white;color:var(--green)}
 
 <footer>
   <div>
-    <strong>P.PressCo.</strong>
+    <strong>PressCo.</strong>
     <p>Crisp Print. Fresh Takes. © 2026 PressCo.</p>
   </div>
   <button onclick="showPage('home')">BACK TO HOME ↑</button>
@@ -1658,26 +1689,43 @@ function fallbackCopy(text){
 }
 
 function submitRequest(){
-  const name=getValue('customerName');
-  const phone=getValue('phone');
-  const email=getValue('email');
+  const name=document.getElementById('customerName').value.trim();
+  const phone=document.getElementById('phone').value.trim();
+  const email=document.getElementById('email');
+  const quantity=document.getElementById('quantity').value;
 
-  if(name==='Not provided'||phone==='Not provided'||email==='Not provided'){
-    alert('Please complete your full name, contact number, and email address first.');
+  if(!name){
+    alert('Please enter your full name.');
+    document.getElementById('customerName').focus();
     return;
   }
 
-  if(!document.getElementById('email').checkValidity()){
+  if(!/^09[0-9]{9}$/.test(phone)){
+    alert('Please enter a valid 11-digit Philippine mobile number starting with 09.');
+    document.getElementById('phone').focus();
+    return;
+  }
+
+  if(!email.value.trim() || !email.checkValidity()){
     alert('Please enter a valid email address.');
+    email.focus();
     return;
   }
 
-  if(fulfillment==='Delivery' && getValue('address')==='Not provided'){
+  if(!Number.isInteger(Number(quantity)) || Number(quantity)<1){
+    alert('Please enter a valid quantity of at least 1.');
+    document.getElementById('quantity').focus();
+    return;
+  }
+
+  if(fulfillment==='Delivery' && !document.getElementById('address').value.trim()){
     alert('Please provide your delivery address.');
+    document.getElementById('address').focus();
     return;
   }
 
   alert('Your order details are ready! Please copy your order summary and send it to PressCo. through our social media page for quotation and confirmation.');
+
   copySummary();
 }
 
