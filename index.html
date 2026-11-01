@@ -622,7 +622,9 @@ footer button:hover{background:white;color:var(--green)}
             </div>
           </div>
 
-          <label style="font-size:10px;font-weight:bold;display:block;margin-bottom:12px">SHIPPING METHOD *</label>
+          <label style="font-size:10px;font-weight:bold;display:block;margin-bottom:12px">
+            SHIPPING METHOD *
+          </label>
 
           <div class="shipping-options">
             <button type="button" class="shipping-option active" id="standardBtn" onclick="setFulfillment('Standard Shipping')">
@@ -644,13 +646,6 @@ footer button:hover{background:white;color:var(--green)}
             </button>
           </div>
 
-          <div class="fields">
-            <div class="field full" id="addressField">
-              <label>Complete delivery address *</label>
-              <input id="address" placeholder="House number, street, barangay, city" oninput="updateSummary()">
-            </div>
-          </div>
-
           <div class="delivery-estimate">
             <strong>Estimated delivery / fulfillment</strong>
             <span id="deliveryEstimate"></span>
@@ -659,8 +654,17 @@ footer button:hover{background:white;color:var(--green)}
             </small>
           </div>
 
+          <div class="fields">
+            <div class="field full" id="addressField">
+              <label>Complete delivery address *</label>
+              <input id="address" placeholder="House number, street, barangay, city" oninput="updateSummary()">
+            </div>
+          </div>
+
           <div style="margin-top:30px;margin-bottom:15px">
-            <label style="font-size:10px;font-weight:bold;display:block;margin-bottom:12px">PAYMENT METHOD *</label>
+            <label style="font-size:10px;font-weight:bold;display:block;margin-bottom:12px">
+              PAYMENT METHOD *
+            </label>
 
             <div class="payment-options">
               <button type="button" class="payment-option active" id="gcashBtn" onclick="setPayment('GCash')">
@@ -674,7 +678,7 @@ footer button:hover{background:white;color:var(--green)}
               </button>
 
               <button type="button" class="payment-option" id="copBtn" onclick="setPayment('Cash on Pickup')">
-                <strong>🏪 Cash on Pickup</strong>
+                <strong>💰 Cash on Pickup</strong>
                 <small>Pay when collecting your order</small>
               </button>
             </div>
@@ -733,7 +737,7 @@ footer button:hover{background:white;color:var(--green)}
 
         <div class="summary-total">
           <span>Estimated total</span>
-          <strong id="estimatedTotal">₱330</strong>
+          <strong id="estimatedTotal">₱250</strong>
         </div>
 
         <p class="summary-note">The final quotation will reflect the confirmed specifications and delivery details. Delivery fees and additional design charges may apply.</p>
@@ -912,11 +916,9 @@ function setFulfillment(type){
 
 function setPayment(method){
   paymentMethod=method;
-
   document.getElementById('gcashBtn').classList.toggle('active',method==='GCash');
   document.getElementById('codBtn').classList.toggle('active',method==='Cash on Delivery');
   document.getElementById('copBtn').classList.toggle('active',method==='Cash on Pickup');
-
   updateSummary();
 }
 
@@ -938,16 +940,14 @@ function formatDate(date){
 
 function getDeliveryEstimate(){
   if(fulfillment==='Local Pickup'){
-    return 'Local pickup in Ormoc City. We will notify you when your order is ready.';
+    return 'Pickup in Ormoc City. We will notify you when your order is ready.';
   }
-
   const today=new Date();
   const minDays=fulfillment==='Express Shipping'?2:5;
   const maxDays=fulfillment==='Express Shipping'?3:7;
   const earliest=addBusinessDays(today,minDays);
   const latest=addBusinessDays(today,maxDays);
-
-  return formatDate(earliest)+' – '+formatDate(latest);
+  return formatDate(earliest)+' – '+formatDate(latest)+' (assuming production is complete today)';
 }
 
 function getValue(id){
@@ -994,9 +994,9 @@ function updateSummary(){
     ['Sample design',designMethod==='Browse Designs'?selectedSample:'Not applicable'],
     ['Artwork file',file?file.name:'None'],
     ['Shipping method',fulfillment],
-    ['Estimated delivery / fulfillment',getDeliveryEstimate()],
-    ['Shipping fee',getShippingFee()===0?'₱0':'₱'+getShippingFee()],
-    ['Delivery address',fulfillment!=='Local Pickup'?getValue('address'):'Local pickup · Ormoc City'],
+    ['Estimated delivery',getDeliveryEstimate()],
+    ['Shipping fee',getShippingFee()===0?'FREE':'₱'+getShippingFee()],
+    ['Delivery address',fulfillment!=='Local Pickup'?getValue('address'):'Local pickup'],
     ['Payment method',paymentMethod],
     ['Design notes',getValue('designNotes')],
     ['Additional instructions',getValue('instructions')],
@@ -1043,9 +1043,9 @@ function getOrderText(){
   const file=document.getElementById('artwork').files[0];
   lines.push('Artwork file: '+(file?file.name:'None'));
   lines.push('Shipping method: '+fulfillment);
-  lines.push('Estimated delivery / fulfillment: '+getDeliveryEstimate());
-  lines.push('Shipping fee: ₱'+getShippingFee());
-  lines.push('Delivery address: '+(fulfillment!=='Local Pickup'?getValue('address'):'Local pickup · Ormoc City'));
+  lines.push('Estimated delivery: '+getDeliveryEstimate());
+  lines.push('Shipping fee: '+(getShippingFee()===0?'FREE':'₱'+getShippingFee()));
+  lines.push('Delivery address: '+(fulfillment!=='Local Pickup'?getValue('address'):'Local pickup'));
   lines.push('Payment method: '+paymentMethod);
   lines.push('Design notes: '+getValue('designNotes'));
   lines.push('Additional instructions: '+getValue('instructions'));
